@@ -42,5 +42,11 @@ public function login(){
 
 }
 
+public function logout()
+{
+   header("Location: /Authentication/login");
+   exit;    
+}
+
 }
 

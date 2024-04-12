@@ -151,5 +151,97 @@ class AcceptanceTester extends \Codeception\Actor
     {
         $this->seeInCurrentUrl('/login?error=invalid_credentials');
     }
+
+    /**
+    * @Given a client wants to create a profile
+    */
+    public function aClientWantsToCreateProfile()
+    {
+    $this->amOnPage('/Client/create_profile');
+    }
+
+    /**
+    * @When they provide their name :name and age :age, and other relevant information
+    */
+    public function theyProvideTheirNameAgeAndOtherRelevantInformation($name, $age)
+    {
+        $this->fillField('name', $name);
+        $this->fillField('age', $age);
+    }
+
+    /**
+    * @When they submit the profile creation form
+    */
+    public function theySubmitTheProfileCreationForm()
+    {
+        $this->click('Create Profile');
+    }
+
+    /**
+    * @Then their profile should be successfully created
+    */
+    public function theyShouldBeRedirectedToTheClientProfilePage()
+    {
+        $this->seeInCurrentUrl('/Client/profile');
+    }
+
+
+    /**
+     * @Given a logged-in user wants to log out
+     */
+    public function aLoggedInUserWantsToLogOut()
+    {
+        $this->amOnPage('/Client/profile');
+    }
+
+    /**
+     * @When they click on the logout button
+     */
+    public function theyClickOnTheLogoutButton()
+    {
+        $this->click('Logout');
+    }
+
+    /**
+     * @Then they should be logged out of their account
+     */
+    public function theyShouldBeLoggedOutOfTheirAccount()
+    {
+        $this->seeInCurrentUrl('/Authentication/login');
+    }
+
+     /**
+     * @Given a client wants to update their profile
+     */
+    public function aClientWantsToUpdateTheirProfile()
+    {
+        $this->amOnPage('/Client/edit_profile');
+    }
+
+     /**
+     * @When they modify their profile information, changing their name to :name and updating their age to :age
+     */
+    public function theyModifyTheirProfileInformation($name, $age)
+    {
+        $this->fillField('name', $name);
+        $this->fillField('age', $age);
+    }
+
+     /**
+     * @When they submit the profile update form
+     */
+
+     public function theySubmitTheProfileUpdateForm()
+    {
+        $this->click('Edit Profile');
+    }
+
+    /**
+     * @Then their profile should be successfully updated
+     */
+    public function theirProfileShouldBeSuccessfullyUpdated()
+    {
+        $this->seeInCurrentUrl('/Client/profile');
+    }
 }
 
