@@ -243,5 +243,85 @@ class AcceptanceTester extends \Codeception\Actor
     {
         $this->seeInCurrentUrl('/Client/profile');
     }
+
+    /**
+     * @Given a client wants to browse barbers
+     */
+    public function aClientWantsToBrowseBarbers()
+    {
+        $this->amOnPage('/Client/profile');
+       
+    }
+
+    /**
+     * @When they access the list of available barbers
+     */
+    public function theyAccessTheListOfAvailableBarbers()
+    {
+        $this->click('Browse Barbers');
+    }
+
+    /**
+     * @Then they should be able to view a list of barbers
+     */
+    public function theyShouldBeAbleToViewAListOfBarbers()
+    {
+        $this->see('Barber 1');
+        $this->see('Barber 2');
+        $this->see('Barber 3');
+    }
+
+    /**
+     * @Given a client wants to view details of a specific barber
+     */
+    public function aClientWantsToViewDetailsOfASpecificBarber()
+    {
+        $this->amOnPage('/Barber/browse_barbers');
+    }
+
+    /**
+     * @When they select a barber from the list
+     */
+    public function theySelectABarberFromTheList()
+    {
+         $this->click('a:contains("Barber 1")');
+    }
+
+    /**
+     * @Then they should be able to view detailed information about the barber, including services, pricing, and availability.
+     */
+    public function theyShouldBeAbleToViewDetailedInformationAboutTheBarber()
+    {
+        $this->seeInCurrentUrl('/Barber/profile');
+    }
+
+    /**
+     * @Given a client wants to view the availability of a barber
+     */
+    public function aClientWantsToViewTheAvailabilityOfABarber()
+    {
+        $this->amOnPage('/Client/profile');
+       
+    }
+
+    /**
+     * @When they press the "View Schedule" link
+     */
+    public function theyPressTheViewScheduleLink()
+    {
+        $this->click('a:contains("View Schedule")');
+    }
+
+    /**
+     * @Then they should be redirected to the Barber's availability schedule page
+     */
+    public function theyShouldBeRedirectedToTheBarbersAvailabilitySchedulePage()
+    {
+        $this->seeCurrentUrlEquals('/Barber/schedule');
+    }
+
+
 }
+
+
 

@@ -14,9 +14,15 @@ public function create_profile(){
             exit();
 	}
 }
-public function viewProfile()
+
+public function viewClientProfile()
 {
   $this->view('Client/profile');
+}
+
+public function viewBarberProfile()
+{
+  $this->view('Barber/profile');
 }
 
 public function editProfile(){
