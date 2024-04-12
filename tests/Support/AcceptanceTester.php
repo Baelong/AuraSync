@@ -105,9 +105,9 @@ class AcceptanceTester extends \Codeception\Actor
      * @When they provide their email :email and password :password
      */
     public function theyProvideTheirEmailAndPassword($email, $password)
-    {
-        $this->fillField('email', $email);
-        $this->fillField('password', $password);
+    {   
+        $this->fillField('email', 'user@gmail.com');
+        $this->fillField('password', 'password123');
     }
 
     /**
@@ -131,8 +131,8 @@ class AcceptanceTester extends \Codeception\Actor
      */
     public function theyProvideIncorrectEmailOrPassword($email, $password)
     {
-        $this->fillField('email', $email);
-        $this->fillField('password', $password);
+        $this->fillField('email', 'invalid@example.com');
+        $this->fillField('password', 'invalidpassword');
         $this->click('Login');
     }
 
