@@ -67,7 +67,7 @@ class AcceptanceTester extends \Codeception\Actor
     /**
      * @When they provide their email :email and password :password
      */
-    public function theyProvideTheirEmailAndPassword($email, $password)
+    public function theyProvideTheirEmailAndPasswordForRegistration($email, $password)
     {
         // Fill out the registration form with provided email and password
         $this->fillField('email', $email);
@@ -90,8 +90,66 @@ class AcceptanceTester extends \Codeception\Actor
     {
         // Assert that the user is redirected to the login page
         $this->seeCurrentUrlEquals('/Authentication/login.php');
-        // You may add additional assertions here if needed
     }
 
+    
+    /**
+     * @Given a registered user wants to log in
+     */
+    public function aRegisteredUserWantsToLogIn()
+    {
+        $this->amOnPage('/Authentication/login');
+    }
+
+    /**
+     * @When they provide their email :email and password :password
+     */
+    public function theyProvideTheirEmailAndPassword($email, $password)
+    {
+        $this->fillField('email', $email);
+        $this->fillField('password', $password);
+    }
+
+    /**
+     * @When they click on the login button
+     */
+    public function theyClickOnTheLoginButton()
+    {
+        $this->click('Login');
+    }
+
+    /**
+     * @Then they should be redirected to the client profile creation page
+     */
+    public function theyShouldBeRedirectedToTheClientProfileCreationPage()
+    {
+        $this->seeInCurrentUrl('/Client/create_profile');
+    }
+
+    /**
+     * @When they provide incorrect email :email or password :password
+     */
+    public function theyProvideIncorrectEmailOrPassword($email, $password)
+    {
+        $this->fillField('email', $email);
+        $this->fillField('password', $password);
+        $this->click('Login');
+    }
+
+    /**
+     * @Then they should stay on the login page
+     */
+    public function theyShouldStayOnTheLoginPage()
+    {
+        $this->seeInCurrentUrl('/Authentication/login');
+    }
+
+    /**
+     * @Then they should see an error message indicating invalid credentials
+     */
+    public function theyShouldSeeAnErrorMessage()
+    {
+        $this->seeInCurrentUrl('/login?error=invalid_credentials');
+    }
 }
 
