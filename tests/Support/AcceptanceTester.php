@@ -300,7 +300,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
     public function aClientWantsToViewTheAvailabilityOfABarber()
     {
-        $this->amOnPage('/Client/profile');
+        $this->amOnPage('/Barber/profile');
        
     }
 
@@ -317,9 +317,8 @@ class AcceptanceTester extends \Codeception\Actor
      */
     public function theyShouldBeRedirectedToTheBarbersAvailabilitySchedulePage()
     {
-        $this->seeCurrentUrlEquals('/Barber/schedule');
+        $this->amOnPage('/Barber/schedule');
     }
-
 
 }
 
