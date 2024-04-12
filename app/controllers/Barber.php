@@ -1,7 +1,19 @@
 <?php
 namespace app\controllers;
 
-class Barber extends \app\core\Controller{
+
+class Barber extends \app\core\Controller
+{
+    public function browseBarbers()
+    {
+        $this->view('Barber/browse_barbers');
+    }
+
+    public function showSchedule(){
+        $this->view('Barber/schedule');
+    }
+
+
 	
 	function login(){
 		//show the login form and log the user in
@@ -97,5 +109,6 @@ class Barber extends \app\core\Controller{
 		$barber->delete();
 		header('location:/Barber/logout');
 	}
+
 
 }
