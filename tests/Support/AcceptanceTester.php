@@ -54,4 +54,44 @@ class AcceptanceTester extends \Codeception\Actor
      { 
          $this->see($arg1);//assert that you can see the string 
      }
+
+	 /**
+     * @Given a new user wants to register
+     */
+    public function aNewUserWantsToRegister()
+    {
+        // Navigate to the registration page
+        $this->amOnPage('/Authentication/register');
+    }
+
+    /**
+     * @When they provide their email :email and password :password
+     */
+    public function theyProvideTheirEmailAndPassword($email, $password)
+    {
+        // Fill out the registration form with provided email and password
+        $this->fillField('email', $email);
+        $this->fillField('password', $password);
+    }
+
+    /**
+     * @When they submit the registration form
+     */
+    public function theySubmitTheRegistrationForm()
+    {
+        // Submit the registration form
+        $this->click('Register');
+    }
+
+    /**
+     * @Then they should be successfully registered
+     */
+    public function theyShouldBeSuccessfullyRegistered()
+    {
+        // Assert that the user is redirected to the login page
+        $this->seeCurrentUrlEquals('/Authentication/login.php');
+        // You may add additional assertions here if needed
+    }
+
 }
+
