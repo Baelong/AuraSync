@@ -18,16 +18,19 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `AuraSyncDatabase`
+-- Database: 'AuraSyncDatabase'
 --
 
+CREATE DATABASE IF NOT EXISTS `aurasync` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `aurasync`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `Appointment`
 --
 
-CREATE TABLE `Appointment` (
+DROP TABLE IF EXISTS `appointment`;
+CREATE TABLE `appointment` (
   `appointment_id` int(11) NOT NULL,
   `client_profile_id` int(11) NOT NULL,
   `barber_profile_id` int(11) NOT NULL,
