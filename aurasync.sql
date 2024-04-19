@@ -45,8 +45,8 @@ CREATE TABLE `appointment` (
 --
 -- Table structure for table `Barber`
 --
-
-CREATE TABLE `Barber` (
+DROP TABLE IF EXISTS `barber`;
+CREATE TABLE `barber` (
   `barber_id` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL
@@ -57,8 +57,8 @@ CREATE TABLE `Barber` (
 --
 -- Table structure for table `Barber_Profile`
 --
-
-CREATE TABLE `Barber_Profile` (
+DROP TABLE IF EXISTS `barber_profile`;
+CREATE TABLE `barber_profile` (
   `barber_profile_id` int(11) NOT NULL,
   `barber_id` int(11) NOT NULL,
   `first_name` varchar(50) NOT NULL,
@@ -73,8 +73,8 @@ CREATE TABLE `Barber_Profile` (
 --
 -- Table structure for table `Client`
 --
-
-CREATE TABLE `Client` (
+DROP TABLE IF EXISTS `client`;
+CREATE TABLE `client` (
   `client_id` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL
@@ -85,8 +85,8 @@ CREATE TABLE `Client` (
 --
 -- Table structure for table `Client_Profile`
 --
-
-CREATE TABLE `Client_Profile` (
+DROP TABLE IF EXISTS `client_profile`;
+CREATE TABLE `client_profile` (
   `client_profile_id` int(11) NOT NULL,
   `client_id` int(11) NOT NULL,
   `first_name` varchar(50) NOT NULL,
@@ -100,8 +100,8 @@ CREATE TABLE `Client_Profile` (
 --
 -- Table structure for table `Message`
 --
-
-CREATE TABLE `Message` (
+DROP TABLE IF EXISTS `message`;
+CREATE TABLE `message` (
   `message_id` int(11) NOT NULL,
   `sender_profile_id` int(11) NOT NULL,
   `receiver_prodile_id` int(11) NOT NULL,
@@ -114,8 +114,8 @@ CREATE TABLE `Message` (
 --
 -- Table structure for table `Promotion`
 --
-
-CREATE TABLE `Promotion` (
+DROP TABLE IF EXISTS `promotion`;
+CREATE TABLE `promotion` (
   `promotion_id` int(11) NOT NULL,
   `barber_profile_id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
@@ -128,8 +128,8 @@ CREATE TABLE `Promotion` (
 --
 -- Table structure for table `Service`
 --
-
-CREATE TABLE `Service` (
+DROP TABLE IF EXISTS `service`;
+CREATE TABLE `service` (
   `service_id` int(11) NOT NULL,
   `barber_profile_id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
@@ -144,56 +144,56 @@ CREATE TABLE `Service` (
 --
 -- Indexes for table `Appointment`
 --
-ALTER TABLE `Appointment`
+ALTER TABLE `appointment`
   ADD PRIMARY KEY (`appointment_id`),
-  ADD KEY `Barber_profile_and_appointment_FK` (`barber_profile_id`),
-  ADD KEY `Client_profile_and_appointment_FK` (`client_profile_id`);
+  ADD KEY `barber_profile_and_appointment_FK` (`barber_profile_id`),
+  ADD KEY `blient_profile_and_appointment_FK` (`client_profile_id`);
 
 --
 -- Indexes for table `Barber`
 --
-ALTER TABLE `Barber`
+ALTER TABLE `barber`
   ADD PRIMARY KEY (`barber_id`);
 
 --
 -- Indexes for table `Barber_Profile`
 --
-ALTER TABLE `Barber_Profile`
+ALTER TABLE `barber_profile`
   ADD PRIMARY KEY (`barber_profile_id`),
-  ADD KEY `Barber_and_profike_FK` (`barber_id`);
+  ADD KEY `barber_and_profike_FK` (`barber_id`);
 
 --
 -- Indexes for table `Client`
 --
-ALTER TABLE `Client`
+ALTER TABLE `client`
   ADD PRIMARY KEY (`client_id`);
 
 --
 -- Indexes for table `Client_Profile`
 --
-ALTER TABLE `Client_Profile`
+ALTER TABLE `client_profile`
   ADD PRIMARY KEY (`client_profile_id`),
-  ADD KEY `Client_and_profike_FK` (`client_id`);
+  ADD KEY `client_and_profike_FK` (`client_id`);
 
 --
 -- Indexes for table `Message`
 --
-ALTER TABLE `Message`
+ALTER TABLE `message`
   ADD PRIMARY KEY (`message_id`);
 
 --
 -- Indexes for table `Promotion`
 --
-ALTER TABLE `Promotion`
+ALTER TABLE `promotion`
   ADD PRIMARY KEY (`promotion_id`),
-  ADD KEY `Barber_profile_and_promotion_FK` (`barber_profile_id`);
+  ADD KEY `barber_profile_and_promotion_FK` (`barber_profile_id`);
 
 --
 -- Indexes for table `Service`
 --
-ALTER TABLE `Service`
+ALTER TABLE `service`
   ADD PRIMARY KEY (`service_id`),
-  ADD KEY `Barber_profile_and_service_FK` (`barber_profile_id`);
+  ADD KEY `barber_profile_and_service_FK` (`barber_profile_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -202,49 +202,49 @@ ALTER TABLE `Service`
 --
 -- AUTO_INCREMENT for table `Appointment`
 --
-ALTER TABLE `Appointment`
+ALTER TABLE `appointment`
   MODIFY `appointment_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `Barber`
 --
-ALTER TABLE `Barber`
+ALTER TABLE `barber`
   MODIFY `barber_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `Barber_Profile`
 --
-ALTER TABLE `Barber_Profile`
+ALTER TABLE `barber_profile`
   MODIFY `barber_profile_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `Client`
 --
-ALTER TABLE `Client`
+ALTER TABLE `client`
   MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `Client_Profile`
 --
-ALTER TABLE `Client_Profile`
+ALTER TABLE `client_profile`
   MODIFY `client_profile_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `Message`
 --
-ALTER TABLE `Message`
+ALTER TABLE `message`
   MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `Promotion`
 --
-ALTER TABLE `Promotion`
+ALTER TABLE `promotion`
   MODIFY `promotion_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `Service`
 --
-ALTER TABLE `Service`
+ALTER TABLE `service`
   MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -254,33 +254,33 @@ ALTER TABLE `Service`
 --
 -- Constraints for table `Appointment`
 --
-ALTER TABLE `Appointment`
-  ADD CONSTRAINT `Barber_profile_and_appointment_FK` FOREIGN KEY (`barber_profile_id`) REFERENCES `Barber_Profile` (`barber_profile_id`),
-  ADD CONSTRAINT `Client_profile_and_appointment_FK` FOREIGN KEY (`client_profile_id`) REFERENCES `Client_Profile` (`client_profile_id`);
+ALTER TABLE `appointment`
+  ADD CONSTRAINT `barber_profile_and_appointment_FK` FOREIGN KEY (`barber_profile_id`) REFERENCES `barber_profile` (`barber_profile_id`),
+  ADD CONSTRAINT `client_profile_and_appointment_FK` FOREIGN KEY (`client_profile_id`) REFERENCES `client_profile` (`client_profile_id`);
 
 --
 -- Constraints for table `Barber_Profile`
 --
-ALTER TABLE `Barber_Profile`
-  ADD CONSTRAINT `Barber_and_profike_FK` FOREIGN KEY (`barber_id`) REFERENCES `Barber` (`barber_id`);
+ALTER TABLE `barber_profile`
+  ADD CONSTRAINT `barber_and_profike_FK` FOREIGN KEY (`barber_id`) REFERENCES `barber` (`barber_id`);
 
 --
 -- Constraints for table `Client_Profile`
 --
-ALTER TABLE `Client_Profile`
-  ADD CONSTRAINT `Client_and_profike_FK` FOREIGN KEY (`client_id`) REFERENCES `Client` (`client_id`);
+ALTER TABLE `client_profile`
+  ADD CONSTRAINT `Client_and_profike_FK` FOREIGN KEY (`client_id`) REFERENCES `client` (`client_id`);
 
 --
 -- Constraints for table `Promotion`
 --
-ALTER TABLE `Promotion`
-  ADD CONSTRAINT `Barber_profile_and_promotion_FK` FOREIGN KEY (`barber_profile_id`) REFERENCES `Barber_Profile` (`barber_profile_id`);
+ALTER TABLE `promotion`
+  ADD CONSTRAINT `barber_profile_and_promotion_FK` FOREIGN KEY (`barber_profile_id`) REFERENCES `barber_profile` (`barber_profile_id`);
 
 --
 -- Constraints for table `Service`
 --
-ALTER TABLE `Service`
-  ADD CONSTRAINT `Barber_profile_and_service_FK` FOREIGN KEY (`barber_profile_id`) REFERENCES `Barber_Profile` (`barber_profile_id`);
+ALTER TABLE `service`
+  ADD CONSTRAINT `barber_profile_and_service_FK` FOREIGN KEY (`barber_profile_id`) REFERENCES `barber_profile` (`barber_profile_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
