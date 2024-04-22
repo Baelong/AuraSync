@@ -19,4 +19,8 @@ function paymentInfo(){
 	function ReceiveMessage(){
 		$this->view('Client/ReceiveMessage');
 	}
+	 public function browseBarbers()
+    {
+        $this->view('Barber/browse_barbers');
+    }
 }

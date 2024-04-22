@@ -3,10 +3,13 @@ namespace app\controllers;
 
 class Appointment extends \app\core\Controller{
 	
-function Chose_date_and_time(){
-		$this->view('Appointment/Chose_date_and_time');
+	function Chose_date(){
+		
 	}
 	function index(){
-		$this->view('Appointment/index');
+		
+	}
+	function Chose_time(){
+		
 	}
 }
