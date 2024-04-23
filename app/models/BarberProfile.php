@@ -58,6 +58,15 @@ class BarberProfile extends \app\core\Model{
 		$STMT->setFetchMode(PDO::FETCH_CLASS,'app\models\BarberProfile');//set the type of data returned by fetches
 		return $STMT->fetchAll();//return all records
 	}
+    public function getByProfileID($barber_profile_id){//search
+		$SQL = 'SELECT * FROM barber_profile WHERE barber_profile_id = :barber_profile_id';
+		$STMT = self::$_conn->prepare($SQL);
+		$STMT->execute(
+			['barber_profile_id'=>$barber_profile_id]
+		);
+		$STMT->setFetchMode(PDO::FETCH_CLASS,'app\models\BarberProfile');//set the type of data returned by fetches
+		return $STMT->fetchAll();//return all records
+	}
 
 
 	//update

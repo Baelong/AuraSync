@@ -9,3 +9,4 @@ $this->addRoute('Client/SendMessage','Client,SendMessage');
 $this->addRoute('Client/ReceiveMessage','Client,ReceiveMessage');
 $this->addRoute('BarberProfile/browse_barbers','BarberProfile,browse_barbers');
 $this->addRoute('BarberProfile/search','BarberProfile,search');
+$this->addRoute('BarberProfile/index','BarberProfile,index');
