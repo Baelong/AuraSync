@@ -23,6 +23,23 @@ class BarberProfile extends \app\core\Controller{
     }
   }
 
+  public function index()
+  {
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){//data is submitted through method POST
+			//make a new profile object
+      $barberModel = new \app\models\BarberProfile(); 
+      $barberProfile = $barberModel->getByProfileID($_POST['barber_profile_id']);
+      $serviceModel = new \app\models\Service(); 
+      $barberServices = $serviceModel->getForUser($_POST['barber_profile_id']);
+      $availabilityModel = new \app\models\Availability(); 
+      $availabilities = $availabilityModel->getForUser($_POST['barber_profile_id']);
+			$this->view('BarberProfile/index',$barberProfile,$barberServices,$availabilities);
+		}
+    else{
+      $this->view('BarberProfile/browse_barbers');
+    }
+  }
+
 
 
 

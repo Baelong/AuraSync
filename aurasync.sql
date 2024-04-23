@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 23, 2024 at 06:30 PM
+-- Generation Time: Apr 24, 2024 at 12:14 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,9 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `aurasync`
 --
-CREATE DATABASE IF NOT EXISTS `aurasync` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `aurasync`;
-
+CREATE DATABASE IF NOT EXISTS `aurasync` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci; USE `aurasync`;
 -- --------------------------------------------------------
 
 --
@@ -58,6 +56,13 @@ CREATE TABLE `availabilities` (
   `Sunday` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `availabilities`
+--
+
+INSERT INTO `availabilities` (`availability_id`, `barber_profile_id`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`) VALUES
+(1, 1, 1, 1, 1, 1, 0, 0, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -70,6 +75,14 @@ CREATE TABLE `barber` (
   `password_hash` varchar(60) NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `barber`
+--
+
+INSERT INTO `barber` (`barber_id`, `email`, `password`, `status`) VALUES
+(1, 'jhonDoe@exmaple.com', '1234', 1),
+(2, 'ali@exmaple.com', '1234', 1);
 
 -- --------------------------------------------------------
 
@@ -86,6 +99,14 @@ CREATE TABLE `barber_profile` (
   `phone_number` varchar(50) NOT NULL,
   `age` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `barber_profile`
+--
+
+INSERT INTO `barber_profile` (`barber_profile_id`, `barber_id`, `first_name`, `last_name`, `bio`, `phone_number`, `age`) VALUES
+(1, 1, 'john', 'Doe', 'Hello i\'m jhon Doe', '514-999-9999', 32),
+(2, 2, 'Ali', 'Ilyas', 'agesdg', '514-999-9999', 32);
 
 -- --------------------------------------------------------
 
@@ -143,6 +164,14 @@ CREATE TABLE `service` (
   `price` varchar(20) NOT NULL,
   `discount` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `service`
+--
+
+INSERT INTO `service` (`service_id`, `barber_profile_id`, `name`, `description`, `price`, `discount`) VALUES
+(1, 1, 'Hair cut', 'Quick hair cut done in 30 mins', '30$', 'no disocunt'),
+(2, 1, 'Beard setting', 'Only cutting your beard how you want', '15$', 'no disocunt');
 
 --
 -- Indexes for dumped tables
@@ -217,19 +246,19 @@ ALTER TABLE `appointment`
 -- AUTO_INCREMENT for table `availabilities`
 --
 ALTER TABLE `availabilities`
-  MODIFY `availability_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `availability_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `barber`
 --
 ALTER TABLE `barber`
-  MODIFY `barber_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `barber_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `barber_profile`
 --
 ALTER TABLE `barber_profile`
-  MODIFY `barber_profile_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `barber_profile_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `client`
@@ -253,7 +282,7 @@ ALTER TABLE `message`
 -- AUTO_INCREMENT for table `service`
 --
 ALTER TABLE `service`
-  MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
