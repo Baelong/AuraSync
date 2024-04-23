@@ -1,16 +1,9 @@
-<<<<<<< Updated upstream
-=======
 <?php
 namespace app\controllers;
 
 class Authentication extends \app\core\Controller{
 
-
-	//will apply further logic later on
-	public function ChoseTypeOfAccount(){
-  
-	}
-
+  public function index(){
+      $this->view('Authentication/index');
+  }
 }
-
->>>>>>> Stashed changes
