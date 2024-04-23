@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 12, 2024 at 07:00 AM
+-- Generation Time: Apr 23, 2024 at 06:30 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -18,18 +18,17 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: 'AuraSyncDatabase'
+-- Database: `aurasync`
 --
-
 CREATE DATABASE IF NOT EXISTS `aurasync` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `aurasync`;
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Appointment`
+-- Table structure for table `appointment`
 --
 
-DROP TABLE IF EXISTS `appointment`;
 CREATE TABLE `appointment` (
   `appointment_id` int(11) NOT NULL,
   `client_profile_id` int(11) NOT NULL,
@@ -44,21 +43,40 @@ CREATE TABLE `appointment` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Barber`
+-- Table structure for table `availabilities`
 --
-DROP TABLE IF EXISTS `barber`;
-CREATE TABLE `barber` (
-  `barber_id` int(11) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL
+
+CREATE TABLE `availabilities` (
+  `availability_id` int(11) NOT NULL,
+  `barber_profile_id` int(11) NOT NULL,
+  `Monday` tinyint(1) NOT NULL,
+  `Tuesday` tinyint(1) NOT NULL,
+  `Wednesday` tinyint(1) NOT NULL,
+  `Thursday` tinyint(1) NOT NULL,
+  `Friday` tinyint(1) NOT NULL,
+  `Saturday` tinyint(1) NOT NULL,
+  `Sunday` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Barber_Profile`
+-- Table structure for table `barber`
 --
-DROP TABLE IF EXISTS `barber_profile`;
+
+CREATE TABLE `barber` (
+  `barber_id` int(11) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `barber_profile`
+--
+
 CREATE TABLE `barber_profile` (
   `barber_profile_id` int(11) NOT NULL,
   `barber_id` int(11) NOT NULL,
@@ -72,9 +90,9 @@ CREATE TABLE `barber_profile` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Client`
+-- Table structure for table `client`
 --
-DROP TABLE IF EXISTS `client`;
+
 CREATE TABLE `client` (
   `client_id` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
@@ -84,9 +102,9 @@ CREATE TABLE `client` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Client_Profile`
+-- Table structure for table `client_profile`
 --
-DROP TABLE IF EXISTS `client_profile`;
+
 CREATE TABLE `client_profile` (
   `client_profile_id` int(11) NOT NULL,
   `client_id` int(11) NOT NULL,
@@ -99,9 +117,9 @@ CREATE TABLE `client_profile` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Message`
+-- Table structure for table `message`
 --
-DROP TABLE IF EXISTS `message`;
+
 CREATE TABLE `message` (
   `message_id` int(11) NOT NULL,
   `sender_profile_id` int(11) NOT NULL,
@@ -113,29 +131,16 @@ CREATE TABLE `message` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Promotion`
+-- Table structure for table `service`
 --
-DROP TABLE IF EXISTS `promotion`;
-CREATE TABLE `promotion` (
-  `promotion_id` int(11) NOT NULL,
-  `barber_profile_id` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `discount` varchar(50) NOT NULL,
-  `expiry_date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `Service`
---
-DROP TABLE IF EXISTS `service`;
 CREATE TABLE `service` (
   `service_id` int(11) NOT NULL,
   `barber_profile_id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `description` varchar(200) NOT NULL,
-  `price` varchar(20) NOT NULL
+  `price` varchar(20) NOT NULL,
+  `discount` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -143,7 +148,7 @@ CREATE TABLE `service` (
 --
 
 --
--- Indexes for table `Appointment`
+-- Indexes for table `appointment`
 --
 ALTER TABLE `appointment`
   ADD PRIMARY KEY (`appointment_id`),
@@ -152,46 +157,46 @@ ALTER TABLE `appointment`
   ADD KEY `Service_Appointment_FK` (`service_id`);
 
 --
--- Indexes for table `Barber`
+-- Indexes for table `availabilities`
+--
+ALTER TABLE `availabilities`
+  ADD PRIMARY KEY (`availability_id`),
+  ADD KEY `BarberProfile_availability_FK` (`barber_profile_id`);
+
+--
+-- Indexes for table `barber`
 --
 ALTER TABLE `barber`
   ADD PRIMARY KEY (`barber_id`);
 
 --
--- Indexes for table `Barber_Profile`
+-- Indexes for table `barber_profile`
 --
 ALTER TABLE `barber_profile`
   ADD PRIMARY KEY (`barber_profile_id`),
   ADD KEY `barber_and_profike_FK` (`barber_id`);
 
 --
--- Indexes for table `Client`
+-- Indexes for table `client`
 --
 ALTER TABLE `client`
   ADD PRIMARY KEY (`client_id`);
 
 --
--- Indexes for table `Client_Profile`
+-- Indexes for table `client_profile`
 --
 ALTER TABLE `client_profile`
   ADD PRIMARY KEY (`client_profile_id`),
   ADD KEY `client_and_profike_FK` (`client_id`);
 
 --
--- Indexes for table `Message`
+-- Indexes for table `message`
 --
 ALTER TABLE `message`
   ADD PRIMARY KEY (`message_id`);
 
 --
--- Indexes for table `Promotion`
---
-ALTER TABLE `promotion`
-  ADD PRIMARY KEY (`promotion_id`),
-  ADD KEY `barber_profile_and_promotion_FK` (`barber_profile_id`);
-
---
--- Indexes for table `Service`
+-- Indexes for table `service`
 --
 ALTER TABLE `service`
   ADD PRIMARY KEY (`service_id`),
@@ -202,49 +207,49 @@ ALTER TABLE `service`
 --
 
 --
--- AUTO_INCREMENT for table `Appointment`
+-- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
   MODIFY `appointment_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `Barber`
+-- AUTO_INCREMENT for table `availabilities`
+--
+ALTER TABLE `availabilities`
+  MODIFY `availability_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `barber`
 --
 ALTER TABLE `barber`
   MODIFY `barber_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `Barber_Profile`
+-- AUTO_INCREMENT for table `barber_profile`
 --
 ALTER TABLE `barber_profile`
   MODIFY `barber_profile_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `Client`
+-- AUTO_INCREMENT for table `client`
 --
 ALTER TABLE `client`
   MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `Client_Profile`
+-- AUTO_INCREMENT for table `client_profile`
 --
 ALTER TABLE `client_profile`
   MODIFY `client_profile_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `Message`
+-- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
   MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `Promotion`
---
-ALTER TABLE `promotion`
-  MODIFY `promotion_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `Service`
+-- AUTO_INCREMENT for table `service`
 --
 ALTER TABLE `service`
   MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT;
@@ -254,33 +259,33 @@ ALTER TABLE `service`
 --
 
 --
--- Constraints for table `Appointment`
+-- Constraints for table `appointment`
 --
 ALTER TABLE `appointment`
-  ADD CONSTRAINT `barber_profile_and_appointment_FK` FOREIGN KEY (`barber_profile_id`) REFERENCES `barber_profile` (`barber_profile_id`),
-  ADD CONSTRAINT `client_profile_and_appointment_FK` FOREIGN KEY (`client_profile_id`) REFERENCES `client_profile` (`client_profile_id`),
-  ADD CONSTRAINT `Service_Appointment_FK` FOREIGN KEY (`service_id`) REFERENCES `Service` (`service_id`);
+  ADD CONSTRAINT `BarberProfile_Appointment_FK` FOREIGN KEY (`barber_profile_id`) REFERENCES `barber_profile` (`barber_profile_id`),
+  ADD CONSTRAINT `ClientProfile_Appointment_FK` FOREIGN KEY (`client_profile_id`) REFERENCES `client_profile` (`client_profile_id`),
+  ADD CONSTRAINT `Service_Appointment_FK` FOREIGN KEY (`service_id`) REFERENCES `service` (`service_id`);
 
 --
--- Constraints for table `Barber_Profile`
+-- Constraints for table `availabilities`
+--
+ALTER TABLE `availabilities`
+  ADD CONSTRAINT `BarberProfile_availability_FK` FOREIGN KEY (`barber_profile_id`) REFERENCES `barber_profile` (`barber_profile_id`);
+
+--
+-- Constraints for table `barber_profile`
 --
 ALTER TABLE `barber_profile`
   ADD CONSTRAINT `barber_and_profike_FK` FOREIGN KEY (`barber_id`) REFERENCES `barber` (`barber_id`);
 
 --
--- Constraints for table `Client_Profile`
+-- Constraints for table `client_profile`
 --
 ALTER TABLE `client_profile`
   ADD CONSTRAINT `Client_and_profike_FK` FOREIGN KEY (`client_id`) REFERENCES `client` (`client_id`);
 
 --
--- Constraints for table `Promotion`
---
-ALTER TABLE `promotion`
-  ADD CONSTRAINT `barber_profile_and_promotion_FK` FOREIGN KEY (`barber_profile_id`) REFERENCES `barber_profile` (`barber_profile_id`);
-
---
--- Constraints for table `Service`
+-- Constraints for table `service`
 --
 ALTER TABLE `service`
   ADD CONSTRAINT `barber_profile_and_service_FK` FOREIGN KEY (`barber_profile_id`) REFERENCES `barber_profile` (`barber_profile_id`);
