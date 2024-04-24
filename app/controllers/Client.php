@@ -7,13 +7,12 @@ function login(){
 	if($_SERVER['REQUEST_METHOD'] === 'POST'){
 			//log the user in... if the password is right
 			//get the user from the database
-			
 			$email = $_POST['email'];
 			$client = new \app\models\Client();
 			$client = $client->get($email);
 			//check the password against the hash
 			$password = $_POST['password'];
-			if($client && $client->status && password_verify($password, $client->password_hash)){
+			if($client && $client->active && password_verify($password, $client->password_hash)){
 				//remember that this is the user logging in...
 				$_SESSION['client_id'] = $client->client_id;
 
@@ -23,7 +22,6 @@ function login(){
 			}
 		}else{
 			$this->view('Client/login');
-			
 		}
 }
 

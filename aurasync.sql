@@ -80,7 +80,7 @@ CREATE TABLE `barber` (
 -- Dumping data for table `barber`
 --
 
-INSERT INTO `barber` (`barber_id`, `email`, `password_hash`, `status`) VALUES
+INSERT INTO `barber` (`barber_id`, `email`, `password`, `status`) VALUES
 (1, 'jhonDoe@exmaple.com', '1234', 1),
 (2, 'ali@exmaple.com', '1234', 1);
 
