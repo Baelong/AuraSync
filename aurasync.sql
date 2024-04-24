@@ -26,7 +26,7 @@ CREATE DATABASE IF NOT EXISTS `aurasync` DEFAULT CHARACTER SET utf8mb4 COLLATE u
 --
 -- Table structure for table `appointment`
 --
-
+DROP TABLE IF EXISTS `appointment`;
 CREATE TABLE `appointment` (
   `appointment_id` int(11) NOT NULL,
   `client_profile_id` int(11) NOT NULL,
@@ -43,7 +43,7 @@ CREATE TABLE `appointment` (
 --
 -- Table structure for table `availabilities`
 --
-
+DROP TABLE IF EXISTS `availabilities`;
 CREATE TABLE `availabilities` (
   `availability_id` int(11) NOT NULL,
   `barber_profile_id` int(11) NOT NULL,
@@ -56,19 +56,13 @@ CREATE TABLE `availabilities` (
   `Sunday` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `availabilities`
---
-
-INSERT INTO `availabilities` (`availability_id`, `barber_profile_id`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`) VALUES
-(1, 1, 1, 1, 1, 1, 0, 0, 1);
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `barber`
 --
-
+DROP TABLE IF EXISTS `barber`;
 CREATE TABLE `barber` (
   `barber_id` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
@@ -80,16 +74,12 @@ CREATE TABLE `barber` (
 -- Dumping data for table `barber`
 --
 
-INSERT INTO `barber` (`barber_id`, `email`, `password`, `status`) VALUES
-(1, 'jhonDoe@exmaple.com', '1234', 1),
-(2, 'ali@exmaple.com', '1234', 1);
-
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `barber_profile`
 --
-
+DROP TABLE IF EXISTS `barber_profile`;
 CREATE TABLE `barber_profile` (
   `barber_profile_id` int(11) NOT NULL,
   `barber_id` int(11) NOT NULL,
@@ -104,16 +94,12 @@ CREATE TABLE `barber_profile` (
 -- Dumping data for table `barber_profile`
 --
 
-INSERT INTO `barber_profile` (`barber_profile_id`, `barber_id`, `first_name`, `last_name`, `bio`, `phone_number`, `age`) VALUES
-(1, 1, 'john', 'Doe', 'Hello i\'m jhon Doe', '514-999-9999', 32),
-(2, 2, 'Ali', 'Ilyas', 'agesdg', '514-999-9999', 32);
-
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `client`
 --
-
+DROP TABLE IF EXISTS `client`;
 CREATE TABLE `client` (
   `client_id` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
@@ -126,7 +112,7 @@ CREATE TABLE `client` (
 --
 -- Table structure for table `client_profile`
 --
-
+DROP TABLE IF EXISTS `client_profile`;
 CREATE TABLE `client_profile` (
   `client_profile_id` int(11) NOT NULL,
   `client_id` int(11) NOT NULL,
@@ -141,7 +127,7 @@ CREATE TABLE `client_profile` (
 --
 -- Table structure for table `message`
 --
-
+DROP TABLE IF EXISTS `message`;
 CREATE TABLE `message` (
   `message_id` int(11) NOT NULL,
   `sender_profile_id` int(11) NOT NULL,
@@ -155,7 +141,7 @@ CREATE TABLE `message` (
 --
 -- Table structure for table `service`
 --
-
+DROP TABLE IF EXISTS `service`;
 CREATE TABLE `service` (
   `service_id` int(11) NOT NULL,
   `barber_profile_id` int(11) NOT NULL,
@@ -168,10 +154,6 @@ CREATE TABLE `service` (
 --
 -- Dumping data for table `service`
 --
-
-INSERT INTO `service` (`service_id`, `barber_profile_id`, `name`, `description`, `price`, `discount`) VALUES
-(1, 1, 'Hair cut', 'Quick hair cut done in 30 mins', '30$', 'no disocunt'),
-(2, 1, 'Beard setting', 'Only cutting your beard how you want', '15$', 'no disocunt');
 
 --
 -- Indexes for dumped tables
