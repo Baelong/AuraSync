@@ -22,7 +22,13 @@ class Appointment extends \app\core\Controller{
         $client_profile_id = $_SESSION['client_profile_id'];
         $appointment = new \app\models\Appointment();
         $appointments = $appointment->getClientAppointments($client_profile_id);
+        $services = array();
+        foreach($appointments as $appointment){
+            $service = $appointment->getService($appointment->service_id);
+            array_push($services,$service);
+        }
+
  
-         $this->view('appointment/clientAppointments', ['appointments' => $appointments]);
+         $this->view('appointment/clientAppointments', ['appointments' => $appointments],['services' => $services]);
     }
 }

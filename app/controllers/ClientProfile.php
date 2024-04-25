@@ -8,7 +8,7 @@ class ClientProfile extends \app\core\Controller{
 	public function index(){
 		$clientProfile = new \app\models\ClientProfile();
 		$clientProfile = $clientProfile->getForUser($_SESSION['client_id']);
-
+		$_SESSION['client_profile_id'] = $clientProfile->client_profile_id;
 		//redirect a user that has no profile to the profile creation URL
 		$this->view('ClientProfile/index',$clientProfile);
 	}

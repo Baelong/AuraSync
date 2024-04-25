@@ -26,4 +26,15 @@ public $service_id;
         $appointments = $STMT->fetchAll();
         return $appointments;
     }
+    public function getService($service_id)
+    {
+        $SQL = 'SELECT * FROM service WHERE service_id = :service_id';
+        // Prepare the statement
+        $STMT = self::$_conn->prepare($SQL);
+        $STMT->execute(
+        	['service_id'=>$service_id]);
+        $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Appointment');
+        $service = $STMT->fetch();
+        return $service;
+    }
 }

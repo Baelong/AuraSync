@@ -32,20 +32,14 @@
         li {
             padding: 10px;
             border-bottom: 1px solid #ccc;
+            display: flex;
+            justify-content: space-between;
         }
         li:last-child {
             border-bottom: none;
         }
-        .appointment-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .appointment-date {
-            font-weight: bold;
-        }
-        .appointment-status {
-            color: #007bff;
+        .appointment-details {
+            flex: 1;
         }
         .no-appointments {
             text-align: center;
@@ -59,16 +53,12 @@
         <div class="container">
             <h1>Client Appointments</h1>
             <ul>
-                <?php foreach ($appointments as $appointment) : ?>
+                <?php foreach ($appointments as $key => $appointment) : ?>
                     <li>
-                        <div class="appointment-info">
-                            <span class="appointment-date"><?= $appointment->date ?></span>
-                            <span class="appointment-status"><?= $appointment->status ?></span>
-                            <span class="payment-status"><?= $appointment->payment_status ?></span>
-                        </div>
                         <div class="appointment-details">
+                            <p><strong>Date:</strong> <?= $appointment->date ?></p>
                             <p><strong>Time:</strong> <?= $appointment->time ?></p>
-                            <p><strong>Service:</strong> <?= $appointment->service_id ?></p>
+                            <p><strong>Service name:</strong> <?= $services[$key]->name ?></p>
                         </div>
                     </li>
                 <?php endforeach; ?>
@@ -82,5 +72,3 @@
     <?php endif; ?>
 </body>
 </html>
-
-
