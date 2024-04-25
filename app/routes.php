@@ -7,6 +7,7 @@ $this->addRoute('Barber/register','Barber,register');
 $this->addRoute('Client/securePlace' , 'ClientProfile,index');
 $this->addRoute('ClientProfile/edit_profile' , 'ClientProfile,modify');
 $this->addRoute('Client/logout' , 'Client,logout');
+$this->addRoute('Barber/logout' , 'Barber,logout');
 $this->addRoute('BarberProfile/browse_barbers','BarberProfile,browse_barbers');
 $this->addRoute('BarberProfile/search','BarberProfile,search');
 $this->addRoute('ClientProfile/createProfile','ClientProfile,createProfile');

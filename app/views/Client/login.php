@@ -65,6 +65,7 @@
             <input type="submit" name="action" value="Login" />
             <a href="/Client/register">I have no account, bring me to the client registration page</a>
         </div>
+        <a href="/Authentication/index">Return to user type selection</a>
     </form>
 </div>
 

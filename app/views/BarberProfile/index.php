@@ -60,7 +60,12 @@
             <dt>Age:</dt>
 			<dd><?= $data->age ?></dd>
 		</dl>
+          <dd>
 		<a href='/BarberProfile/editProfile'>Modify my profile</a>
+          </dd>
+        <dd>
+        <a href="/Barber/logout">Logout</a>
+         </dd>
 	</div>
 </body>
 </html>

@@ -64,8 +64,11 @@
         <div class="form-group">
             <input type="submit" name="action" value="Login" />
             <a href="/Barber/register">I have no account, bring me to the barber registration page</a>
+
         </div>
+        <a href="/Authentication/index">Return to user type selection</a>
     </form>
+
 </div>
 
 </body>

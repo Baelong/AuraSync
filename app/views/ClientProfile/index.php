@@ -60,6 +60,7 @@
 		</dl>
 		<dd><a href='/ClientProfile/edit_profile'>Modify my profile</a>
          <a href="/Appointment/clientAppointments">My Appointments</a></dd>
+           <a href='/BarberProfile/browse_barbers'>Browse for barbers</a>
            </dd>
            <dd>
         <a href="/Client/logout">Logout</a>
