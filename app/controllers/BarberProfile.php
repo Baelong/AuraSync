@@ -12,7 +12,7 @@ class BarberProfile extends \app\core\Controller{
 		//redirect a user that has no profile to the profile creation URL
 		$this->view('BarberProfile/index',$barberProfile);
 	}
-
+/*
   public function browse_barbers()
   {
     $barberModel = new \app\models\BarberProfile(); 
@@ -49,7 +49,7 @@ class BarberProfile extends \app\core\Controller{
       $this->view('BarberProfile/browse_barbers');
     }
   }
-
+*/
   public function createProfile(){
 		if($_SERVER['REQUEST_METHOD'] === 'POST'){//data is submitted through method POST
 			//make a new profile object

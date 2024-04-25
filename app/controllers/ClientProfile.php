@@ -71,5 +71,42 @@ class ClientProfile extends \app\core\Controller{
 			$this->view('Profile/delete',$profile);
 		}
 	}
+
+	 public function browse_barbers()
+  {
+    $barberModel = new \app\models\BarberProfile(); 
+    $allBarbers = $barberModel->getAll();
+    $this->view('ClientProfile/browse_barbers',$allBarbers);
+  }
+
+  public function search()
+  {
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){//data is submitted through method POST
+			//make a new profile object
+      $barberModel = new \app\models\BarberProfile(); 
+      $barberProfile = $barberModel->getByName($_POST['name']);
+			$this->view('ClientProfile/search',$barberProfile);
+		}
+    else{
+      $this->view('ClientProfile/browse_barbers');
+    }
+  }
+  
+  public function choose()
+  {
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){//data is submitted through method POST
+			//make a new profile object
+      $barberModel = new \app\models\BarberProfile();
+      $barberProfile = $barberModel->getByProfileID($_POST['barber_profile_id']);
+      $serviceModel = new \app\models\Service(); 
+      $barberServices = $serviceModel->getForUser($_POST['barber_profile_id']);
+      $availabilityModel = new \app\models\Availability(); 
+      $availabilities = $availabilityModel->getForUser($_POST['barber_profile_id']);
+			$this->view('ClientProfile/choose',$barberProfile,$barberServices,$availabilities);
+		}
+    else{
+      $this->view('ClientProfile/browse_barbers');
+    }
+  }
 }
 

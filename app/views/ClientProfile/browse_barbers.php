@@ -11,7 +11,7 @@
 <body>
 
 <div class="container mt-5">
-    <form method="POST" action="/BarberProfile/search">
+    <form method="POST" action="/ClientProfile/search">
         <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Search by name" aria-label="Search by name" aria-describedby="button-search" name="name">
             <button class="btn btn-outline-primary" type="submit" id="button-search"><i class="bi bi-search"></i></button>
@@ -46,7 +46,7 @@
                 var barberId = this.getAttribute('data-barber-id');
                 var form = document.createElement('form');
                 form.method = 'POST';
-                form.action = '/BarberProfile/choose';
+                form.action = '/ClientProfile/choose';
                 var input = document.createElement('input');
                 input.type = 'hidden';
                 input.name = 'barber_profile_id';
