@@ -36,23 +36,23 @@
 		<form method='post' action=''>
 			<div class="form-group">
 				<label>First name:</label>
-				<input type="text" class="form-control" name="first_name" placeholder="Jon" />
+				<input type="text" class="form-control" name="first_name" placeholder="Jon" value="<?= $data->first_name ?>" />
 			</div>
 			<div class="form-group">
 				<label>Last name:</label>
-				<input type="text" class="form-control" name="last_name" placeholder="Doe" />
+				<input type="text" class="form-control" name="last_name" placeholder="Doe" value="<?= $data->last_name ?>" />
 			</div>
       <div class="form-group">
 				<label>Bio:</label>
-				<input type="text" class="form-control" name="bio" placeholder="Bio" />
+				<input type="text" class="form-control" name="bio" placeholder="Bio" value="<?= $data->bio ?>" />
 			</div>
       <div class="form-group">
 				<label>Phone Number:</label>
-				<input type="text" class="form-control" name="phone_number" placeholder="514-444-7777" />
+				<input type="text" class="form-control" name="phone_number" placeholder="514-444-7777" value="<?= $data->phone_number ?>" />
 			</div>
       <div class="form-group">
 				<label>Age:</label>
-				<input type="text" class="form-control" name="age" placeholder="18" />
+				<input type="text" class="form-control" name="age" placeholder="18" value="<?= $data->age ?>" />
 			</div>
 			<div class="form-group">
 				<input type="submit" name="action" value="Record my profile" /> 

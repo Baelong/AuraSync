@@ -1,10 +1,10 @@
 <?php
 namespace app\controllers;
 
-#[\app\filters\Login]
+#[\app\filters\ClientLogin]
 class ClientProfile extends \app\core\Controller{
 
-    #[\app\filters\HasProfile]
+    #[\app\filters\HasClientProfile]
 	public function index(){
 		$clientProfile = new \app\models\ClientProfile();
 		$clientProfile = $clientProfile->getForUser($_SESSION['client_id']);

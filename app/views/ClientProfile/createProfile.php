@@ -52,7 +52,6 @@
 			</div>
 			<div class="form-group">
 				<input type="submit" name="action" value="Record my profile" /> 
-				<a href='/Profile/index'>Cancel</a> (should not be here)
 			</div>
 		</form>
 	</div>

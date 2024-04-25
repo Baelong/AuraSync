@@ -17,16 +17,18 @@ class BarberProfile extends \app\core\Model{
 
 	//create
 	public function insert(){
-		$SQL = 'INSERT INTO barber_profile(barber_id,first_name,last_name,bio,phone_number,age) VALUE (:barber_id,:first_name,:last_name,bio,phone_number,age)';
+		$age = !empty($this->age) ? intval($this->age) : null;
+		$SQL = 'INSERT INTO barber_profile(barber_id, first_name, last_name, bio, phone_number, age) VALUES (:barber_id, :first_name, :last_name, :bio, :phone_number, :age)';
 		$STMT = self::$_conn->prepare($SQL);
-		$STMT->execute(
-			['barber_id'=>$this->barber_id,
-			'first_name'=>$this->first_name,
-			'last_name'=>$this->last_name,
-            'bio'=>$this->bio,
-			'phone_number'=>$this->phone_number,
-			'age'=>$this->age]
-		);
+		$STMT->execute([
+    		'barber_id' => $this->barber_id,
+    		'first_name' => $this->first_name,
+    		'last_name' => $this->last_name,
+			'bio' => $this->bio,
+    		'phone_number' => $this->phone_number,
+    		'age' => $age 
+]);
+
 	}
 
 	//read
