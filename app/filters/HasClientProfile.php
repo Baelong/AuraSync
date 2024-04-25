@@ -2,7 +2,7 @@
 namespace app\filters;
 
 #[\Attribute]
-class HasProfile implements \app\core\AccessFilter{
+class HasClientProfile implements \app\core\AccessFilter{
 
 	public function redirected(){
 		$clientProfile = new \app\models\ClientProfile();

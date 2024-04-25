@@ -58,8 +58,12 @@
 			<dt>Phone Number:</dt>
 			<dd><?= $data->phone_number ?></dd>
 		</dl>
-		<a href='/Profile/modify'>Modify my profile</a> | 
-		<a href='/Profile/delete'>Delete my profile</a>
+		<dd><a href='/ClientProfile/edit_profile'>Modify my profile</a>
+         <a href="/Appointment/clientAppointments">My Appointments</a></dd>
+           </dd>
+           <dd>
+        <a href="/Client/logout">Logout</a>
+         </dd>
 	</div>
 </body>
 </html>

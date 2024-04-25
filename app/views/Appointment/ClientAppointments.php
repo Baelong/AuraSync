@@ -1,25 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title><?= $name ?> view</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Appointments</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        li:last-child {
+            border-bottom: none;
+        }
+        .appointment-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .appointment-date {
+            font-weight: bold;
+        }
+        .appointment-status {
+            color: #007bff;
+        }
+        .no-appointments {
+            text-align: center;
+            color: #999;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <form>
-        <input id='appointment' value="5/4/2024 14:00">
-        <button type="button" name="Cancel" onclick="CancelAppointments()">Cancel</button>
-        <button type="button" name="Edit" onclick="EditAppointments()">Edit</button>
-    </form>
-
-    <script>
-        function CancelAppointments() {
-            document.getElementById("appointment").value = "";
-        }
-
-        function EditAppointments() {
-            document.getElementById("appointment").value = "5/4/2024 16:00";
-        }
-    </script>
+     <?php if (!empty($appointments)) : ?>
+        <div class="container">
+            <h1>Client Appointments</h1>
+            <ul>
+                <?php foreach ($appointments as $appointment) : ?>
+                    <li>
+                        <div class="appointment-info">
+                            <span class="appointment-date"><?= $appointment->date ?></span>
+                            <span class="appointment-status"><?= $appointment->status ?></span>
+                            <span class="payment-status"><?= $appointment->payment_status ?></span>
+                        </div>
+                        <div class="appointment-details">
+                            <p><strong>Time:</strong> <?= $appointment->time ?></p>
+                            <p><strong>Service:</strong> <?= $appointment->service_id ?></p>
+                        </div>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php else : ?>
+        <div class="container">
+            <h1>Client Appointments</h1>
+            <div class="no-appointments">No appointments booked.</div>
+        </div>
+    <?php endif; ?>
 </body>
 </html>
+
+

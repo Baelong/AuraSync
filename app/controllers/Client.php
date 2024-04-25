@@ -45,4 +45,10 @@ function register(){
 		}
 	}
 
+	function logout(){
+		session_destroy();
+
+		header('location:/Client/login');
+	}
+
 }

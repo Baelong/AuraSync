@@ -2,7 +2,7 @@
 namespace app\filters;
 
 #[\Attribute]
-class Login implements \app\core\AccessFilter{
+class ClientLogin implements \app\core\AccessFilter{
 
 	public function redirected(){
 		//make sure that the user is logged in
