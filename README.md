@@ -1,1 +1,1 @@
-# eComDeliverable1
+# eCommerce Final Project: AuraSync
