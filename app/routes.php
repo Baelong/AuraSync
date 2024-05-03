@@ -23,5 +23,6 @@ $this->addRoute('BarberProfile/index','BarberProfile,index');
 $this->addRoute('BarberProfile/editProfile','BarberProfile,editProfile');
 
 $this->addRoute('Appointment/clientAppointments','Appointment,clientAppointments');
+$this->addRoute('Appointment/chooseDate','Appointment,chooseDate');
 
 

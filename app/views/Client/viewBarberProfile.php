@@ -39,7 +39,7 @@
     <div class="table-responsive">
         <table class="table table-bordered table-hover">
             <thead class="table-dark">
-                <tr>
+      <tr>
                     <th scope="col">First Name</th>
                     <th scope="col">Last Name</th>
                     <th scope="col">Bio</th>
@@ -49,7 +49,7 @@
             </thead>
             <tbody>
             <?php foreach($data as $index => $barber): ?>
-                <tr>
+                <tr class="barber-row" data-barber-id="<?= $barber->barber_profile_id ?>">
                     <td><?= $barber->first_name ?></td>
                     <td><?= $barber->last_name ?></td>
                     <td><?= $barber->bio ?></td>
@@ -76,7 +76,8 @@
             </thead>
             <tbody>
             <?php foreach($data2 as $index => $service): ?>
-                <tr>
+                <tr class="service-row" data-service-id="<?= $service->service_id ?>">
+                    
                     <td><?= $service->name ?></td>
                     <td><?= $service->description ?></td>
                     <td><?= $service->price ?></td>
@@ -117,10 +118,33 @@
         </tbody>
     </table>
 </div>
-
-
-
 </div>
-
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var serviceRows = document.querySelectorAll('.service-row');
+        var barberRows = document.querySelectorAll('.barber-row');
+        serviceRows.forEach(function(row) {
+            row.addEventListener('click', function() {
+                var serviceId = this.getAttribute('data-service-id');
+                var barberId = this.getAttribute('data-barber-id');
+                var form = document.createElement('form');
+                form.method = 'POST';
+                form.action = '/Appointment/chooseDate';
+                var inputService = document.createElement('input');
+                inputService.type = 'hidden';
+                inputService.name = 'service_id';
+                inputService.value = serviceId;
+                var inputBarberProfileId = document.createElement('input');
+                inputBarberProfileId.type = 'hidden';
+                inputBarberProfileId.name = 'barber_profile_id';
+                inputBarberProfileId.value = barberId;
+                form.appendChild(inputService);
+                form.appendChild(inputBarberProfileId);
+                document.body.appendChild(form);
+                form.submit();
+            });
+        });
+    });
+</script>
 </body>
 </html>
