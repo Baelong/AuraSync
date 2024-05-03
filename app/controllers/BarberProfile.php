@@ -3,7 +3,7 @@ namespace app\controllers;
 
 #[\app\filters\BarberLogin]
 class BarberProfile extends \app\core\Controller{
-
+	
   #[\app\filters\HasBarberProfile]
 	public function index(){
 		$barberProfile = new \app\models\BarberProfile();

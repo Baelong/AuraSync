@@ -8,8 +8,6 @@ $this->addRoute('Client/securePlace' , 'ClientProfile,index');
 $this->addRoute('ClientProfile/edit_profile' , 'ClientProfile,modify');
 $this->addRoute('Client/logout' , 'Client,logout');
 $this->addRoute('Barber/logout' , 'Barber,logout');
-$this->addRoute('ClientProfile/browse_barbers','ClientProfile,browse_barbers');
-$this->addRoute('ClientProfile/search','ClientProfile,search');
 $this->addRoute('ClientProfile/createProfile','ClientProfile,createProfile');
 $this->addRoute('ClientProfile/index','ClientProfile,index');
 $this->addRoute('Appointment/clientAppointments','Appointment,clientAppointments');
@@ -17,4 +15,7 @@ $this->addRoute('BarberProfile/createProfile','BarberProfile,createProfile');
 $this->addRoute('BarberProfile/index','BarberProfile,index');
 $this->addRoute('Barber/securePlace' , 'BarberProfile,index');
 $this->addRoute('BarberProfile/editProfile','BarberProfile,editProfile');
-$this->addRoute('ClientProfile/choose','ClientProfile,choose');
+$this->addRoute('Client/choose','Client,choose');
+$this->addRoute('Client/browse_barbers','Client,browse_barbers');
+$this->addRoute('Client/search','Client,search');
+

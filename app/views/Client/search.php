@@ -34,7 +34,7 @@
                 var barberId = this.getAttribute('data-barber-id');
                 var form = document.createElement('form');
                 form.method = 'POST';
-                form.action = '/ClientProfile/choose';
+                form.action = '/Client/choose';
                 var input = document.createElement('input');
                 input.type = 'hidden';
                 input.name = 'barber_profile_id';
