@@ -47,8 +47,8 @@
             <tbody>
             <?php foreach($data as $index => $barber): ?>
                 <tr>
-                    <td><?= $barber->first_name ?></td>
-                    <td><?= $barber->last_name ?></td>
+                    <td><?= $data->first_name ?></td>
+                    <td><?= $data->last_name ?></td>
                 </tr>
             <?php endforeach; ?>
             </tbody>

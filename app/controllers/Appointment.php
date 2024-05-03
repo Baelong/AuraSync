@@ -19,9 +19,7 @@ class Appointment extends \app\core\Controller{
       foreach($services as $index => $service){
         $_SESSION['service_id'] = $service->service_id;
       }
-    
-     
-            $this->view('Appointment/chooseDate',$barberProfile,$service,$availabilities);
+        $this->view('Appointment/chooseDate',$barbers,$services,$availabilities);
         }
     else{
       $this->view('Client/viewBarberProfile');

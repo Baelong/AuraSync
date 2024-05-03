@@ -123,10 +123,10 @@
     document.addEventListener('DOMContentLoaded', function() {
         var serviceRows = document.querySelectorAll('.service-row');
         var barberRows = document.querySelectorAll('.barber-row');
+        var barberId = barberRows.getAttribute('data-barber-id');
         serviceRows.forEach(function(row) {
             row.addEventListener('click', function() {
                 var serviceId = this.getAttribute('data-service-id');
-                var barberId = this.getAttribute('data-barber-id');
                 var form = document.createElement('form');
                 form.method = 'POST';
                 form.action = '/Appointment/chooseDate';
