@@ -12,44 +12,7 @@ class BarberProfile extends \app\core\Controller{
 		//redirect a user that has no profile to the profile creation URL
 		$this->view('BarberProfile/index',$barberProfile);
 	}
-/*
-  public function browse_barbers()
-  {
-    $barberModel = new \app\models\BarberProfile(); 
-    $allBarbers = $barberModel->getAll();
-    $this->view('BarberProfile/browse_barbers',$allBarbers);
-  }
 
-  public function search()
-  {
-    if($_SERVER['REQUEST_METHOD'] === 'POST'){//data is submitted through method POST
-			//make a new profile object
-      $barberModel = new \app\models\BarberProfile(); 
-      $barberProfile = $barberModel->getByName($_POST['name']);
-			$this->view('BarberProfile/search',$barberProfile);
-		}
-    else{
-      $this->view('BarberProfile/browse_barbers');
-    }
-  }
-  
-  public function choose()
-  {
-    if($_SERVER['REQUEST_METHOD'] === 'POST'){//data is submitted through method POST
-			//make a new profile object
-      $barberModel = new \app\models\BarberProfile();
-      $barberProfile = $barberModel->getByProfileID($_POST['barber_profile_id']);
-      $serviceModel = new \app\models\Service(); 
-      $barberServices = $serviceModel->getForUser($_POST['barber_profile_id']);
-      $availabilityModel = new \app\models\Availability(); 
-      $availabilities = $availabilityModel->getForUser($_POST['barber_profile_id']);
-			$this->view('BarberProfile/choose',$barberProfile,$barberServices,$availabilities);
-		}
-    else{
-      $this->view('BarberProfile/browse_barbers');
-    }
-  }
-*/
   public function createProfile(){
 		if($_SERVER['REQUEST_METHOD'] === 'POST'){//data is submitted through method POST
 			//make a new profile object
@@ -91,24 +54,6 @@ class BarberProfile extends \app\core\Controller{
 		}
 	}
 
-	public function delete(){
-		//present the user with a form to confirm the deletion that is requested and delete if the form is submitted
-/*		//make sure that the user is logged in
-		if(!isset($_SESSION['user_id'])){
-			header('location:/User/login');
-			return;
-		}
-*/
-		$profile = new \app\models\Profile();
-		$profile = $profile->getForUser($_SESSION['user_id']);
-
-		if($_SERVER['REQUEST_METHOD'] === 'POST'){
-			$profile->delete();
-			header('location:/Profile/index');
-		}else{
-			$this->view('Profile/delete',$profile);
-		}
-	}
 }
 
 

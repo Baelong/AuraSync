@@ -71,7 +71,7 @@ function register(){
 	  }
 	}
 	#[\app\filters\HasClientProfile]
-	public function choose()
+	public function viewBarberProfile()
 	{
 	  if($_SERVER['REQUEST_METHOD'] === 'POST'){//data is submitted through method POST
 			  //make a new profile object
@@ -81,7 +81,7 @@ function register(){
 		$barberServices = $serviceModel->getForUser($_POST['barber_profile_id']);
 		$availabilityModel = new \app\models\Availability(); 
 		$availabilities = $availabilityModel->getForUser($_POST['barber_profile_id']);
-			  $this->view('Client/choose',$barberProfile,$barberServices,$availabilities);
+			  $this->view('Client/viewBarberProfile',$barberProfile,$barberServices,$availabilities);
 		  }
 	  else{
 		$this->view('Client/browse_barbers');

@@ -15,7 +15,7 @@ $this->addRoute('BarberProfile/createProfile','BarberProfile,createProfile');
 $this->addRoute('BarberProfile/index','BarberProfile,index');
 $this->addRoute('Barber/securePlace' , 'BarberProfile,index');
 $this->addRoute('BarberProfile/editProfile','BarberProfile,editProfile');
-$this->addRoute('Client/choose','Client,choose');
+$this->addRoute('Client/viewBarberProfile','Client,viewBarberProfile');
 $this->addRoute('Client/browse_barbers','Client,browse_barbers');
 $this->addRoute('Client/search','Client,search');
 
