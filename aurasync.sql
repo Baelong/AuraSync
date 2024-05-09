@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 24, 2024 at 12:14 AM
+-- Generation Time: May 09, 2024 at 04:04 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -32,11 +32,20 @@ CREATE TABLE `appointment` (
   `client_profile_id` int(11) NOT NULL,
   `barber_profile_id` int(11) NOT NULL,
   `date` date NOT NULL,
-  `time` time NOT NULL,
+  `slot` int(11) NOT NULL,
   `status` varchar(20) NOT NULL,
   `payment_status` varchar(20) NOT NULL,
   `service_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `appointment`
+--
+
+INSERT INTO `appointment` (`appointment_id`, `client_profile_id`, `barber_profile_id`, `date`, `slot`, `status`, `payment_status`, `service_id`) VALUES
+(1, 1, 1, '2024-05-22', 4, 'booked', 'payed', 1),
+(2, 1, 1, '2024-05-22', 6, 'booked', 'payed', 2),
+(3, 1, 2, '2024-05-22', 7, 'booked', 'payed', 3);
 
 -- --------------------------------------------------------
 
@@ -61,7 +70,7 @@ CREATE TABLE `availabilities` (
 --
 
 INSERT INTO `availabilities` (`availability_id`, `barber_profile_id`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`) VALUES
-(1, 1, 1, 1, 1, 1, 0, 0, 1);
+(1, 1, 1, 1, 1, 1, 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -121,6 +130,13 @@ CREATE TABLE `client` (
   `status` tinyint(4) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `client`
+--
+
+INSERT INTO `client` (`client_id`, `email`, `password_hash`, `status`) VALUES
+(1, 'ali', '$2y$10$StxEtX8wmio/F3.N4yxVbObWmVgTF3F141G8cKzPtL7CPZYed.R1u', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -135,6 +151,13 @@ CREATE TABLE `client_profile` (
   `age` int(11) NOT NULL,
   `phone_number` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `client_profile`
+--
+
+INSERT INTO `client_profile` (`client_profile_id`, `client_id`, `first_name`, `last_name`, `age`, `phone_number`) VALUES
+(1, 1, 'Ali', 'Ilyas', 18, '514-544-4558');
 
 -- --------------------------------------------------------
 
@@ -171,7 +194,8 @@ CREATE TABLE `service` (
 
 INSERT INTO `service` (`service_id`, `barber_profile_id`, `name`, `description`, `price`, `discount`) VALUES
 (1, 1, 'Hair cut', 'Quick hair cut done in 30 mins', '30$', 'no disocunt'),
-(2, 1, 'Beard setting', 'Only cutting your beard how you want', '15$', 'no disocunt');
+(2, 1, 'Beard setting', 'Only cutting your beard how you want', '15$', 'no disocunt'),
+(3, 2, 'Hair Cut', 'Cutting Hair', '20$', 'no discount');
 
 --
 -- Indexes for dumped tables
@@ -240,7 +264,7 @@ ALTER TABLE `service`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `appointment_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `appointment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `availabilities`
@@ -264,13 +288,13 @@ ALTER TABLE `barber_profile`
 -- AUTO_INCREMENT for table `client`
 --
 ALTER TABLE `client`
-  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `client_profile`
 --
 ALTER TABLE `client_profile`
-  MODIFY `client_profile_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `client_profile_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `message`
@@ -282,7 +306,7 @@ ALTER TABLE `message`
 -- AUTO_INCREMENT for table `service`
 --
 ALTER TABLE `service`
-  MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables

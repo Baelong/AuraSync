@@ -27,9 +27,49 @@ class Appointment extends \app\core\Controller{
 	}
 
 	function index(){
+    
 		
 	}
-	function Chose_time(){
+
+  function Pay(){
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){//data is submitted through method POST
+      //make a new profile object
+      //pass on barber_profile_id, service_id, availabilities?
+      
+      $serviceModel = new \app\models\Service();
+      $barberProfile = new \app\models\BarberProfile();
+      $services = $serviceModel->getByServiceID($_SESSION['service_id']);
+      $barbers = $barberProfile->getByProfileID($_SESSION['barber_profile_id']);
+
+      $date =  $_SESSION['date'];
+
+      $slot = $_POST['slot'];
+      $_SESSION['slot'] = $slot;
+        $this->view('Appointment/Pay',$barbers,$services,$date,$slot);
+        }
+    else{
+    $this->view('Appointment/chooseTime');
+    }
+		
+	}
+	function chooseTime(){
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){//data is submitted through method POST
+      //make a new profile object
+      //pass on barber_profile_id, service_id, availabilities?
+      $AppointmentModel = new \app\models\Appointment(); 
+      $serviceModel = new \app\models\Service();
+      $barberProfile = new \app\models\BarberProfile();
+      $appointments = $AppointmentModel->getBydate($_POST['date'],$_SESSION['barber_profile_id']);
+      $services = $serviceModel->getByServiceID($_SESSION['service_id']);
+      $barbers = $barberProfile->getByProfileID($_SESSION['barber_profile_id']);
+
+      $date = $_POST['date'];
+      $_SESSION['date'] = $date;
+        $this->view('Appointment/chooseTime',$barbers,$services,$date,$appointments);
+        }
+    else{
+    $this->view('Appointment/chooseDate');
+}
 		
 	}
 

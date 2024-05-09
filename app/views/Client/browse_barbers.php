@@ -13,7 +13,7 @@
 <div class="container mt-5">
     <form method="POST" action="/Client/search">
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Search by name" aria-label="Search by name" aria-describedby="button-search" name="name">
+            <input type="text" class="form-control" placeholder="Search by Full Name" aria-label="Search by name" aria-describedby="button-search" name="name">
             <button class="btn btn-outline-primary" type="submit" id="button-search"><i class="bi bi-search"></i></button>
         </div>
     </form>

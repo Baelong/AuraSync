@@ -26,6 +26,19 @@ public $service_id;
         $appointments = $STMT->fetchAll();
         return $appointments;
     }
+
+    public function getBydate($date,$barber_profile_id)
+    {
+        $SQL = 'SELECT * FROM appointment WHERE date = :date AND barber_profile_id = :barber_profile_id';
+        // Prepare the statement
+        $STMT = self::$_conn->prepare($SQL);
+        $STMT->execute(
+        	['date'=>$date,
+            'barber_profile_id'=>$barber_profile_id]);
+        $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Appointment');
+        $appointments = $STMT->fetchAll();
+        return $appointments;
+    }
     public function getService($service_id)
     {
         $SQL = 'SELECT * FROM service WHERE service_id = :service_id';
