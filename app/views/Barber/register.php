@@ -33,6 +33,7 @@
 </head>
 <body>
   <div class='container'>
+    <h1>Barber Registration</h1>
     <form method='post' action=''>
       <div class="form-group">
         <label>Email:</label>

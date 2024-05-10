@@ -35,6 +35,7 @@
 <body>
 
 <div class="form-group">
+    <h1>User Type Selection</h1>
     <a href="/Client/login">Client</a>
     <a href="/Barber/login">Barber</a>
 </div>
