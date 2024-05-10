@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `aurasync`
 --
-
+CREATE DATABASE IF NOT EXISTS `aurasync` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci; USE `aurasync`;
 -- --------------------------------------------------------
 
 --
