@@ -25,6 +25,8 @@ $this->addRoute('BarberProfile/editProfile','BarberProfile,editProfile');
 $this->addRoute('Appointment/clientAppointments','Appointment,clientAppointments');
 $this->addRoute('Appointment/chooseDate','Appointment,chooseDate');
 $this->addRoute('Appointment/chooseTime','Appointment,chooseTime');
+$this->addRoute('Appointment/ConfirmInfo','Appointment,ConfirmInfo');
 $this->addRoute('Appointment/Pay','Appointment,Pay');
+$this->addRoute('Appointment/Receipt','Appointment,Receipt');
 
 

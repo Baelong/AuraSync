@@ -57,7 +57,17 @@
                     <li>
                         <div class="appointment-details">
                             <p><strong>Date:</strong> <?= $appointment->date ?></p>
-                            <p><strong>Time:</strong> <?= $appointment->time ?></p>
+                            <p><strong>Time:</strong>  
+                                <?php
+                                    $hour = floor(($appointment->slot - 1) / 2) + 9;
+                                    $minute = ($appointment->slot % 2 == 0) ? "30" : "00"; 
+
+                                    // Format the time
+                                    $time = sprintf("%02d:%s", $hour, $minute);
+
+                                    // Print the time
+                                    echo $time;
+                                ?></p>
                             <p><strong>Service name:</strong> <?= $services[$key]->name ?></p>
                         </div>
                     </li>

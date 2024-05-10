@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 09, 2024 at 04:04 AM
+-- Generation Time: May 10, 2024 at 02:25 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `aurasync`
 --
-CREATE DATABASE IF NOT EXISTS `aurasync` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci; USE `aurasync`;
+
 -- --------------------------------------------------------
 
 --
@@ -33,8 +33,6 @@ CREATE TABLE `appointment` (
   `barber_profile_id` int(11) NOT NULL,
   `date` date NOT NULL,
   `slot` int(11) NOT NULL,
-  `status` varchar(20) NOT NULL,
-  `payment_status` varchar(20) NOT NULL,
   `service_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -42,10 +40,11 @@ CREATE TABLE `appointment` (
 -- Dumping data for table `appointment`
 --
 
-INSERT INTO `appointment` (`appointment_id`, `client_profile_id`, `barber_profile_id`, `date`, `slot`, `status`, `payment_status`, `service_id`) VALUES
-(1, 1, 1, '2024-05-22', 4, 'booked', 'payed', 1),
-(2, 1, 1, '2024-05-22', 6, 'booked', 'payed', 2),
-(3, 1, 2, '2024-05-22', 7, 'booked', 'payed', 3);
+INSERT INTO `appointment` (`appointment_id`, `client_profile_id`, `barber_profile_id`, `date`, `slot`, `service_id`) VALUES
+(1, 1, 1, '2024-05-22', 4, 1),
+(2, 1, 1, '2024-05-22', 6, 2),
+(3, 1, 2, '2024-05-22', 7, 3),
+(4, 1, 1, '2024-05-22', 13, 1);
 
 -- --------------------------------------------------------
 
@@ -157,7 +156,7 @@ CREATE TABLE `client_profile` (
 --
 
 INSERT INTO `client_profile` (`client_profile_id`, `client_id`, `first_name`, `last_name`, `age`, `phone_number`) VALUES
-(1, 1, 'Ali', 'Ilyas', 18, '514-544-4558');
+(1, 1, 'Ali', 'Ilyas', 20, '514-544-4558');
 
 -- --------------------------------------------------------
 
@@ -264,7 +263,7 @@ ALTER TABLE `service`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `appointment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `appointment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `availabilities`

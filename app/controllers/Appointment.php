@@ -31,7 +31,7 @@ class Appointment extends \app\core\Controller{
 		
 	}
 
-  function Pay(){
+  function ConfirmInfo(){
     if($_SERVER['REQUEST_METHOD'] === 'POST'){//data is submitted through method POST
       //make a new profile object
       //pass on barber_profile_id, service_id, availabilities?
@@ -45,10 +45,53 @@ class Appointment extends \app\core\Controller{
 
       $slot = $_POST['slot'];
       $_SESSION['slot'] = $slot;
-        $this->view('Appointment/Pay',$barbers,$services,$date,$slot);
+        $this->view('Appointment/ConfirmInfo',$barbers,$services,$date,$slot);
         }
     else{
     $this->view('Appointment/chooseTime');
+    }
+		
+	}
+  function Pay(){
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){//data is submitted through method POST
+      //make a new profile object
+      //pass on barber_profile_id, service_id, availabilities?
+      
+        $this->view('Appointment/Pay');
+        }
+    else{
+    $this->view('Appointment/ConfirmInfo');
+    }
+		
+	}
+
+  function Receipt(){
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){//data is submitted through method POST
+      //make a new profile object
+      //pass on barber_profile_id, service_id, availabilities?
+      
+      $serviceModel = new \app\models\Service();
+      $barberProfile = new \app\models\BarberProfile();
+      $clientProfile = new \app\models\ClientProfile();
+      $appointment = new \app\models\Appointment();
+      $services = $serviceModel->getByServiceID($_SESSION['service_id']);
+      $barbers = $barberProfile->getByProfileID($_SESSION['barber_profile_id']);
+      $clients = $clientProfile->getByProfileID($_SESSION['client_profile_id']);
+      $date =  $_SESSION['date'];
+      $slot = $_SESSION['slot'];
+
+      $appointment->client_profile_id = $clients[0]->client_profile_id;
+      $appointment->barber_profile_id = $barbers[0]->barber_profile_id;
+      $appointment->date = $date;
+      $appointment->slot = $slot;
+      $appointment->service_id = $services[0]->service_id;
+      $appointment->insert();
+
+
+        $this->view('Appointment/Receipt',$barbers,$services,$date,$slot,$clients);
+        }
+    else{
+    $this->view('Appointment/Pay');
     }
 		
 	}

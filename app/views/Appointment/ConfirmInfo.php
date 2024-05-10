@@ -114,29 +114,32 @@
     </h4>
 
 	<div class="mt-5">
-    <h1>Select Time</h1>
-    <div class="btn-group"> 
-        <?php for($i = 0; $i <= 16; $i++): ?>
-            <?php
-                $hour = floor($i / 2) + 9;
-                $minute = ($i % 2) ? "30" : "00";
-                $time = $hour . ":" . $minute;
-                $id = $i + 1;
-                $slotTaken = false;
-                foreach ($data4 as $appointment) {
-                    if ($id == $appointment->slot) {
-                        $slotTaken = true;
-                        break;
-                    }
-                }
-            ?>
-            <?php if ($slotTaken): ?>
-                <button class="btn btn-secondary btn-red" id="<?= $id ?>" disabled><?= $time ?></button>
-            <?php else: ?>
-                <button class="btn btn-secondary" id="<?= $id ?>"><?= $time ?></button>
-            <?php endif; ?>
-        <?php endfor; ?>
+        <h1>Time Chosen</h1>
+        <h4> 
+            <tr class="slot">
+                <td>
+                    <h4> 
+                        <tr class="slot">
+                            <td>
+                                <?php
+                                $hour = floor(($data4 - 1) / 2) + 9;
+                                $minute = ($data4 % 2 == 0) ? "30" : "00"; 
+
+                                // Format the time
+                                $time = sprintf("%02d:%s", $hour, $minute);
+
+                                // Print the time
+                                echo $time;
+                                ?>
+                            </td>
+                        </tr>
+                    </h4>
+
+                </td>
+            </tr>
+        </h4>
     </div>
+    <button id="checkoutButton" class="btn btn-primary mt-3">Proceed to Checkout</button>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -144,15 +147,9 @@
 
 <script>
     $(document).ready(function(){
-        $('.btn-group').on('click', '.btn-secondary', function() {
-            var selectedSlot = $(this).attr('id'); // Accessing the ID of the clicked button
-            if(selectedSlot) {
-                var form = $('<form method="POST" action="/Appointment/ConfirmInfo"></form>');
-                form.append('<input type="hidden" name="slot" value="' + selectedSlot + '">');
+        $('#checkoutButton').on('click',function() {
+                var form = $('<form method="POST" action="/Appointment/Pay"></form>');
                 form.appendTo('body').submit();
-            } else {
-                alert('Please select a date.');
-            }
         });
     });
 </script>

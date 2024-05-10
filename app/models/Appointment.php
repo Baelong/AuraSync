@@ -10,10 +10,22 @@ public $appointment_id;
 public $client_profile_id;
 public $barber_profile_id;
 public $date;
-public $time;
-public $status;
-public $payment_status;
+public $slot;
 public $service_id; 
+
+public function insert(){
+    //define the SQL query
+    $SQL = 'INSERT INTO appointment (client_profile_id, barber_profile_id,date,slot,service_id) VALUES (:client_profile_id, :barber_profile_id, :date, :slot, :service_id)';
+    //prepare the statement
+    $STMT = self::$_conn->prepare($SQL);
+    //execute
+    $data = ['client_profile_id' => $this->client_profile_id,
+            'barber_profile_id' => $this->barber_profile_id,
+            'date' => $this->date,
+            'slot' => $this->slot,
+            'service_id' => $this->service_id];
+    $STMT->execute($data);
+}
 
  public function getClientAppointments($client_profile_id)
     {
