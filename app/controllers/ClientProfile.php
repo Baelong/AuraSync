@@ -33,7 +33,7 @@ class ClientProfile extends \app\core\Controller{
 		}
 	}
 
-	public function modify(){
+	public function editprofile(){
 		$clientProfile = new \app\models\ClientProfile();
 		$clientProfile = $clientProfile->getForUser($_SESSION['client_id']);
 
@@ -49,7 +49,7 @@ class ClientProfile extends \app\core\Controller{
 			//redirect
 			header('location:/ClientProfile/index');
 		}else{
-			$this->view('ClientProfile/edit_profile', $clientProfile);
+			$this->view('ClientProfile/editprofile', $clientProfile);
 		}
 	}
 

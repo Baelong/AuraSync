@@ -58,7 +58,7 @@
 			<dt>Phone Number:</dt>
 			<dd><?= $data->phone_number ?></dd>
 		</dl>
-		<dd><a href='/ClientProfile/edit_profile'>Modify my profile</a>
+		<dd><a href='/ClientProfile/editprofile'>Modify my profile</a>
          <a href="/Appointment/clientAppointments">My Appointments</a></dd>
          <dd>
            <a href='/Client/browse_barbers'>Browse for barbers</a>

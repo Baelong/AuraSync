@@ -46,6 +46,25 @@
             color: #999;
             margin-top: 20px;
         }
+
+        .form-group {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .form-group a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .form-group a:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -70,5 +89,8 @@
             <div class="no-services">No services created.</div>
         </div>
     <?php endif; ?>
+    <div class="form-group">
+    <a href="/Service/createService">Add Service</a>
+</div>
 </body>
 </html>

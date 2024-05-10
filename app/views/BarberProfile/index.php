@@ -69,7 +69,6 @@
         <dd>
         <a href="/Barber/logout">Logout</a>
          </dd>
-         <p> <?= $data->barber_profile_id ?></p>
 	</div>
 </body>
 </html>

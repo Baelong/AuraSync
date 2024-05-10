@@ -10,13 +10,28 @@ class Service extends \app\core\Controller{
 		$this->view('Service/index',$services);
     }
 
+    function createService(){
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){//data is submitted through method POST
+			//make a new profile object
+			$service = new \app\models\Service();
+			//populate it
+			$service->barber_profile_id = $_SESSION['barber_profile_id'];
+			$service->name = $_POST['name'];
+			$service->description = $_POST['description'];
+            $service->price = $_POST['price'];
+			//insert it
+			$service->insert();
+			//redirect
+			header('location:/Service/index');
+		}else{
+			$this->view('Service/createService');
+		}
+    }
     function deleteService(){
 
     }
 
-    function createService(){
 
-    }
 
     function updateService(){
 
