@@ -29,4 +29,10 @@ $this->addRoute('Appointment/ConfirmInfo','Appointment,ConfirmInfo');
 $this->addRoute('Appointment/Pay','Appointment,Pay');
 $this->addRoute('Appointment/Receipt','Appointment,Receipt');
 
+$this->addRoute('Service/index','Service,index');
+$this->addRoute('Service/updateService','Service,updateService');
+$this->addRoute('Service/deleteService','Service,deleteService');
+$this->addRoute('Service/createService','Service,createService');
+
+
 

@@ -63,6 +63,9 @@
           <dd>
 		<a href='/BarberProfile/editProfile'>Modify my profile</a>
           </dd>
+          <dd>
+		<a href='/Service/index'>My Services</a>
+          </dd>
         <dd>
         <a href="/Barber/logout">Logout</a>
          </dd>
