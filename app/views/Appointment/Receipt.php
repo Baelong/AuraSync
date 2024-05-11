@@ -123,7 +123,8 @@
         Total Amount: <span><?= $data2[0]->price ?></span>
     </div>
     <div class="footer">
-        Thank you for choosing us!
+        Thank you for choosing us!<br>
+        <a href="/ClientProfile/index">Done</a>
     </div>
 </div>
 

@@ -28,5 +28,7 @@ $this->addRoute('Appointment/chooseTime','Appointment,chooseTime');
 $this->addRoute('Appointment/ConfirmInfo','Appointment,ConfirmInfo');
 $this->addRoute('Appointment/Pay','Appointment,Pay');
 $this->addRoute('Appointment/Receipt','Appointment,Receipt');
+$this->addRoute('Appointment/index','Appointment,index');
+$this->addRoute('Appointment/editAppointment','Appointment,editAppointment');
 
-
+$this->addRoute('Appointment/deleteAppointment','Appointment,deleteAppointment');

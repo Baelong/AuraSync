@@ -27,6 +27,25 @@ class Appointment extends \app\core\Controller{
 	}
 
 	function index(){
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){//data is submitted through method POST
+      //make a new profile object
+      //pass on barber_profile_id, service_id, availabilities?
+        $appointment = new \app\models\Appointment();
+        $clientProfile = new \app\models\clientProfile();
+        $serviceModel = new \app\models\Service();
+        $barberProfile = new \app\models\BarberProfile();
+        $appointment = ($appointment->getByAppointmentID($_POST['appointment_id']))[0];
+        $service = ($serviceModel->getByServiceID($appointment->service_id))[0];
+        $barber = ($barberProfile->getByProfileID($appointment->barber_profile_id))[0];
+        $client = ($clientProfile->getByProfileID($appointment->client_profile_id))[0];
+        
+          $this->view('Appointment/index',$appointment,$client,$barber,$service);
+      }
+    else{
+    $this->view('Appointment/clientAppointments');
+}
+
+
     
 		
 	}
@@ -134,4 +153,29 @@ class Appointment extends \app\core\Controller{
  
          $this->view('appointment/clientAppointments', ['appointments' => $appointments],['services' => $services]);
     }
+    function editAppointment(){
+      if($_SERVER['REQUEST_METHOD'] === 'POST'){//data is submitted through method POST
+        //make a new profile object
+        //pass on barber_profile_id, service_id, availabilities?
+          $appointment = new \app\models\Appointment();
+          $appointment = ($appointment->getByAppointmentID($_POST['appointment_id']))[0];
+         
+            $this->view('Appointment/editAppointment',$appointment);
+        }
+      else{
+      $this->view('Appointment/index');
+  }
+}
+  function deleteAppointment(){
+    
+		if($_SERVER['REQUEST_METHOD'] === 'POST'){//data is submitted through method POST
+			//make a new profile object
+			//populate it
+      $appointment = new \app\models\Appointment();
+		  $appointment = $appointment->getByAppointmentID($_POST['appointment_id']);
+      $appointment[0]->delete();
+			//redirect
+			header('location:/Appointment/clientAppointments');
+}
+}
 }

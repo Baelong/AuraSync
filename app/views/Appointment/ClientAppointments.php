@@ -34,6 +34,7 @@
             border-bottom: 1px solid #ccc;
             display: flex;
             justify-content: space-between;
+            align-items: center; /* Align items vertically */
         }
         li:last-child {
             border-bottom: none;
@@ -41,15 +42,36 @@
         .appointment-details {
             flex: 1;
         }
+        .view-details-button {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 6px 12px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            border: 1px solid #007bff;
+        }
+        .view-details-button:hover {
+            background-color: #0056b3;
+        }
         .no-appointments {
             text-align: center;
             color: #999;
             margin-top: 20px;
         }
+        .button-container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
     </style>
 </head>
 <body>
-     <?php if (!empty($appointments)) : ?>
+    <?php if (!empty($appointments)) : ?>
         <div class="container">
             <h1>Client Appointments</h1>
             <ul>
@@ -70,6 +92,12 @@
                                 ?></p>
                             <p><strong>Service name:</strong> <?= $services[$key]->name ?></p>
                         </div>
+                        <div class="button-container">
+                            <form id="form_<?= $appointment->appointment_id ?>" action="/Appointment/index" method="post">
+                                <input type="hidden" name="appointment_id" value="<?= $appointment->appointment_id ?>">
+                                <button class="view-details-button" type="button" onclick="submitForm('<?= $appointment->appointment_id ?>')">View Details</button>
+                            </form>
+                        </div>
                     </li>
                 <?php endforeach; ?>
             </ul>
@@ -80,5 +108,11 @@
             <div class="no-appointments">No appointments booked.</div>
         </div>
     <?php endif; ?>
+
+    <script>
+        function submitForm(appointmentId) {
+            document.getElementById("form_" + appointmentId).submit();
+        }
+    </script>
 </body>
 </html>
