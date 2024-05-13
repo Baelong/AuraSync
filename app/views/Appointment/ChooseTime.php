@@ -9,14 +9,21 @@
     <style>
         body {
             background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            padding-top: 50px;
+            padding-bottom: 50px;
         }
 
         .container {
-            margin-top: 50px;
+            margin-top: 30px;
+            margin-bottom: 30px;
         }
 
         h1 {
             color: #007bff;
+            font-size: 24px;
+            margin-top: 30px;
+            margin-bottom: 20px;
         }
 
         .table {
@@ -29,9 +36,46 @@
             vertical-align: middle !important;
         }
 
-        /* Custom button styles */
-        .btn-group {
+        .table thead th {
+            background-color: #000;
+            color: #fff;
+            font-weight: bold;
+            border-color: #ffffff;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+
+        .table th,
+        .table td {
+            padding: 12px;
+        }
+
+        .table tbody tr:hover {
+            background-color: #f2f2f2;
+        }
+
+        .table-responsive {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        #datepicker {
+            width: 200px;
+        }
+
+        #chooseDateButton {
             margin-top: 20px;
+        }
+
+        .btn-primary {
+            background-color: #000;
+            border-color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background-color: #333;
+            border-color: #0056b3;
         }
 
         .btn-secondary {
@@ -49,10 +93,16 @@
             box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
         }
 
-        /* Red button style */
         .btn-red {
             background-color: #dc3545;
             border-color: #dc3545;
+        }
+
+        /* Grid layout for time buttons */
+        .time-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            grid-gap: 10px;
         }
     </style>
 </head>
@@ -113,30 +163,32 @@
         </tr>
     </h4>
 
-	<div class="mt-5">
-    <h1>Select Time</h1>
-    <div class="btn-group"> 
-        <?php for($i = 0; $i <= 16; $i++): ?>
-            <?php
-                $hour = floor($i / 2) + 9;
-                $minute = ($i % 2) ? "30" : "00";
-                $time = $hour . ":" . $minute;
-                $id = $i + 1;
-                $slotTaken = false;
-                foreach ($data4 as $appointment) {
-                    if ($id == $appointment->slot) {
-                        $slotTaken = true;
-                        break;
+    <div class="mt-5">
+        <h1>Select Time</h1>
+        <div class="time-buttons">
+            <?php for($i = 0; $i <= 16; $i++): ?>
+                <?php
+                    $hour = floor($i / 2) + 9;
+                    $minute = ($i % 2) ? "30" : "00";
+                    $time = $hour . ":" . $minute;
+                    $id = $i + 1;
+                    $slotTaken = false;
+                    foreach ($data4 as $appointment) {
+                        if ($id == $appointment->slot) {
+                            $slotTaken = true;
+                            break;
+                        }
                     }
-                }
-            ?>
-            <?php if ($slotTaken): ?>
-                <button class="btn btn-secondary btn-red" id="<?= $id ?>" disabled><?= $time ?></button>
-            <?php else: ?>
-                <button class="btn btn-secondary" id="<?= $id ?>"><?= $time ?></button>
-            <?php endif; ?>
-        <?php endfor; ?>
+                ?>
+                <?php if ($slotTaken): ?>
+                    <button class="btn btn-secondary btn-red" id="<?= $id ?>" disabled><?= $time ?></button>
+                <?php else: ?>
+                    <button class="btn btn-secondary" id="<?= $id ?>"><?= $time ?></button>
+                <?php endif; ?>
+            <?php endfor; ?>
+        </div>
     </div>
+
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -156,8 +208,6 @@
         });
     });
 </script>
-
-
 
 </body>
 </html>

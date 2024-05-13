@@ -8,6 +8,7 @@
     <style>
         body {
             background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
         }
 
         .container {
@@ -16,6 +17,7 @@
 
         h1 {
             color: #007bff;
+            font-size: 24px;
         }
 
         .table {
@@ -25,21 +27,51 @@
         }
 
         th, td {
-            vertical-align: middle !important;
+            vertical-align: middle ;
+        }
+
+        .table thead th {
+            background-color: #000;
+            color: #fff;
+            font-weight: bold;
+            border-color: #ffffff;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+
+        .table th,
+        .table td {
+            padding: 12px;
+        }
+
+        .table tbody tr:hover {
+            background-color: #f2f2f2;
+        }
+
+        .table-responsive {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .row {
+            margin-bottom: 0px;
         }
     </style>
 </head>
 <body>
 
-
-
 <div class="container">
-    <h1 class="mb-4">Barber Profile</h1>
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="mb-4">Barber Profile</h1>
+        </div>
+    </div>
 
     <div class="table-responsive">
         <table class="table table-bordered table-hover">
             <thead class="table-dark">
-      <tr>
+                <tr>
                     <th scope="col">First Name</th>
                     <th scope="col">Last Name</th>
                     <th scope="col">Bio</th>
@@ -61,8 +93,11 @@
         </table>
     </div>
 
-    
-    <h1 class="mb-4 mt-5">Services Offered</h1>
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="mb-4 mt-5">Services Offered</h1>
+        </div>
+    </div>
 
     <div class="table-responsive">
         <table class="table table-bordered table-hover">
@@ -77,7 +112,6 @@
             <tbody>
             <?php foreach($data2 as $index => $service): ?>
                 <tr class="service-row" data-service-id="<?= $service->service_id ?>">
-                    
                     <td><?= $service->name ?></td>
                     <td><?= $service->description ?></td>
                     <td><?= $service->price ?></td>
@@ -88,37 +122,42 @@
         </table>
     </div>
 
-    <h1 class="mb-4 mt-5">Availability</h1>
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="mb-4 mt-5">Availability</h1>
+        </div>
+    </div>
 
-<div class="table-responsive">
-    <table class="table table-bordered table-hover">
-        <thead class="table-dark">
-            <tr>
-                <th scope="col">Monday</th>
-                <th scope="col">Tuesday</th>
-                <th scope="col">Wednesday</th>
-                <th scope="col">Thursday</th>
-                <th scope="col">Friday</th>
-                <th scope="col">Saturday</th>
-                <th scope="col">Sunday</th>
-            </tr>
-        </thead>
-        <tbody>
-        <?php foreach($data3 as $index => $availability): ?>
-            <tr>
-                <td><?= $availability->Monday == 1 ? 'Yes' : 'No' ?></td>
-                <td><?= $availability->Tuesday == 1 ? 'Yes' : 'No' ?></td>
-                <td><?= $availability->Wednesday == 1 ? 'Yes' : 'No' ?></td>
-                <td><?= $availability->Thursday == 1 ? 'Yes' : 'No' ?></td>
-                <td><?= $availability->Friday == 1 ? 'Yes' : 'No' ?></td>
-                <td><?= $availability->Saturday == 1 ? 'Yes' : 'No' ?></td>
-                <td><?= $availability->Sunday == 1 ? 'Yes' : 'No' ?></td>
-            </tr>
-        <?php endforeach; ?>
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Monday</th>
+                    <th scope="col">Tuesday</th>
+                    <th scope="col">Wednesday</th>
+                    <th scope="col">Thursday</th>
+                    <th scope="col">Friday</th>
+                    <th scope="col">Saturday</th>
+                    <th scope="col">Sunday</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php foreach($data3 as $index => $availability): ?>
+                <tr>
+                    <td><?= $availability->Monday == 1 ? 'Yes' : 'No' ?></td>
+                    <td><?= $availability->Tuesday == 1 ? 'Yes' : 'No' ?></td>
+                    <td><?= $availability->Wednesday == 1 ? 'Yes' : 'No' ?></td>
+                    <td><?= $availability->Thursday == 1 ? 'Yes' : 'No' ?></td>
+                    <td><?= $availability->Friday == 1 ? 'Yes' : 'No' ?></td>
+                    <td><?= $availability->Saturday == 1 ? 'Yes' : 'No' ?></td>
+                    <td><?= $availability->Sunday == 1 ? 'Yes' : 'No' ?></td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
 </div>
-</div>
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         var serviceRows = document.querySelectorAll('.service-row');
