@@ -65,7 +65,8 @@
         }
 
         #chooseDateButton {
-            margin-top: 20px;
+            padding-top: 20px;
+            padding: 20px;
         }
 
         .btn-primary {
@@ -132,7 +133,8 @@
     <h1>Choose Appointment Date</h1>
 
     <div class="input-group">
-        <input type="text" id="datepicker" name="appointment_date" class="form-control" placeholder="Select Date">
+    <input type="text" id="datepicker" name="appointment_date" class="form-control" placeholder="Select Date" readonly>
+
         <button id="chooseDateButton" class="btn btn-primary">Choose Date</button>
     </div>
 

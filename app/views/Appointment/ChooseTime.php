@@ -98,8 +98,8 @@
             border-color: #dc3545;
         }
 
-        /* Grid layout for time buttons */
-        .time-buttons {
+        
+        .btn-group {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
             grid-gap: 10px;
@@ -165,7 +165,7 @@
 
     <div class="mt-5">
         <h1>Select Time</h1>
-        <div class="time-buttons">
+        <div class="btn-group">
             <?php for($i = 0; $i <= 16; $i++): ?>
                 <?php
                     $hour = floor($i / 2) + 9;
@@ -197,7 +197,7 @@
 <script>
     $(document).ready(function(){
         $('.btn-group').on('click', '.btn-secondary', function() {
-            var selectedSlot = $(this).attr('id'); // Accessing the ID of the clicked button
+            var selectedSlot = $(this).attr('id'); 
             if(selectedSlot) {
                 var form = $('<form method="POST" action="/Appointment/ConfirmInfo"></form>');
                 form.append('<input type="hidden" name="slot" value="' + selectedSlot + '">');
