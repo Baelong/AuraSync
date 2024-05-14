@@ -8,8 +8,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
     <style>
         body {
+            background-color: #f8f9fa;
             margin-top: 10%;
-            background-color: #f8f9fa
         }
 
         .container {
@@ -30,8 +30,30 @@
             vertical-align: middle !important;
         }
 
-        .btn {
-            margin-right: 10px;
+        /* Custom button styles */
+        .btn-group {
+            margin-top: 20px;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            border-color: #6c757d;
+            color: #fff;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #545b62;
+        }
+
+        .btn-secondary:focus, .btn-secondary.focus {
+            box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
+        }
+
+        /* Red button style */
+        .btn-red {
+            background-color: #dc3545;
+            border-color: #dc3545;
         }
     </style>
 </head>
@@ -63,24 +85,8 @@
             </div>
         </div>
     </nav>
-
 <div class="container">
-    <div class="table-responsive">
-        <table class="table table-bordered table-hover">
-            <thead class="table-dark">
-                <tr>
-                    <th scope="col">Appointment ID</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="barber-row active" data-Appointment-id="<?= $data->appointment_id ?>">
-                    <td><?= $data->appointment_id ?></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <h1 class="mb-4">Client Information</h1>
+    <h1 class="mb-4">Barber Chosen</h1>
 
     <div class="table-responsive">
         <table class="table table-bordered table-hover">
@@ -91,34 +97,17 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="barber-row active" data-client-id="<?= $data2->client_profile_id ?>">
-                    <td><?= $data2->first_name ?></td>
-                    <td><?= $data2->last_name ?></td>
+            <?php foreach($data as $index => $barber): ?>
+                <tr class="barber-row active" data-barber-id="<?= $barber->barber_profile_id ?>">
+                    <td><?= $barber->first_name ?></td>
+                    <td><?= $barber->last_name ?></td>
                 </tr>
+            <?php endforeach; ?>
             </tbody>
         </table>
     </div>
 
-    <h1 class="mb-4">Barber Information</h1>
-
-    <div class="table-responsive">
-        <table class="table table-bordered table-hover">
-            <thead class="table-dark">
-                <tr>
-                    <th scope="col">First Name</th>
-                    <th scope="col">Last Name</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="barber-row active" data-barber-id="<?= $data3->barber_profile_id ?>">
-                    <td><?= $data3->first_name ?></td>
-                    <td><?= $data3->last_name ?></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <h1 class="mb-4 mt-5">Services Information</h1>
+    <h1 class="mb-4 mt-5">Services Selected</h1>
 
     <div class="table-responsive">
         <table class="table table-bordered table-hover">
@@ -131,12 +120,14 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="service-row active" data-service-id="<?= $data4->service_id ?>">
-                    <td><?= $data4->name ?></td>
-                    <td><?= $data4->description ?></td>
-                    <td><?= $data4->price ?></td>
-                    <td><?= $data4->discount ?></td>
+            <?php foreach($data2 as $index => $service): ?>
+                <tr class="service-row active" data-service-id="<?= $service->service_id ?>">
+                    <td><?= $service->name ?></td>
+                    <td><?= $service->description ?></td>
+                    <td><?= $service->price ?></td>
+                    <td><?= $service->discount ?></td>
                 </tr>
+            <?php endforeach; ?>
             </tbody>
         </table>
     </div>
@@ -145,11 +136,11 @@
 
     <h4> 
         <tr class="date">
-            <td><?= $data->date ?></td>
+            <td><?= $data3 ?></td>
         </tr>
     </h4>
 
-    <div class="mt-5">
+	<div class="mt-5">
         <h1>Time Chosen</h1>
         <h4> 
             <tr class="slot">
@@ -158,8 +149,8 @@
                         <tr class="slot">
                             <td>
                                 <?php
-                                $hour = floor(($data->slot - 1) / 2) + 9;
-                                $minute = ($data->slot % 2 == 0) ? "30" : "00"; 
+                                $hour = floor(($data4 - 1) / 2) + 9;
+                                $minute = ($data4 % 2 == 0) ? "30" : "00"; 
 
                                 // Format the time
                                 $time = sprintf("%02d:%s", $hour, $minute);
@@ -175,29 +166,22 @@
             </tr>
         </h4>
     </div>
-
-    <div class="mt-5">
-        <!-- Reschedule Button -->
-        <form action="/Appointment/editAppointmentDate" method="post" style="display: inline-block;">
-            <input type="hidden" name="appointment_id" value="<?= $data->appointment_id ?>">
-            <button type="submit" class="btn btn-primary">Reschedule</button>
-        </form>
-
-        <!-- Cancel Button -->
-        <form action="/Appointment/deleteAppointment" method="post" style="display: inline-block;">
-        <input type="hidden" name="appointment_id" value="<?= $data->appointment_id ?>">
-            <button type="submit" class="btn btn-danger">Cancel Your Appoitnment</button>
-        </form>
-    </div>
-
+    <button id="checkoutButton" class="btn btn-primary mt-3">Proceed to Checkout</button>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 
 <script>
-    
+    $(document).ready(function(){
+        $('#checkoutButton').on('click',function() {
+                var form = $('<form method="POST" action="/Appointment/Pay"></form>');
+                form.appendTo('body').submit();
+        });
+    });
 </script>
+
+
 
 </body>
 </html>

@@ -29,8 +29,6 @@ class ClientProfile extends \app\core\Model{
         );
     }
     
-    
-
 	//read
 	public function getForUser($client_id){
 		$SQL = 'SELECT * FROM client_profile WHERE client_id = :client_id';
@@ -69,7 +67,7 @@ class ClientProfile extends \app\core\Model{
 		$SQL = 'UPDATE client_profile SET first_name=:first_name,last_name=:last_name,age=:age,phone_number=:phone_number WHERE client_profile_id = :client_profile_id';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute(
-			['client_profile_id'=>$this->barber_profile_id,
+			['client_profile_id'=>$this->client_profile_id,
 			'first_name'=>$this->first_name,
 			'last_name'=>$this->last_name,
 			'age'=>$this->age,
@@ -85,6 +83,4 @@ class ClientProfile extends \app\core\Model{
 			['client_profile_id'=>$this->client_profile_id]
 		);
 	}
-
-
 }

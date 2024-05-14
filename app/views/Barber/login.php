@@ -9,6 +9,8 @@
         body {
             background-color: #f8f9fa;
             font-family: Arial, sans-serif;
+            display: flex;
+			justify-content: center;
             margin: 0;
             padding: 0;
         }
@@ -29,7 +31,7 @@
         }
 
         input[type="submit"] {
-            background-color: #007bff;
+            background-color: #000;
             color: white;
             border: none;
             border-radius: 5px;
@@ -38,19 +40,34 @@
         }
 
         input[type="submit"]:hover {
-            background-color: #0056b3;
+            background-color: #333;
         }
 
         a {
             color: #007bff;
             text-decoration: none;
             margin-left: 10px;
+            transition: color 0.5s;
         }
+
+        a:hover {
+            color: #F11100;
+        }
+        .card-login{
+			background-color: #fff;
+			border-radius: 8px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			padding: 20px;
+			width: 500px;
+			height: 450px;
+			margin-top: 45px;
+		}
     </style>
 </head>
 <body>
-
+<div class="card-login">
 <div class="container">
+    <h1>Barber Login</h1>
     <form method="post" action="">
         <div class="form-group">
             <label>Email:</label>
@@ -64,9 +81,13 @@
         <div class="form-group">
             <input type="submit" name="action" value="Login" />
             <a href="/Barber/register">I have no account, bring me to the barber registration page</a>
+
         </div>
+        <a href="/Authentication/index">Return to user type selection</a>
     </form>
+
 </div>
+    </div>
 
 </body>
 </html>
