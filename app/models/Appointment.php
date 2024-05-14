@@ -79,4 +79,13 @@ public function insert(){
 			['appointment_id'=>$this->appointment_id]
 		);
 	}
+    public function update(){
+		$SQL = 'UPDATE appointment SET date=:date,slot=:slot WHERE appointment_id = :appointment_id';
+		$STMT = self::$_conn->prepare($SQL);
+		$STMT->execute(
+			['appointment_id'=>$this->appointment_id,
+			'date'=>$this->date,
+			'slot'=>$this->slot]
+		);
+	}
 }

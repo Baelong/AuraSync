@@ -10,7 +10,7 @@
         body {
             background-color: #f8f9fa;
             font-family: Arial, sans-serif;
-            padding-top: 50px;
+            padding-top: 5%;
             padding-bottom: 50px;
         }
 
@@ -65,7 +65,8 @@
         }
 
         #chooseDateButton {
-            margin-top: 20px;
+            padding-top: 20px;
+            padding: 20px;
         }
 
         .btn-primary {
@@ -77,36 +78,10 @@
             background-color: #333;
             border-color: #0056b3;
         }
-
-        .btn-secondary {
-            background-color: #6c757d;
-            border-color: #6c757d;
-            color: #fff;
-        }
-
-        .btn-secondary:hover {
-            background-color: #5a6268;
-            border-color: #545b62;
-        }
-
-        .btn-secondary:focus, .btn-secondary.focus {
-            box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
-        }
-
-        .btn-red {
-            background-color: #dc3545;
-            border-color: #dc3545;
-        }
-
-        
-        .btn-group {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            grid-gap: 10px;
-        }
     </style>
 </head>
 <body>
+    
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">User Profile</a>
@@ -135,7 +110,7 @@
         </div>
     </nav>
 <div class="container">
-    <h1 class="mb-4">Barber Chosen</h1>
+    <h1>Barber Chosen</h1>
 
     <div class="table-responsive">
         <table class="table table-bordered table-hover">
@@ -146,17 +121,15 @@
                 </tr>
             </thead>
             <tbody>
-            <?php foreach($data as $index => $barber): ?>
-                <tr class="barber-row active" data-barber-id="<?= $barber->barber_profile_id ?>">
-                    <td><?= $barber->first_name ?></td>
-                    <td><?= $barber->last_name ?></td>
+                <tr class="barber-row active" data-barber-id="<?= $data->barber_profile_id ?>">
+                    <td><?= $data->first_name ?></td>
+                    <td><?= $data->last_name ?></td>
                 </tr>
-            <?php endforeach; ?>
             </tbody>
         </table>
     </div>
 
-    <h1 class="mb-4 mt-5">Services Selected</h1>
+    <h1>Services Selected</h1>
 
     <div class="table-responsive">
         <table class="table table-bordered table-hover">
@@ -169,64 +142,81 @@
                 </tr>
             </thead>
             <tbody>
-            <?php foreach($data2 as $index => $service): ?>
-                <tr class="service-row active" data-service-id="<?= $service->service_id ?>">
-                    <td><?= $service->name ?></td>
-                    <td><?= $service->description ?></td>
-                    <td><?= $service->price ?></td>
-                    <td><?= $service->discount ?></td>
+                <tr class="service-row active" data-service-id="<?= $data2->service_id ?>">
+                    <td><?= $data2->name ?></td>
+                    <td><?= $data2->description ?></td>
+                    <td><?= $data2->price ?></td>
+                    <td><?= $data2->discount ?></td>
                 </tr>
-            <?php endforeach; ?>
             </tbody>
         </table>
     </div>
+   
 
-    <h1 class="mb-4 mt-5">Date Chosen</h1>
+    <h1>Choose Appointment Date</h1>
 
-    <h4> 
-        <tr class="date">
-            <td><?= $data3 ?></td>
-        </tr>
-    </h4>
+    <div class="input-group">
+    <input type="text" id="datepicker" name="appointment_date" class="form-control" placeholder="<?= $data4->date ?>" readonly>
 
-    <div class="mt-5">
-        <h1>Select Time</h1>
-        <div class="btn-group">
-            <?php for($i = 0; $i <= 16; $i++): ?>
-                <?php
-                    $hour = floor($i / 2) + 9;
-                    $minute = ($i % 2) ? "30" : "00";
-                    $time = $hour . ":" . $minute;
-                    $id = $i + 1;
-                    $slotTaken = false;
-                    foreach ($data4 as $appointment) {
-                        if ($id == $appointment->slot) {
-                            $slotTaken = true;
-                            break;
-                        }
-                    }
-                ?>
-                <?php if ($slotTaken): ?>
-                    <button class="btn btn-secondary btn-red" id="<?= $id ?>" disabled><?= $time ?></button>
-                <?php else: ?>
-                    <button class="btn btn-secondary" id="<?= $id ?>"><?= $time ?></button>
-                <?php endif; ?>
-            <?php endfor; ?>
-        </div>
+        <button id="chooseDateButton" class="btn btn-primary">Choose Date</button>
     </div>
 
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-
 <script>
     $(document).ready(function(){
-        $('.btn-group').on('click', '.btn-secondary', function() {
-            var selectedSlot = $(this).attr('id'); 
-            if(selectedSlot) {
-                var form = $('<form method="POST" action="/Appointment/ConfirmInfo"></form>');
-                form.append('<input type="hidden" name="slot" value="' + selectedSlot + '">');
+        var tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1); // Set minimum date as tomorrow
+
+        var twoMonthsLater = new Date();
+        twoMonthsLater.setMonth(twoMonthsLater.getMonth() + 2); // Set maximum date as two months later
+
+        // Define the allowed days of the week
+        var unAllowedDays = [];
+        <?php foreach($data3 as $index => $availability): ?>
+            if(<?= $availability->Monday ?> === 0){
+                unAllowedDays.push(1); // 1 represents Monday
+            }
+            if(<?= $availability->Tuesday ?> === 0){
+                unAllowedDays.push(2); // 2 represents Tuesday
+            }
+            if(<?= $availability->Wednesday ?> === 0){
+                unAllowedDays.push(3); // 3 represents Wednesday
+            }
+            if(<?= $availability->Thursday ?> === 0){
+                unAllowedDays.push(4); // 4 represents Thursday
+            }
+            if(<?= $availability->Friday ?> === 0){
+                unAllowedDays.push(5); // 5 represents Friday
+            }
+            if(<?= $availability->Saturday ?> === 0){
+                unAllowedDays.push(6); // 6 represents Saturday
+            }
+            if(<?= $availability->Sunday ?> === 0){
+                unAllowedDays.push(0); // 0 represents Sunday
+            }
+        <?php endforeach; ?>
+
+        $('#datepicker').datepicker({
+            format: 'yyyy-mm-dd',
+            autoclose: true,
+            startDate: tomorrow,
+            endDate: twoMonthsLater,
+            
+            beforeShowDay: function(date) {
+                var day = date.getDay();
+                // Return false for disallowed days
+                return !unAllowedDays.includes(day);
+            }
+        });
+
+        $('#chooseDateButton').on('click', function() {
+            var selectedDate = $('#datepicker').val();
+            if(selectedDate) {
+                var form = $('<form method="POST" action="/Appointment/editAppointmentTime"></form>');
+                form.append('<input type="hidden" name="date" value="' + selectedDate + '">');
                 form.appendTo('body').submit();
             } else {
                 alert('Please select a date.');

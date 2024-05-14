@@ -3,14 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>Client Appointments</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
+            padding-top: 70px;
             background-color: #f0f0f0;
         }
+        .nav-item{
+            border-bottom: none;
+        }
+        
         .container {
             max-width: 800px;
             margin: 20px auto;
@@ -29,7 +34,7 @@
             padding: 0;
             margin: 0;
         }
-        li {
+        li{
             padding: 10px;
             border-bottom: 1px solid #ccc;
             display: flex;
@@ -68,15 +73,43 @@
             justify-content: flex-end;
             align-items: center;
         }
+        
     </style>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">User Profile</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                <li class="nav-item">
+                        <a class="nav-link" href='/ClientProfile/index'>Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href='/ClientProfile/edit_profile'>Modify my profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Appointment/clientAppointments">My Appointments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href='/Client/browse_barbers'>Browse for barbers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Client/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <?php if (!empty($appointments)) : ?>
         <div class="container">
             <h1>Client Appointments</h1>
             <ul>
                 <?php foreach ($appointments as $key => $appointment) : ?>
-                    <li>
+                    <li id="AppointmentList">
                         <div class="appointment-details">
                             <p><strong>Date:</strong> <?= $appointment->date ?></p>
                             <p><strong>Time:</strong>  

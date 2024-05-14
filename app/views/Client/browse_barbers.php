@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <style>
         body {
+            padding-top: 80px;
             background-color: #f8f9fa;
             font-family: Arial, sans-serif;
         }
@@ -53,6 +54,33 @@
     </style>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">User Profile</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                <li class="nav-item">
+                        <a class="nav-link" href='/ClientProfile/index'>Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href='/ClientProfile/edit_profile'>Modify my profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Appointment/clientAppointments">My Appointments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href='/Client/browse_barbers'>Browse for barbers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Client/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
 <div class="container mt-5">
     <div class="search-container">

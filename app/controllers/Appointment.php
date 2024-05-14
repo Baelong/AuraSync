@@ -35,6 +35,7 @@ class Appointment extends \app\core\Controller{
         $serviceModel = new \app\models\Service();
         $barberProfile = new \app\models\BarberProfile();
         $appointment = ($appointment->getByAppointmentID($_POST['appointment_id']))[0];
+        $_SESSION['appointment_id'] = $_POST['appointment_id'];
         $service = ($serviceModel->getByServiceID($appointment->service_id))[0];
         $barber = ($barberProfile->getByProfileID($appointment->barber_profile_id))[0];
         $client = ($clientProfile->getByProfileID($appointment->client_profile_id))[0];
@@ -153,18 +154,72 @@ class Appointment extends \app\core\Controller{
  
          $this->view('appointment/clientAppointments', ['appointments' => $appointments],['services' => $services]);
     }
-    function editAppointment(){
+    function editAppointmentDate(){
       if($_SERVER['REQUEST_METHOD'] === 'POST'){//data is submitted through method POST
         //make a new profile object
         //pass on barber_profile_id, service_id, availabilities?
           $appointment = new \app\models\Appointment();
-          $appointment = ($appointment->getByAppointmentID($_POST['appointment_id']))[0];
-         
-            $this->view('Appointment/editAppointment',$appointment);
+          $serviceModel = new \app\models\Service();
+          $barberProfile = new \app\models\BarberProfile();
+          $availabilityModel = new \app\models\Availability();
+          $appointment = ($appointment->getByAppointmentID($_SESSION['appointment_id']))[0];
+          $service = ($serviceModel->getByServiceID($appointment->service_id))[0];
+          $barber = ($barberProfile->getByProfileID($appointment->barber_profile_id))[0];
+          $availabilities = $availabilityModel->getForUser($barber->barber_profile_id);
+          
+          
+            $this->view('Appointment/editAppointmentDate',$barber,$service,$availabilities,$appointment);
         }
       else{
       $this->view('Appointment/index');
   }
+}
+function editAppointmentTime(){
+  if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    $AppointmentModel = new \app\models\Appointment(); 
+    $serviceModel = new \app\models\Service();
+    $barberProfile = new \app\models\BarberProfile();
+    $appointment = ($AppointmentModel->getByAppointmentID($_SESSION['appointment_id']))[0];
+    $barbers = $barberProfile->getByProfileID($appointment->barber_profile_id);
+    $appointments = $AppointmentModel->getBydate($_POST['date'],$appointment->barber_profile_id);
+    $services = $serviceModel->getByServiceID($appointment->service_id);
+    
+
+    $date = $_POST['date'];
+    $_SESSION['date'] = $date;
+      $this->view('Appointment/editAppointmentTime',$barbers,$services,$date,$appointments);
+      }
+  else{
+  $this->view('Appointment/editAppointmentDate');
+}
+  
+}
+function UpdatedReceipt(){
+  if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    
+    $serviceModel = new \app\models\Service();
+    $barberProfile = new \app\models\BarberProfile();
+    $clientProfile = new \app\models\ClientProfile();
+    $AppointmentModel = new \app\models\Appointment();
+    $appointment = ($AppointmentModel->getByAppointmentID($_SESSION['appointment_id']))[0];
+    $services = $serviceModel->getByServiceID($appointment->service_id);
+    $barbers = $barberProfile->getByProfileID($appointment->barber_profile_id);
+    $clients = $clientProfile->getByProfileID($appointment->client_profile_id);
+    $date =  $_SESSION['date'];
+    $slot = $_POST['slot'];
+    $appointment->date = $date;
+    $appointment->slot = $_POST['slot'];
+
+
+    $appointment->update();
+
+
+      $this->view('Appointment/UpdatedReceipt',$barbers,$services,$date,$slot,$clients);
+      }
+  else{
+  $this->view('Appointment/editAppointmentTime');
+  }
+  
 }
   function deleteAppointment(){
     

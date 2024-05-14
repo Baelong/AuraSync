@@ -7,8 +7,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
         body {
-            background-color: #f8f9fa;
-            padding-top: 80px; /* Adjusted to accommodate the navbar */
+           font-family: Arial, sans-serif;
+            margin: 0;
+            padding-top: 70px;
+            background-color: #f0f0f0;
         }
 
         .container {
@@ -16,14 +18,6 @@
             justify-content: center; /* Center the content horizontally */
             align-items: flex-start;
             padding-top: 50px;
-        }
-
-        .sidebar {
-            width: 20%;
-            background-color: #f0f0f0;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
         }
 
         .content {
@@ -73,6 +67,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
+                <li class="nav-item">
+                        <a class="nav-link" href='/ClientProfile/index'>Home</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href='/ClientProfile/edit_profile'>Modify my profile</a>
                     </li>
@@ -106,7 +103,7 @@
         </div>
     </div>
 
-    <!-- Bootstrap JavaScript bundle with Popper -->
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-9aH1Fc/T3Xe3RBf7vKj4Mzyn9tmq9OQCq6JkPqTVfh4l0tzEMOzvpwHXRnhO1QoS" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -8,7 +8,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #f8f9fa;
+            margin-top: 10%;
+            background-color: #f8f9fa
         }
 
         .container {
@@ -35,6 +36,33 @@
     </style>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">User Profile</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                <li class="nav-item">
+                        <a class="nav-link" href='/ClientProfile/index'>Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href='/ClientProfile/edit_profile'>Modify my profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Appointment/clientAppointments">My Appointments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href='/Client/browse_barbers'>Browse for barbers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Client/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
 <div class="container">
     <div class="table-responsive">
@@ -150,14 +178,14 @@
 
     <div class="mt-5">
         <!-- Reschedule Button -->
-        <form action="/Appointment/editAppointment" method="post" style="display: inline-block;">
+        <form action="/Appointment/editAppointmentDate" method="post" style="display: inline-block;">
             <input type="hidden" name="appointment_id" value="<?= $data->appointment_id ?>">
             <button type="submit" class="btn btn-primary">Reschedule</button>
         </form>
 
         <!-- Cancel Button -->
         <form action="/Appointment/deleteAppointment" method="post" style="display: inline-block;">
-            <input type="hidden" name="appointment_id" value="<?= $data->appointment_id ?>">
+        <input type="hidden" name="appointment_id" value="<?= $data->appointment_id ?>">
             <button type="submit" class="btn btn-danger">Cancel Your Appoitnment</button>
         </form>
     </div>
