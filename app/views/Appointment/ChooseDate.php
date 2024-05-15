@@ -81,152 +81,149 @@
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">User Profile</a>
+            <a class="navbar-brand" href="#"><?= __('User Profile') ?></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                <li class="nav-item">
-                        <a class="nav-link" href='/ClientProfile/index'>Home</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href='<?= __('/ClientProfile/index') ?>'><?= __('Home') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href='/ClientProfile/edit_profile'>Modify my profile</a>
+                        <a class="nav-link" href='<?= __('/ClientProfile/edit_profile') ?>'><?= __('Modify my profile') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/Appointment/clientAppointments">My Appointments</a>
+                        <a class="nav-link" href="<?= __('/Appointment/clientAppointments') ?>"><?= __('My Appointments') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href='/Client/browse_barbers'>Browse for barbers</a>
+                        <a class="nav-link" href='<?= __('/Client/browse_barbers') ?>'><?= __('Browse for barbers') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/Client/logout">Logout</a>
+                        <a class="nav-link" href="<?= __('/Client/logout') ?>"><?= __('Logout') ?></a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-<div class="container">
-    <h1>Barber Chosen</h1>
+    <div class="container">
+        <h1><?= __('Barber Chosen') ?></h1>
 
-    <div class="table-responsive">
-        <table class="table table-bordered table-hover">
-            <thead class="table-dark">
-                <tr>
-                    <th scope="col">First Name</th>
-                    <th scope="col">Last Name</th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php foreach($data as $index => $barber): ?>
-                <tr class="barber-row active" data-barber-id="<?= $barber->barber_profile_id ?>">
-                    <td><?= $barber->first_name ?></td>
-                    <td><?= $barber->last_name ?></td>
-                </tr>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col"><?= __('First Name') ?></th>
+                        <th scope="col"><?= __('Last Name') ?></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($data as $index => $barber): ?>
+                        <tr class="barber-row active" data-barber-id="<?= $barber->barber_profile_id ?>">
+                            <td><?= $barber->first_name ?></td>
+                            <td><?= $barber->last_name ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+
+        <h1><?= __('Services Selected') ?></h1>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col"><?= __('Name') ?></th>
+                        <th scope="col"><?= __('Description') ?></th>
+                        <th scope="col"><?= __('Price') ?></th>
+                        <th scope="col"><?= __('Discount') ?></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($data2 as $index => $service): ?>
+                        <tr class="service-row active" data-service-id="<?= $service->service_id ?>">
+                            <td><?= $service->name ?></td>
+                            <td><?= $service->description ?></td>
+                            <td><?= $service->price ?></td>
+                            <td><?= $service->discount ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+
+        <h1><?= __('Choose Appointment Date') ?></h1>
+
+        <div class="input-group">
+            <input type="text" id="datepicker" name="appointment_date" class="form-control" placeholder="<?= __('Select Date') ?>" readonly>
+            <button id="chooseDateButton" class="btn btn-primary"><?= __('Choose Date') ?></button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1); // Set minimum date as tomorrow
+
+            var twoMonthsLater = new Date();
+            twoMonthsLater.setMonth(twoMonthsLater.getMonth() + 2); // Set maximum date as two months later
+
+            // Define the allowed days of the week
+            var unAllowedDays = [];
+            <?php foreach($data3 as $index => $availability): ?>
+                if(<?= $availability->Monday ?> === 0){
+                    unAllowedDays.push(1); // 1 represents Monday
+                }
+                if(<?= $availability->Tuesday ?> === 0){
+                    unAllowedDays.push(2); // 2 represents Tuesday
+                }
+                if(<?= $availability->Wednesday ?> === 0){
+                    unAllowedDays.push(3); // 3 represents Wednesday
+                }
+                if(<?= $availability->Thursday ?> === 0){
+                    unAllowedDays.push(4); // 4 represents Thursday
+                }
+                if(<?= $availability->Friday ?> === 0){
+                    unAllowedDays.push(5); // 5 represents Friday
+                }
+                if(<?= $availability->Saturday ?> === 0){
+                    unAllowedDays.push(6); // 6 represents Saturday
+                }
+                if(<?= $availability->Sunday ?> === 0){
+                    unAllowedDays.push(0); // 0 represents Sunday
+                }
             <?php endforeach; ?>
-            </tbody>
-        </table>
-    </div>
 
-    <h1>Services Selected</h1>
+            $('#datepicker').datepicker({
+                format: 'yyyy-mm-dd',
+                autoclose: true,
+                startDate: tomorrow,
+                endDate: twoMonthsLater,
+                beforeShowDay: function(date) {
+                    var day = date.getDay();
+                    // Return false for disallowed days
+                    return !unAllowedDays.includes(day);
+                }
+            });
 
-    <div class="table-responsive">
-        <table class="table table-bordered table-hover">
-            <thead class="table-dark">
-                <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Discount</th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php foreach($data2 as $index => $service): ?>
-                <tr class="service-row active" data-service-id="<?= $service->service_id ?>">
-                    <td><?= $service->name ?></td>
-                    <td><?= $service->description ?></td>
-                    <td><?= $service->price ?></td>
-                    <td><?= $service->discount ?></td>
-                </tr>
-            <?php endforeach; ?>
-            </tbody>
-        </table>
-    </div>
-   
-
-    <h1>Choose Appointment Date</h1>
-
-    <div class="input-group">
-    <input type="text" id="datepicker" name="appointment_date" class="form-control" placeholder="Select Date" readonly>
-
-        <button id="chooseDateButton" class="btn btn-primary">Choose Date</button>
-    </div>
-
-</div>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-<script>
-    $(document).ready(function(){
-        var tomorrow = new Date();
-        tomorrow.setDate(tomorrow.getDate() + 1); // Set minimum date as tomorrow
-
-        var twoMonthsLater = new Date();
-        twoMonthsLater.setMonth(twoMonthsLater.getMonth() + 2); // Set maximum date as two months later
-
-        // Define the allowed days of the week
-        var unAllowedDays = [];
-        <?php foreach($data3 as $index => $availability): ?>
-            if(<?= $availability->Monday ?> === 0){
-                unAllowedDays.push(1); // 1 represents Monday
-            }
-            if(<?= $availability->Tuesday ?> === 0){
-                unAllowedDays.push(2); // 2 represents Tuesday
-            }
-            if(<?= $availability->Wednesday ?> === 0){
-                unAllowedDays.push(3); // 3 represents Wednesday
-            }
-            if(<?= $availability->Thursday ?> === 0){
-                unAllowedDays.push(4); // 4 represents Thursday
-            }
-            if(<?= $availability->Friday ?> === 0){
-                unAllowedDays.push(5); // 5 represents Friday
-            }
-            if(<?= $availability->Saturday ?> === 0){
-                unAllowedDays.push(6); // 6 represents Saturday
-            }
-            if(<?= $availability->Sunday ?> === 0){
-                unAllowedDays.push(0); // 0 represents Sunday
-            }
-        <?php endforeach; ?>
-
-        $('#datepicker').datepicker({
-            format: 'yyyy-mm-dd',
-            autoclose: true,
-            startDate: tomorrow,
-            endDate: twoMonthsLater,
-            beforeShowDay: function(date) {
-                var day = date.getDay();
-                // Return false for disallowed days
-                return !unAllowedDays.includes(day);
-            }
+            $('#chooseDateButton').on('click', function() {
+                var selectedDate = $('#datepicker').val();
+                if(selectedDate) {
+                    var form = $('<form method="POST" action="/Appointment/chooseTime"></form>');
+                    form.append('<input type="hidden" name="date" value="' + selectedDate + '">');
+                    form.appendTo('body').submit();
+                } else {
+                    alert('Please select a date.');
+                }
+            });
         });
-
-        $('#chooseDateButton').on('click', function() {
-            var selectedDate = $('#datepicker').val();
-            if(selectedDate) {
-                var form = $('<form method="POST" action="/Appointment/chooseTime"></form>');
-                form.append('<input type="hidden" name="date" value="' + selectedDate + '">');
-                form.appendTo('body').submit();
-            } else {
-                alert('Please select a date.');
-            }
-        });
-    });
-</script>
-
+    </script>
 </body>
+
 </html>

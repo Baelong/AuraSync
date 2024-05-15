@@ -47,25 +47,26 @@
 </head>
 <body>
 	<div class='container'>
-		<h1>Barber profile</h1>
+		<h1><?= __('Barber profile') ?></h1>
 		<dl>
-			<dt>First name:</dt>
+			<dt><?= __('First name:') ?></dt>
 			<dd><?= $data->first_name ?></dd>
-			<dt>Last name:</dt>
+			<dt><?= __('Last name:') ?></dt>
 			<dd><?= $data->last_name ?></dd>
-			<dt>Bio:</dt>
+			<dt><?= __('Bio:') ?></dt>
 			<dd><?= $data->bio ?></dd>
-			<dt>Phone Number:</dt>
+			<dt><?= __('Phone Number:') ?></dt>
 			<dd><?= $data->phone_number ?></dd>
-            <dt>Age:</dt>
+            <dt><?= __('Age:') ?></dt>
 			<dd><?= $data->age ?></dd>
 		</dl>
-          <dd>
-		<a href='/BarberProfile/editProfile'>Modify my profile</a>
-          </dd>
         <dd>
-        <a href="/Barber/logout">Logout</a>
-         </dd>
+		    <a href='/BarberProfile/editProfile'><?= __('Modify my profile') ?></a>
+        </dd>
+        <dd>
+            <a href="/Barber/logout"><?= __('Logout') ?></a>
+        </dd>
 	</div>
 </body>
+
 </html>

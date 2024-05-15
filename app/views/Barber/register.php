@@ -60,25 +60,26 @@
     </style>
 </head>
 <body>
-<div class='card-container'>
-  <div class='container'>
-    <h1>Barber Registration</h1>
-    <form method='post' action=''>
-      <div class="form-group">
-        <label>Email:</label>
-        <input type="text" class="form-control" name="email" placeholder="Jondoe@gmail.com" />
-      </div>
-      <div class="form-group">
-        <label>Password:</label>
-        <input type="password" class="form-control" name="password" placeholder="password" />
-      </div>
+    <div class='card-container'>
+        <div class='container'>
+            <h1><?= __('Barber Registration') ?></h1>
+            <form method='post' action=''>
+                <div class="form-group">
+                    <label><?= __('Email:') ?></label>
+                    <input type="text" class="form-control" name="email" placeholder="<?= __('Jondoe@gmail.com') ?>" />
+                </div>
+                <div class="form-group">
+                    <label><?= __('Password:') ?></label>
+                    <input type="password" class="form-control" name="password" placeholder="<?= __('password') ?>" />
+                </div>
 
-      <div class="form-group">
-        <input type="submit" name="action" value="Register" /> 
-        <a href='/Barber/login'>I have an account, bring me to the Barber login page</a>
-      </div>
-    </form>
-  </div>
-  </div>
+                <div class="form-group">
+                    <input type="submit" name="action" value="<?= __('Register') ?>" />
+                    <a href='/Barber/login'><?= __('I have an account, bring me to the Barber login page') ?></a>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
+
 </html>

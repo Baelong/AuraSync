@@ -77,28 +77,28 @@
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">User Profile</a>
+            <a class="navbar-brand" href="#"><?= __('User Profile') ?></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                <li class="nav-item">
-                        <a class="nav-link" href='/ClientProfile/index'>Home</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href='<?= __('/ClientProfile/index') ?>'><?= __('Home') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href='/ClientProfile/edit_profile'>Modify my profile</a>
+                        <a class="nav-link" href='<?= __('/ClientProfile/edit_profile') ?>'><?= __('Modify my profile') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/Appointment/clientAppointments">My Appointments</a>
+                        <a class="nav-link" href="<?= __('/Appointment/clientAppointments') ?>"><?= __('My Appointments') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href='/Client/browse_barbers'>Browse for barbers</a>
+                        <a class="nav-link" href='<?= __('/Client/browse_barbers') ?>'><?= __('Browse for barbers') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/Client/logout">Logout</a>
+                        <a class="nav-link" href="<?= __('/Client/logout') ?>"><?= __('Logout') ?></a>
                     </li>
                 </ul>
             </div>
@@ -106,13 +106,13 @@
     </nav>
     <?php if (!empty($appointments)) : ?>
         <div class="container">
-            <h1>Client Appointments</h1>
+            <h1><?= __('Client Appointments') ?></h1>
             <ul>
                 <?php foreach ($appointments as $key => $appointment) : ?>
                     <li id="AppointmentList">
                         <div class="appointment-details">
-                            <p><strong>Date:</strong> <?= $appointment->date ?></p>
-                            <p><strong>Time:</strong>  
+                            <p><strong><?= __('Date') ?>:</strong> <?= $appointment->date ?></p>
+                            <p><strong><?= __('Time') ?>:</strong>  
                                 <?php
                                     $hour = floor(($appointment->slot - 1) / 2) + 9;
                                     $minute = ($appointment->slot % 2 == 0) ? "30" : "00"; 
@@ -123,12 +123,12 @@
                                     // Print the time
                                     echo $time;
                                 ?></p>
-                            <p><strong>Service name:</strong> <?= $services[$key]->name ?></p>
+                            <p><strong><?= __('Service name') ?>:</strong> <?= $services[$key]->name ?></p>
                         </div>
                         <div class="button-container">
                             <form id="form_<?= $appointment->appointment_id ?>" action="/Appointment/index" method="post">
                                 <input type="hidden" name="appointment_id" value="<?= $appointment->appointment_id ?>">
-                                <button class="view-details-button" type="button" onclick="submitForm('<?= $appointment->appointment_id ?>')">View Details</button>
+                                <button class="view-details-button" type="button" onclick="submitForm('<?= $appointment->appointment_id ?>')"><?= __('View Details') ?></button>
                             </form>
                         </div>
                     </li>
@@ -137,8 +137,8 @@
         </div>
     <?php else : ?>
         <div class="container">
-            <h1>Client Appointments</h1>
-            <div class="no-appointments">No appointments booked.</div>
+            <h1><?= __('Client Appointments') ?></h1>
+            <div class="no-appointments"><?= __('No appointments booked.') ?></div>
         </div>
     <?php endif; ?>
 
@@ -148,4 +148,5 @@
         }
     </script>
 </body>
+
 </html>

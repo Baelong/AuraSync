@@ -62,97 +62,98 @@
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">User Profile</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="#"><?= __('User Profile') ?></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                <li class="nav-item">
-                        <a class="nav-link" href='/ClientProfile/index'>Home</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href='/ClientProfile/index'><?= __('Home') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href='/ClientProfile/edit_profile'>Modify my profile</a>
+                        <a class="nav-link" href='/ClientProfile/edit_profile'><?= __('Modify my profile') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/Appointment/clientAppointments">My Appointments</a>
+                        <a class="nav-link" href="/Appointment/clientAppointments"><?= __('My Appointments') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href='/Client/browse_barbers'>Browse for barbers</a>
+                        <a class="nav-link" href='/Client/browse_barbers'><?= __('Browse for barbers') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/Client/logout">Logout</a>
+                        <a class="nav-link" href="/Client/logout"><?= __('Logout') ?></a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-<div class="container">
-    <div class="receipt-header">
-        <h1>Appointment Receipt</h1>
-    </div>
-    <table class="receipt-table">
-        <thead>
-            <tr>
-                <th colspan="2">Barber Chosen</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach($data as $barber): ?>
+    <div class="container">
+        <div class="receipt-header">
+            <h1><?= __('Appointment Receipt') ?></h1>
+        </div>
+        <table class="receipt-table">
+            <thead>
+                <tr>
+                    <th colspan="2"><?= __('Barber Chosen') ?></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($data as $barber): ?>
                 <tr>
                     <td><?= $barber->first_name ?></td>
                     <td><?= $barber->last_name ?></td>
                 </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-    <table class="receipt-table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Discount</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach($data2 as $service): ?>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+        <table class="receipt-table">
+            <thead>
+                <tr>
+                    <th><?= __('Name') ?></th>
+                    <th><?= __('Description') ?></th>
+                    <th><?= __('Price') ?></th>
+                    <th><?= __('Discount') ?></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($data2 as $service): ?>
                 <tr>
                     <td><?= $service->name ?></td>
                     <td><?= $service->description ?></td>
                     <td><?= $service->price ?></td>
                     <td><?= $service->discount ?></td>
                 </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-    <div class="Date">
-        Date: <span><?= $data3 ?></span>
-    </div>
-    <div class="time">
-        Time: <span> 
-                    <?php
-                        $hour = floor(($data4 - 1) / 2) + 9;
-                        $minute = ($data4 % 2 == 0) ? "30" : "00"; 
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+        <div class="Date">
+            <?= __('Date: ') ?><span><?= $data3 ?></span>
+        </div>
+        <div class="time">
+            <?= __('Time: ') ?><span>
+                <?php
+                    $hour = floor(($data4 - 1) / 2) + 9;
+                    $minute = ($data4 % 2 == 0) ? "30" : "00"; 
 
-                        // Format the time
-                        $time = sprintf("%02d:%s", $hour, $minute);
+                    // Format the time
+                    $time = sprintf("%02d:%s", $hour, $minute);
 
-                        // Print the time
-                        echo $time;
-                    ?>
-                </span>
+                    // Print the time
+                    echo $time;
+                ?>
+            </span>
+        </div>
+        <div class="total">
+            <?= __('Total Amount: ') ?><span><?= $data2[0]->price ?></span>
+        </div>
+        <div class="footer">
+            <?= __('Thank you for choosing us!') ?><br>
+            <a href="/ClientProfile/index"><?= __('Done') ?></a>
+        </div>
     </div>
-    <div class="total">
-        Total Amount: <span><?= $data2[0]->price ?></span>
-    </div>
-    <div class="footer">
-        Thank you for choosing us!<br>
-        <a href="/ClientProfile/index">Done</a>
-    </div>
-</div>
-
 </body>
+
 </html>

@@ -61,157 +61,158 @@
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">User Profile</a>
+            <a class="navbar-brand" href="#"><?= __('User Profile') ?></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                <li class="nav-item">
-                        <a class="nav-link" href='/ClientProfile/index'>Home</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href='/ClientProfile/index'><?= __('Home') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href='/ClientProfile/edit_profile'>Modify my profile</a>
+                        <a class="nav-link" href='/ClientProfile/edit_profile'><?= __('Modify my profile') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/Appointment/clientAppointments">My Appointments</a>
+                        <a class="nav-link" href="/Appointment/clientAppointments"><?= __('My Appointments') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href='/Client/browse_barbers'>Browse for barbers</a>
+                        <a class="nav-link" href='/Client/browse_barbers'><?= __('Browse for barbers') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/Client/logout">Logout</a>
+                        <a class="nav-link" href="/Client/logout"><?= __('Logout') ?></a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h1 class="mb-4">Barber Profile</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="mb-4"><?= __('Barber Profile') ?></h1>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col"><?= __('First Name') ?></th>
+                        <th scope="col"><?= __('Last Name') ?></th>
+                        <th scope="col"><?= __('Bio') ?></th>
+                        <th scope="col"><?= __('Phone Number') ?></th>
+                        <th scope="col"><?= __('Age') ?></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($data as $index => $barber): ?>
+                        <tr class="barber-row" data-barber-id="<?= $barber->barber_profile_id ?>">
+                            <td><?= $barber->first_name ?></td>
+                            <td><?= $barber->last_name ?></td>
+                            <td><?= $barber->bio ?></td>
+                            <td><?= $barber->phone_number ?></td>
+                            <td><?= $barber->age ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="mb-4 mt-5"><?= __('Services Offered') ?></h1>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col"><?= __('Name') ?></th>
+                        <th scope="col"><?= __('Description') ?></th>
+                        <th scope="col"><?= __('Price') ?></th>
+                        <th scope="col"><?= __('Discount') ?></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($data2 as $index => $service): ?>
+                        <tr class="service-row" data-service-id="<?= $service->service_id ?>">
+                            <td><?= $service->name ?></td>
+                            <td><?= $service->description ?></td>
+                            <td><?= $service->price ?></td>
+                            <td><?= $service->discount ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="mb-4 mt-5"><?= __('Availability') ?></h1>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col"><?= __('Monday') ?></th>
+                        <th scope="col"><?= __('Tuesday') ?></th>
+                        <th scope="col"><?= __('Wednesday') ?></th>
+                        <th scope="col"><?= __('Thursday') ?></th>
+                        <th scope="col"><?= __('Friday') ?></th>
+                        <th scope="col"><?= __('Saturday') ?></th>
+                        <th scope="col"><?= __('Sunday') ?></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($data3 as $index => $availability): ?>
+                        <tr>
+                            <td><?= $availability->Monday == 1 ? 'Yes' : 'No' ?></td>
+                            <td><?= $availability->Tuesday == 1 ? 'Yes' : 'No' ?></td>
+                            <td><?= $availability->Wednesday == 1 ? 'Yes' : 'No' ?></td>
+                            <td><?= $availability->Thursday == 1 ? 'Yes' : 'No' ?></td>
+                            <td><?= $availability->Friday == 1 ? 'Yes' : 'No' ?></td>
+                            <td><?= $availability->Saturday == 1 ? 'Yes' : 'No' ?></td>
+                            <td><?= $availability->Sunday == 1 ? 'Yes' : 'No' ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
         </div>
     </div>
 
-    <div class="table-responsive">
-        <table class="table table-bordered table-hover">
-            <thead class="table-dark">
-                <tr>
-                    <th scope="col">First Name</th>
-                    <th scope="col">Last Name</th>
-                    <th scope="col">Bio</th>
-                    <th scope="col">Phone Number</th>
-                    <th scope="col">Age</th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php foreach($data as $index => $barber): ?>
-                <tr class="barber-row" data-barber-id="<?= $barber->barber_profile_id ?>">
-                    <td><?= $barber->first_name ?></td>
-                    <td><?= $barber->last_name ?></td>
-                    <td><?= $barber->bio ?></td>
-                    <td><?= $barber->phone_number ?></td>
-                    <td><?= $barber->age ?></td>
-                </tr>
-            <?php endforeach; ?>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="row">
-        <div class="col-md-12">
-            <h1 class="mb-4 mt-5">Services Offered</h1>
-        </div>
-    </div>
-
-    <div class="table-responsive">
-        <table class="table table-bordered table-hover">
-            <thead class="table-dark">
-                <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Discount</th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php foreach($data2 as $index => $service): ?>
-                <tr class="service-row" data-service-id="<?= $service->service_id ?>">
-                    <td><?= $service->name ?></td>
-                    <td><?= $service->description ?></td>
-                    <td><?= $service->price ?></td>
-                    <td><?= $service->discount ?></td>
-                </tr>
-            <?php endforeach; ?>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="row">
-        <div class="col-md-12">
-            <h1 class="mb-4 mt-5">Availability</h1>
-        </div>
-    </div>
-
-    <div class="table-responsive">
-        <table class="table table-bordered table-hover">
-            <thead class="table-dark">
-                <tr>
-                    <th scope="col">Monday</th>
-                    <th scope="col">Tuesday</th>
-                    <th scope="col">Wednesday</th>
-                    <th scope="col">Thursday</th>
-                    <th scope="col">Friday</th>
-                    <th scope="col">Saturday</th>
-                    <th scope="col">Sunday</th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php foreach($data3 as $index => $availability): ?>
-                <tr>
-                    <td><?= $availability->Monday == 1 ? 'Yes' : 'No' ?></td>
-                    <td><?= $availability->Tuesday == 1 ? 'Yes' : 'No' ?></td>
-                    <td><?= $availability->Wednesday == 1 ? 'Yes' : 'No' ?></td>
-                    <td><?= $availability->Thursday == 1 ? 'Yes' : 'No' ?></td>
-                    <td><?= $availability->Friday == 1 ? 'Yes' : 'No' ?></td>
-                    <td><?= $availability->Saturday == 1 ? 'Yes' : 'No' ?></td>
-                    <td><?= $availability->Sunday == 1 ? 'Yes' : 'No' ?></td>
-                </tr>
-            <?php endforeach; ?>
-            </tbody>
-        </table>
-    </div>
-</div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var serviceRows = document.querySelectorAll('.service-row');
-        var barberRows = document.querySelectorAll('.barber-row');
-        var barberId = barberRows[0].getAttribute('data-barber-id');
-        serviceRows.forEach(function(row) {
-            row.addEventListener('click', function() {
-                var serviceId = this.getAttribute('data-service-id');
-                var form = document.createElement('form');
-                form.method = 'POST';
-                form.action = '/Appointment/chooseDate';
-                var inputService = document.createElement('input');
-                inputService.type = 'hidden';
-                inputService.name = 'service_id';
-                inputService.value = serviceId;
-                var inputBarberProfileId = document.createElement('input');
-                inputBarberProfileId.type = 'hidden';
-                inputBarberProfileId.name = 'barber_profile_id';
-                inputBarberProfileId.value = barberId;
-                form.appendChild(inputService);
-                form.appendChild(inputBarberProfileId);
-                document.body.appendChild(form);
-                form.submit();
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var serviceRows = document.querySelectorAll('.service-row');
+            var barberRows = document.querySelectorAll('.barber-row');
+            var barberId = barberRows[0].getAttribute('data-barber-id');
+            serviceRows.forEach(function(row) {
+                row.addEventListener('click', function() {
+                    var serviceId = this.getAttribute('data-service-id');
+                    var form = document.createElement('form');
+                    form.method = 'POST';
+                    form.action = '/Appointment/chooseDate';
+                    var inputService = document.createElement('input');
+                    inputService.type = 'hidden';
+                    inputService.name = 'service_id';
+                    inputService.value = serviceId;
+                    var inputBarberProfileId = document.createElement('input');
+                    inputBarberProfileId.type = 'hidden';
+                    inputBarberProfileId.name = 'barber_profile_id';
+                    inputBarberProfileId.value = barberId;
+                    form.appendChild(inputService);
+                    form.appendChild(inputBarberProfileId);
+                    document.body.appendChild(form);
+                    form.submit();
+                });
             });
         });
-    });
-</script>
+    </script>
 </body>
+
 </html>
