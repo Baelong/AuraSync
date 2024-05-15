@@ -62,4 +62,30 @@ public function insert(){
         $service = $STMT->fetch();
         return $service;
     }
+
+    public function getByAppointmentID($appointment_id){//search
+		$SQL = 'SELECT * FROM appointment WHERE appointment_id = :appointment_id';
+		$STMT = self::$_conn->prepare($SQL);
+		$STMT->execute(
+			['appointment_id'=>$appointment_id]
+		);
+		$STMT->setFetchMode(PDO::FETCH_CLASS,'app\models\Appointment');//set the type of data returned by fetches
+		return $STMT->fetchAll();//return all records
+	}
+    public function delete(){
+		$SQL = 'DELETE FROM appointment WHERE appointment_id = :appointment_id';
+		$STMT = self::$_conn->prepare($SQL);
+		$STMT->execute(
+			['appointment_id'=>$this->appointment_id]
+		);
+	}
+    public function update(){
+		$SQL = 'UPDATE appointment SET date=:date,slot=:slot WHERE appointment_id = :appointment_id';
+		$STMT = self::$_conn->prepare($SQL);
+		$STMT->execute(
+			['appointment_id'=>$this->appointment_id,
+			'date'=>$this->date,
+			'slot'=>$this->slot]
+		);
+	}
 }

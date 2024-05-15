@@ -10,7 +10,7 @@
         body {
             background-color: #f8f9fa;
             font-family: Arial, sans-serif;
-            padding-top: 50px;
+            padding-top: 5%;
             padding-bottom: 50px;
         }
 
@@ -225,7 +225,7 @@
         $('.btn-group').on('click', '.btn-secondary', function() {
             var selectedSlot = $(this).attr('id'); 
             if(selectedSlot) {
-                var form = $('<form method="POST" action="/Appointment/ConfirmInfo"></form>');
+                var form = $('<form method="POST" action="/Appointment/UpdatedReceipt"></form>');
                 form.append('<input type="hidden" name="slot" value="' + selectedSlot + '">');
                 form.appendTo('body').submit();
             } else {

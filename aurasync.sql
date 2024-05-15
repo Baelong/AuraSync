@@ -69,7 +69,12 @@ CREATE TABLE `availabilities` (
 --
 
 INSERT INTO `availabilities` (`availability_id`, `barber_profile_id`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`) VALUES
-(1, 1, 1, 1, 1, 1, 1, 0, 0);
+(1, 1, 1, 1, 1, 1, 1, 0, 0),
+(2, 2, 0, 1, 1, 1, 1, 1, 0),
+(3, 3, 0, 1, 0, 1, 1, 1, 0),
+(4, 4, 1, 1, 1, 1, 1, 0, 1),
+(5, 5, 1, 0, 1, 1, 1, 0, 1);
+
 
 -- --------------------------------------------------------
 
@@ -90,7 +95,10 @@ CREATE TABLE `barber` (
 
 INSERT INTO `barber` (`barber_id`, `email`, `password_hash`, `status`) VALUES
 (1, 'jhonDoe@exmaple.com', '1234', 1),
-(2, 'ali@exmaple.com', '1234', 1);
+(2, 'ali@exmaple.com', '1234', 1),
+(3, 'ali1@example.com', '1', 1),
+(4, 'ali2@example.com', '12', 1),
+(5, 'ali3@example.com', '123', 1);
 
 -- --------------------------------------------------------
 
@@ -114,7 +122,10 @@ CREATE TABLE `barber_profile` (
 
 INSERT INTO `barber_profile` (`barber_profile_id`, `barber_id`, `first_name`, `last_name`, `bio`, `phone_number`, `age`) VALUES
 (1, 1, 'john', 'Doe', 'Hello i\'m jhon Doe', '514-999-9999', 32),
-(2, 2, 'Ali', 'Ilyas', 'agesdg', '514-999-9999', 32);
+(2, 2, 'Ali', 'Ilyas', 'agesdg', '514-999-9999', 32),
+(3, 3, 'Alex', 'Smith', 'Young barber', '514-123-9990', 16),
+(4, 4, 'Praveen', 'Manu', 'Mtl Based Barber', '514-299-8899', 18),
+(5, 5, 'David', 'Dan', 'Filipino Barber', '514-959-9239', 24);
 
 -- --------------------------------------------------------
 
@@ -194,7 +205,9 @@ CREATE TABLE `service` (
 INSERT INTO `service` (`service_id`, `barber_profile_id`, `name`, `description`, `price`, `discount`) VALUES
 (1, 1, 'Hair cut', 'Quick hair cut done in 30 mins', '30$', 'no disocunt'),
 (2, 1, 'Beard setting', 'Only cutting your beard how you want', '15$', 'no disocunt'),
-(3, 2, 'Hair Cut', 'Cutting Hair', '20$', 'no discount');
+(3, 2, 'Hair Cut', 'Cutting Hair', '20$', 'no discount'),
+(4, 2, 'Deluxe Package', 'Cutting Hair & beard trim & massage', '60$', 'no discount'),
+(5, 2, 'Facial', 'Exfoliation', '40$', 'no discount');
 
 --
 -- Indexes for dumped tables

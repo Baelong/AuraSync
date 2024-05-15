@@ -44,6 +44,7 @@ class ClientProfile extends \app\core\Controller{
 			$clientProfile->last_name = $_POST['last_name'];
 			$clientProfile->age = $_POST['age'];
 			$clientProfile->last_name = $_POST['last_name'];
+			$clientProfile->phone_number = $_POST['phone_number'];
 			//update it
 			$clientProfile->update();
 			//redirect

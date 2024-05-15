@@ -14,7 +14,7 @@ $this->addRoute('Barber/securePlace' , 'BarberProfile,index');
 $this->addRoute('Barber/register','Barber,register');
 $this->addRoute('Barber/logout' , 'Barber,logout');
 
-$this->addRoute('ClientProfile/editprofile' , 'ClientProfile,editprofile');
+$this->addRoute('ClientProfile/edit_profile' , 'ClientProfile,modify');
 $this->addRoute('ClientProfile/createProfile','ClientProfile,createProfile');
 $this->addRoute('ClientProfile/index','ClientProfile,index');
 
@@ -28,11 +28,8 @@ $this->addRoute('Appointment/chooseTime','Appointment,chooseTime');
 $this->addRoute('Appointment/ConfirmInfo','Appointment,ConfirmInfo');
 $this->addRoute('Appointment/Pay','Appointment,Pay');
 $this->addRoute('Appointment/Receipt','Appointment,Receipt');
-
-$this->addRoute('Service/index','Service,index');
-$this->addRoute('Service/updateService','Service,updateService');
-$this->addRoute('Service/deleteService','Service,deleteService');
-$this->addRoute('Service/createService','Service,createService');
-
-
-
+$this->addRoute('Appointment/index','Appointment,index');
+$this->addRoute('Appointment/editAppointmentDate','Appointment,editAppointmentDate');
+$this->addRoute('Appointment/editAppointmentTime','Appointment,editAppointmentTime');
+$this->addRoute('Appointment/UpdatedReceipt','Appointment,UpdatedReceipt');
+$this->addRoute('Appointment/deleteAppointment','Appointment,deleteAppointment');

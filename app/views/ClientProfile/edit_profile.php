@@ -16,7 +16,7 @@
         }
 
         h1 {
-            color: #007bff;
+            color: #000;
             text-align: center;
             margin-bottom: 20px;
         }
@@ -48,7 +48,7 @@
         input[type="submit"] {
             width: 100%;
             padding: 10px;
-            background-color: #007bff;
+            background-color: #000;
             color: #ffffff;
             border: none;
             border-radius: 5px;
@@ -56,14 +56,41 @@
         }
 
         input[type="submit"]:hover {
-            background-color: #0056b3;
+            background-color: #333;
         }
     </style>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">User Profile</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                <li class="nav-item">
+                        <a class="nav-link" href='/ClientProfile/index'>Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href='/ClientProfile/edit_profile'>Modify my profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Appointment/clientAppointments">My Appointments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href='/Client/browse_barbers'>Browse for barbers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Client/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <div class="container">
         <h1>Edit Profile</h1>
-        <form action="/ClientProfile/editprofile" method="POST">
+        <form action="/ClientProfile/edit_profile" method="POST">
             <div class="form-group">
                 <label for="first_name">First Name:</label>
                 <input type="text" id="first_name" name="first_name" value="<?= $data->first_name ?>" required>
@@ -78,7 +105,7 @@
             </div>
             <div class="form-group">
                 <label for="phone_number">Phone Number:</label>
-                <input type="tel" id="phone_number" name="phone_number" value="<?= $data->phone_number ?>" required>
+                <input type="text" id="phone_number" name="phone_number" value="<?= $data->phone_number ?>" required>
             </div>
             <input type="submit" value="Save Changes">
         </form>
