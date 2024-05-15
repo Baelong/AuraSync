@@ -33,6 +33,7 @@
 </head>
 <body>
 	<div class='container'>
+        <h1>Create Service</h1>
 		<form method='post' action=''>
 			<div class="form-group">
 				<label>Service Name:</label>
@@ -42,9 +43,16 @@
 				<label>Description:</label>
 				<input type="text" class="form-control" name="description" placeholder="Haircut Description" />
 			</div>
-      <div class="form-group">
+            <div class="form-group">
 				<label>Price:</label>
 				<input type="text" class="form-control" name="price" placeholder="$" />
+			</div>
+            <div class="form-group">
+				<label>Discount:</label>
+				<input type="text" class="form-control" name="discount" placeholder="none" />
+			</div>
+            <div class="form-group">
+				<input type="submit" name="action" value="Create" /> 
 			</div>
 		</form>
 	</div>

@@ -19,6 +19,7 @@ class Service extends \app\core\Controller{
 			$service->name = $_POST['name'];
 			$service->description = $_POST['description'];
             $service->price = $_POST['price'];
+			$service->discount = $_POST['discount'];
 			//insert it
 			$service->insert();
 			//redirect
@@ -27,6 +28,7 @@ class Service extends \app\core\Controller{
 			$this->view('Service/createService');
 		}
     }
+	
     function deleteService(){
 
     }

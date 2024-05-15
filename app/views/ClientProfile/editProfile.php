@@ -90,7 +90,7 @@
     </nav>
     <div class="container">
         <h1>Edit Profile</h1>
-        <form action="/ClientProfile/edit_profile" method="POST">
+        <form action="/ClientProfile/editProfile" method="POST">
             <div class="form-group">
                 <label for="first_name">First Name:</label>
                 <input type="text" id="first_name" name="first_name" value="<?= $data->first_name ?>" required>

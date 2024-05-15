@@ -16,7 +16,7 @@ class Service extends \app\core\Model{
 
 	//create
 	public function insert(){
-		$SQL = 'INSERT INTO service(barber_profile_id,name,description,price,discount) VALUE (:barber_profile_id,:name,:description,price,discount)';
+		$SQL = 'INSERT INTO service(barber_profile_id,name,description,price,discount) VALUE (:barber_profile_id,:name,:description,:price,:discount)';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute(
 			['barber_profile_id'=>$this->barber_profile_id,
