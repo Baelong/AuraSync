@@ -67,8 +67,11 @@
 		<a href='/Service/index'>My Services</a>
           </dd>
         <dd>
+        <a href="/Availability/index">Availability</a>
         <a href="/Barber/logout">Logout</a>
          </dd>
+       
+
 	</div>
 </body>
 </html>

@@ -62,19 +62,19 @@
         <form action="/Service/updateService?serviceId=<?= $_GET['serviceId'] ?>" method="post">
             <div class="form-group">
                 <label for="name">Service Name:</label>
-                <input type="text" id="name" name="name" value="">
+                <input type="text" id="name" name="name"  value="<?= $service->name ?>">
             </div>
             <div class="form-group">
                 <label for="description">Description:</label>
-                <textarea id="description" name="description"></textarea>
+                <textarea id="description" name="description"><?= $service->description ?></textarea>
             </div>
             <div class="form-group">
                 <label for="price">Price:</label>
-                <input type="text" id="price" name="price" value="">
+                <input type="text" id="price" name="price" value="<?= $service->price ?>">
             </div>
             <div class="form-group">
                 <label for="discount">Discount:</label>
-                <input type="text" id="discount" name="discount" value="">
+                <input type="text" id="discount" name="discount" value="<?= $service->discount ?>">
             </div>
             <input type="submit" value="Update Service">
         </form>

@@ -19,7 +19,7 @@ class Availability extends \app\core\Model{
 
 	//create
 	public function insert(){
-		$SQL = 'INSERT INTO availabilities(barber_profile_id,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday) VALUE (:barber_profile_id,:Monday,:Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday)';
+		$SQL = 'INSERT INTO availabilities(barber_profile_id,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday) VALUE (:barber_profile_id,:Monday,:Tuesday,:Wednesday,:Thursday,:Friday,:Saturday,:Sunday)';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute(
 			['barber_profile_id'=>$this->barber_profile_id,
@@ -52,10 +52,6 @@ class Availability extends \app\core\Model{
 		$STMT->setFetchMode(PDO::FETCH_CLASS,'app\models\Availability');//set the type of data returned by fetches
 		return $STMT->fetchAll();//return all records
 	}
-
-	
-   
-
 
 	//update
 	//you can't change the user_id that's a business logic choice that gets implemented in the model

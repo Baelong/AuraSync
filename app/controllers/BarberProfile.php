@@ -43,9 +43,9 @@ class BarberProfile extends \app\core\Controller{
 			//populate it
 			$profile->first_name = $_POST['first_name'];
 			$profile->last_name = $_POST['last_name'];
-      $profile->bio = $_POST['bio'];
-      $profile->phone_number = $_POST['phone_number'];
-      $profile->age = $_POST['age'];
+			$profile->bio = $_POST['bio'];
+			$profile->phone_number = $_POST['phone_number'];
+			$profile->age = $_POST['age'];
 			//update it
 			$profile->update();
 			//redirect

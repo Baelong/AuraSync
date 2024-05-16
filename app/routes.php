@@ -38,3 +38,6 @@ $this->addRoute('Service/index','Service,index');
 $this->addRoute('Service/updateService','Service,updateService');
 $this->addRoute('Service/deleteService','Service,deleteService');
 $this->addRoute('Service/createService','Service,createService');
+
+$this->addRoute('Availability/index','Availability,index');
+$this->addRoute('Availability/createAvailability','Availability,createAvailability');
