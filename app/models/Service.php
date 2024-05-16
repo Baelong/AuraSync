@@ -56,6 +56,7 @@ class Service extends \app\core\Model{
 		$STMT->setFetchMode(PDO::FETCH_CLASS,'app\models\Service');//set the type of data returned by fetches
 		return $STMT->fetchAll();//return all records
 	}
+	
     public function getByServiceID($service_id){//search
 		$SQL = 'SELECT * FROM service WHERE service_id = :service_id';
 		$STMT = self::$_conn->prepare($SQL);

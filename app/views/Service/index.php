@@ -46,12 +46,10 @@
             color: #999;
             margin-top: 20px;
         }
-
         .form-group {
             margin-top: 50px;
             text-align: center;
         }
-
         .form-group a {
             display: inline-block;
             padding: 10px 20px;
@@ -61,14 +59,27 @@
             border-radius: 5px;
             margin-right: 10px;
         }
-
         .form-group a:hover {
             background-color: #0056b3;
+        }
+        .actions a {
+            margin-right: 10px;
+            padding: 5px 10px;
+            background-color: #28a745;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 3px;
+        }
+        .actions a.delete {
+            background-color: #dc3545;
+        }
+        .actions a:hover {
+            opacity: 0.8;
         }
     </style>
 </head>
 <body>
-     <?php if (!empty($data)) : ?>
+    <?php if (!empty($data)) : ?>
         <div class="container">
             <h1>My Services</h1>
             <ul>
@@ -76,8 +87,12 @@
                     <li>
                         <div class="service-details">
                             <p><strong>Name:</strong> <?= $service->name ?></p>
-                            <p><strong>Price:</strong>  <?= $service->price ?>
-                            <p><strong>Decription:</strong> <?= $service->description ?>
+                            <p><strong>Price:</strong> <?= $service->price ?></p>
+                            <p><strong>Description:</strong> <?= $service->description ?></p>
+                        </div>
+                        <div class="actions">
+                            <a href="/Service/updateService?serviceId=<?= $service->service_id ?>">Update</a>
+                            <a href="/Service/deleteService?serviceId=<?= $service->service_id ?>" class="delete">Delete</a>
                         </div>
                     </li>
                 <?php endforeach; ?>
@@ -90,7 +105,8 @@
         </div>
     <?php endif; ?>
     <div class="form-group">
-    <a href="/Service/createService">Add Service</a>
-</div>
+        <a href="/Service/createService">Add Service</a>
+        <a href="/BarberProfile/index">My Profile</a>
+    </div>
 </body>
 </html>
