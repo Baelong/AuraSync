@@ -134,4 +134,55 @@ class AcceptanceTester extends \Codeception\Actor
     {
         $this->submitForm("form", ['action' => 'Save Changes']);
     }
+    /**
+     * @Then I click My Appointments
+     */
+    public function iClickMyAppointments()
+    {
+        $this->click('.nav-link[href="/Appointment/clientAppointments"]');
+    }
+    /**
+     * @Then I click Reschedule
+     */
+    public function iClickReschedule()
+    {
+        $I = $this;
+        $I->click("Reschedule");
+    }
+
+
+
+
+
+   /**
+    * @Then I enter :arg1 in the appointment_date box
+    */
+    public function iEnterInTheAppointment_dateBox($arg1)
+    {
+        $this->fillField('appointment_date',$arg1);
+    }
+
+   /**
+    * @Then I click Choose Date
+    */
+    public function iClickChooseDate()
+    {
+        $this->submitForm("form", ['action' => 'Choose Date']);
+    }
+    /**
+     * @Then I click :arg1
+     */
+    public function iClick($arg1)
+    {
+        $this->submitForm("form", ['action' => $arg1]);
+    }
+    /**
+     * @Then I click viewDetails :arg1
+     */
+    public function iClickViewDetails($arg1)
+    {
+        $I = $this;
+        $I->click("form#form_" . $arg1 . " button.view-details-button");
+    }
+
 }

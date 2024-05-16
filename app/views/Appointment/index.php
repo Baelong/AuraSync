@@ -178,9 +178,9 @@
 
     <div class="mt-5">
         <!-- Reschedule Button -->
-        <form action="/Appointment/editAppointmentDate" method="post" style="display: inline-block;">
+        <form action="/Appointment/editAppointmentDate" method="post" style="display: inline-block;" id ="appointmentForm">
             <input type="hidden" name="appointment_id" value="<?= $data->appointment_id ?>">
-            <button type="submit" class="btn btn-primary"><?= __('Reschedule') ?></button>
+            <button  type="submit" name="action" class="btn btn-primary" ><?= __('Reschedule') ?></button>
         </form>
 
         <!-- Cancel Button -->

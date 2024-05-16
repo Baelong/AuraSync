@@ -126,7 +126,7 @@
                             <p><strong><?= __('Service name') ?>:</strong> <?= $services[$key]->name ?></p>
                         </div>
                         <div class="button-container">
-                            <form id="form_<?= $appointment->appointment_id ?>" action="/Appointment/index" method="post">
+                            <form id="form_<?= $appointment->appointment_id ?>" name="form_<?= $appointment->appointment_id ?>"action="/Appointment/index" method="post">
                                 <input type="hidden" name="appointment_id" value="<?= $appointment->appointment_id ?>">
                                 <button class="view-details-button" type="button" onclick="submitForm('<?= $appointment->appointment_id ?>')"><?= __('View Details') ?></button>
                             </form>
