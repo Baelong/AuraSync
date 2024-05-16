@@ -1,0 +1,44 @@
+# French translations for PACKAGE package.
+# Copyright (C) 2024 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# root <root@a8f6472ff798>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-16 11:55+0000\n"
+"PO-Revision-Date: 2024-05-16 12:09+0000\n"
+"Last-Translator: root <root@a8f6472ff798>\n"
+"Language-Team: French\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ASCII\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: app/views/Authentication/index.php:99
+msgid "Welcome to AuraSync"
+msgstr "Bienvenue a Aurasync"
+
+#: app/views/Authentication/index.php:100
+msgid ""
+"AuraSync is a platform designed to streamline the booking process for "
+"clients and barbers. Whether youre scheduling appointments or managing your "
+"profile, AuraSync makes it simple and secure."
+msgstr ""
+"AuraSync est une plateforme pour rationaliser le processus de reservation pour"
+"clients et barbiers. Que vous planifiiez des rendez-vous ou que vous geriez votre"
+"profil, AuraSync rend les choses simples et securises."
+
+#: app/views/Authentication/index.php:101
+msgid "Choose your user type below to get started:"
+msgstr "Choisi le type d'utilisateur pour commencer"
+
+#: app/views/Authentication/index.php:103
+msgid "Client"
+msgstr "Client"
+
+#: app/views/Authentication/index.php:104
+msgid "Barber"
+msgstr "Coiffeur"

@@ -104,7 +104,17 @@
             <a href="/Barber/login"><?=__('Barber') ?></a>
         </div>
     </div>
+    <div class="language-selector">
+    <button onclick="changeLanguage('en')">English</button>
+    <button onclick="changeLanguage('fr')">French</button>
 </div>
+
+</div>
+<script>
+    function changeLanguage(lang) {
+        window.location.href = window.location.pathname + '?lang=' + lang;
+    }
+</script>
 
 </body>
 </html>
