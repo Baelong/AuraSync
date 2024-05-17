@@ -96,12 +96,12 @@
 <div class="container">
     <img src="https://via.placeholder.com/200" alt="Logo" style="width: 200px; height: auto;">
     <div class="content">
-        <h1><?= __('Welcome to AuraSync') ?></h1>
-        <p><?= __('AuraSync is a platform designed to streamline the booking process for clients and barbers. Whether youre scheduling appointments or managing your profile, AuraSync makes it simple and secure.') ?></p>
-        <p><?=__('Choose your user type below to get started:') ?></p>
+        <h1>Welcome to AuraSync</h1>
+        <p>AuraSync is a platform designed to streamline the booking process for clients and barbers. Whether youre scheduling appointments or managing your profile, AuraSync makes it simple and secure.</p>
+        <p>Choose your user type below to get started:</p>
         <div class="form-group">
-            <a href="/Client/login"><?=__('Client') ?></a>
-            <a href="/Barber/login"><?=__('Barber') ?></a>
+            <a href="/Client/login">Client</a>
+            <a href="/Barber/login">Barber</a>
         </div>
     </div>
 </div>

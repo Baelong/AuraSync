@@ -170,17 +170,15 @@
                 </tr>
             </thead>
             <tbody>
-            <?php foreach($data3 as $index => $availability): ?>
                 <tr>
-                    <td><?= $availability->Monday == 1 ? 'Yes' : 'No' ?></td>
-                    <td><?= $availability->Tuesday == 1 ? 'Yes' : 'No' ?></td>
-                    <td><?= $availability->Wednesday == 1 ? 'Yes' : 'No' ?></td>
-                    <td><?= $availability->Thursday == 1 ? 'Yes' : 'No' ?></td>
-                    <td><?= $availability->Friday == 1 ? 'Yes' : 'No' ?></td>
-                    <td><?= $availability->Saturday == 1 ? 'Yes' : 'No' ?></td>
-                    <td><?= $availability->Sunday == 1 ? 'Yes' : 'No' ?></td>
+                    <td><?= $data3->Monday == 1 ? 'Yes' : 'No' ?></td>
+                    <td><?= $data3->Tuesday == 1 ? 'Yes' : 'No' ?></td>
+                    <td><?= $data3->Wednesday == 1 ? 'Yes' : 'No' ?></td>
+                    <td><?= $data3->Thursday == 1 ? 'Yes' : 'No' ?></td>
+                    <td><?= $data3->Friday == 1 ? 'Yes' : 'No' ?></td>
+                    <td><?= $data3->Saturday == 1 ? 'Yes' : 'No' ?></td>
+                    <td><?= $data3->Sunday == 1 ? 'Yes' : 'No' ?></td>
                 </tr>
-            <?php endforeach; ?>
             </tbody>
         </table>
     </div>

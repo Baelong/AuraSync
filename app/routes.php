@@ -41,3 +41,4 @@ $this->addRoute('Service/createService','Service,createService');
 
 $this->addRoute('Availability/index','Availability,index');
 $this->addRoute('Availability/createAvailability','Availability,createAvailability');
+$this->addRoute('Availability/editAvailability','Availability,editAvailability');

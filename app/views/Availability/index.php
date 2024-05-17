@@ -33,6 +33,25 @@
             border-bottom: 1px solid #ddd;
             text-align: left;
         }
+
+        .form-group {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .form-group a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .form-group a:hover {
+            background-color: #333;
+        }
     </style>
 </head>
 <body>
@@ -48,34 +67,39 @@
             <tbody>
                 <tr>
                     <td>Monday</td>
-                    <td><?php echo $availability['Monday'] ? 'Available' : 'Not Available'; ?></td>
+                    <td><?php echo $data->Monday ? 'Available' : 'Not Available'; ?></td>
                 </tr>
                 <tr>
                     <td>Tuesday</td>
-                    <td><?php echo $availability['Tuesday'] ? 'Available' : 'Not Available'; ?></td>
+                    <td><?php echo $data->Tuesday ? 'Available' : 'Not Available'; ?></td>
                 </tr>
                 <tr>
                     <td>Wednesday</td>
-                    <td><?php echo $availability['Wednesday'] ? 'Available' : 'Not Available'; ?></td>
+                    <td><?php echo $data->Wednesday ? 'Available' : 'Not Available'; ?></td>
                 </tr>
                 <tr>
                     <td>Thursday</td>
-                    <td><?php echo $availability['Thursday'] ? 'Available' : 'Not Available'; ?></td>
+                    <td><?php echo $data->Thursday ? 'Available' : 'Not Available'; ?></td>
                 </tr>
                 <tr>
                     <td>Friday</td>
-                    <td><?php echo $availability['Friday'] ? 'Available' : 'Not Available'; ?></td>
+                    <td><?php echo $data->Friday ? 'Available' : 'Not Available'; ?></td>
                 </tr>
                 <tr>
                     <td>Saturday</td>
-                    <td><?php echo $availability['Saturday'] ? 'Available' : 'Not Available'; ?></td>
+                    <td><?php echo $data->Saturday ? 'Available' : 'Not Available'; ?></td>
                 </tr>
                 <tr>
                     <td>Sunday</td>
-                    <td><?php echo $availability['Sunday'] ? 'Available' : 'Not Available'; ?></td>
+                    <td><?php echo $data->Sunday ? 'Available' : 'Not Available'; ?></td>
                 </tr>
             </tbody>
         </table>
+       
     </div>
+    <div class="form-group">
+    <a href="/Availability/editAvailability">Edit Availability</a>
+        </div>
+   
 </body>
 </html>

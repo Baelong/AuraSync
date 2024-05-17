@@ -42,7 +42,7 @@ class Availability extends \app\core\Model{
 		);
 		//there is a mistake in the next line
 		$STMT->setFetchMode(PDO::FETCH_CLASS,'app\models\Availability');//set the type of data returned by fetches
-		return $STMT->fetchAll();//return (what should be) the only record
+		return $STMT->fetch();//return (what should be) the only record
 	}
 
 	public function getAll(){

@@ -89,7 +89,7 @@
                         <a class="nav-link" href='/ClientProfile/index'>Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href='/ClientProfile/edit_profile'>Modify my profile</a>
+                        <a class="nav-link" href='/ClientProfile/editProfile'>Modify my profile</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/Appointment/clientAppointments">My Appointments</a>

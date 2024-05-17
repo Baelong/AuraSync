@@ -175,29 +175,27 @@
 
         // Define the allowed days of the week
         var unAllowedDays = [];
-        <?php foreach($data3 as $index => $availability): ?>
-            if(<?= $availability->Monday ?> === 0){
+            if(<?= $data3->Monday ?> === 0){
                 unAllowedDays.push(1); // 1 represents Monday
             }
-            if(<?= $availability->Tuesday ?> === 0){
+            if(<?= $data3->Tuesday ?> === 0){
                 unAllowedDays.push(2); // 2 represents Tuesday
             }
-            if(<?= $availability->Wednesday ?> === 0){
+            if(<?= $data3->Wednesday ?> === 0){
                 unAllowedDays.push(3); // 3 represents Wednesday
             }
-            if(<?= $availability->Thursday ?> === 0){
+            if(<?= $data3->Thursday ?> === 0){
                 unAllowedDays.push(4); // 4 represents Thursday
             }
-            if(<?= $availability->Friday ?> === 0){
+            if(<?= $data3->Friday ?> === 0){
                 unAllowedDays.push(5); // 5 represents Friday
             }
-            if(<?= $availability->Saturday ?> === 0){
+            if(<?= $data3->Saturday ?> === 0){
                 unAllowedDays.push(6); // 6 represents Saturday
             }
-            if(<?= $availability->Sunday ?> === 0){
+            if(<?= $data3->Sunday ?> === 0){
                 unAllowedDays.push(0); // 0 represents Sunday
             }
-        <?php endforeach; ?>
 
         $('#datepicker').datepicker({
             format: 'yyyy-mm-dd',
