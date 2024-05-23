@@ -1,3 +1,3 @@
 #!/bin/bash
 
-./php composer.phar "$@"
+/opt/lampp/bin/php /opt/lampp/htdocs/composer.phar "$@"
