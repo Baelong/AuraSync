@@ -98,6 +98,7 @@
        
     </div>
     <div class="form-group">
+    <a href="/BarberProfile/index">My Profile</a>
     <a href="/Availability/editAvailability">Edit Availability</a>
         </div>
    
