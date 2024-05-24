@@ -81,43 +81,42 @@
     </style>
 </head>
 <body>
-    
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">User Profile</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><?= __('User Profile') ?></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
                 <li class="nav-item">
-                        <a class="nav-link" href='/ClientProfile/index'>Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href='/ClientProfile/edit_profile'>Modify my profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Appointment/clientAppointments">My Appointments</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href='/Client/browse_barbers'>Browse for barbers</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Client/logout">Logout</a>
-                    </li>
-                </ul>
-            </div>
+                    <a class="nav-link" href='<?= __('/ClientProfile/index') ?>'><?= __('Home') ?></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href='<?= __('/ClientProfile/edit_profile') ?>'><?= __('Modify my profile') ?></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= __('/Appointment/clientAppointments') ?>"><?= __('My Appointments') ?></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href='<?= __('/Client/browse_barbers') ?>'><?= __('Browse for barbers') ?></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= __('/Client/logout') ?>"><?= __('Logout') ?></a>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 <div class="container">
-    <h1>Barber Chosen</h1>
+    <h1><?= __('Barber Chosen') ?></h1>
 
     <div class="table-responsive">
         <table class="table table-bordered table-hover">
             <thead class="table-dark">
                 <tr>
-                    <th scope="col">First Name</th>
-                    <th scope="col">Last Name</th>
+                    <th scope="col"><?= __('First Name') ?></th>
+                    <th scope="col"><?= __('Last Name') ?></th>
                 </tr>
             </thead>
             <tbody>
@@ -129,16 +128,16 @@
         </table>
     </div>
 
-    <h1>Services Selected</h1>
+    <h1><?= __('Services Selected') ?></h1>
 
     <div class="table-responsive">
         <table class="table table-bordered table-hover">
             <thead class="table-dark">
                 <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Discount</th>
+                    <th scope="col"><?= __('Name') ?></th>
+                    <th scope="col"><?= __('Description') ?></th>
+                    <th scope="col"><?= __('Price') ?></th>
+                    <th scope="col"><?= __('Discount') ?></th>
                 </tr>
             </thead>
             <tbody>
@@ -153,12 +152,11 @@
     </div>
    
 
-    <h1>Choose Appointment Date</h1>
+    <h1><?= __('Choose Appointment Date') ?></h1>
 
     <div class="input-group">
-    <input type="text" id="datepicker" name="appointment_date" class="form-control" placeholder="<?= $data4->date ?>" readonly>
-
-        <button id="chooseDateButton" class="btn btn-primary">Choose Date</button>
+        <input type="text" id="datepicker" name="appointment_date" class="form-control" placeholder="<?= $data4->date ?>" readonly>
+        <button id="chooseDateButton" class="btn btn-primary"><?= __('Choose Date') ?></button>
     </div>
 
 </div>
@@ -219,11 +217,12 @@
                 form.append('<input type="hidden" name="date" value="' + selectedDate + '">');
                 form.appendTo('body').submit();
             } else {
-                alert('Please select a date.');
+                alert('<?= __('Please select a date.') ?>');
             }
         });
     });
 </script>
 
 </body>
+
 </html>

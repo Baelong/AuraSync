@@ -35,29 +35,30 @@
 	<div class='container'>
 		<form method='post' action=''>
 			<div class="form-group">
-				<label>First name:</label>
-				<input type="text" class="form-control" name="first_name" placeholder="Jon" value="<?= $data->first_name ?>" />
+				<label><?= __('First name:') ?></label>
+				<input type="text" class="form-control" name="first_name" placeholder="<?= __('Jon') ?>" value="<?= $data->first_name ?>" />
 			</div>
 			<div class="form-group">
-				<label>Last name:</label>
-				<input type="text" class="form-control" name="last_name" placeholder="Doe" value="<?= $data->last_name ?>" />
+				<label><?= __('Last name:') ?></label>
+				<input type="text" class="form-control" name="last_name" placeholder="<?= __('Doe') ?>" value="<?= $data->last_name ?>" />
 			</div>
       <div class="form-group">
-				<label>Bio:</label>
-				<input type="text" class="form-control" name="bio" placeholder="Bio" value="<?= $data->bio ?>" />
+				<label><?= __('Bio:') ?></label>
+				<input type="text" class="form-control" name="bio" placeholder="<?= __('Bio') ?>" value="<?= $data->bio ?>" />
 			</div>
       <div class="form-group">
-				<label>Phone Number:</label>
-				<input type="text" class="form-control" name="phone_number" placeholder="514-444-7777" value="<?= $data->phone_number ?>" />
+				<label><?= __('Phone Number:') ?></label>
+				<input type="text" class="form-control" name="phone_number" placeholder="<?= __('514-444-7777') ?>" value="<?= $data->phone_number ?>" />
 			</div>
       <div class="form-group">
-				<label>Age:</label>
-				<input type="text" class="form-control" name="age" placeholder="18" value="<?= $data->age ?>" />
+				<label><?= __('Age:') ?></label>
+				<input type="text" class="form-control" name="age" placeholder="<?= __('18') ?>" value="<?= $data->age ?>" />
 			</div>
 			<div class="form-group">
-				<input type="submit" name="action" value="Record my profile" /> 
+				<input type="submit" name="action" value="<?= __('Record my profile') ?>" /> 
 			</div>
 		</form>
 	</div>
 </body>
+
 </html>

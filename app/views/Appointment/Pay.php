@@ -99,84 +99,90 @@
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">User Profile</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="#"><?= __('User Profile') ?></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                <li class="nav-item">
-                        <a class="nav-link" href='/ClientProfile/index'>Home</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href='/ClientProfile/index'><?= __('Home') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href='/ClientProfile/edit_profile'>Modify my profile</a>
+                        <a class="nav-link" href='/ClientProfile/edit_profile'><?= __('Modify my profile') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/Appointment/clientAppointments">My Appointments</a>
+                        <a class="nav-link" href="/Appointment/clientAppointments"><?= __('My Appointments') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href='/Client/browse_barbers'>Browse for barbers</a>
+                        <a class="nav-link" href='/Client/browse_barbers'><?= __('Browse for barbers') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/Client/logout">Logout</a>
+                        <a class="nav-link" href="/Client/logout"><?= __('Logout') ?></a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-<h2>Checkout</h2>
+    <h2><?= __('Checkout') ?></h2>
 
-<main>
-    <div class="container">
-        <div class="checkout-form">
-            <div class="form-heading">
-                <h4 class="pay-via-card">Pay With Card</h4>
+    <main>
+        <div class="container">
+            <div class="checkout-form">
+                <div class="form-heading">
+                    <h4 class="pay-via-card"><?= __('Pay With Card') ?></h4>
+                </div>
+                <form id="myForm" class="form" method="POST" action="/Appointment/Receipt"
+                    onsubmit="return validateForm()">
+                    <h3><?= __('Payment Details') ?></h3>
+                    <p class="card-info"><?= __('Accepted Cards: Visa, Mastercard, MultiCard') ?></p>
+                    <input type="text" placeholder="<?= __('Card Number (XXXX-XXXX-XXXX-XXXX)') ?>" id="cardNumber"
+                        required><br>
+                    <input type="text" placeholder="<?= __('Expiry Date (XX/XX or XX\XX)') ?>" id="expiry"
+                        required><br>
+                    <input type="text" placeholder="<?= __('CVC (XXX)') ?>" id="cvc" required><br>
+
+                    <input type="submit" value="<?= __('Pay') ?>">
+                </form>
+                <p class="form-message"><?= __('By clicking "Pay", you agree to our Terms & Conditions') ?></p>
             </div>
-            <form id="myForm" class="form" method="POST" action="/Appointment/Receipt" onsubmit="return validateForm()">
-                <h3>Payment Details</h3>
-                <p class="card-info">Accepted Cards: Visa, Mastercard, MultiCard</p>
-                <input type="text" placeholder="Card Number (XXXX-XXXX-XXXX-XXXX)" id="cardNumber" required><br>
-                <input type="text" placeholder="Expiry Date (XX/XX or XX\XX)" id="expiry" required><br>
-                <input type="text" placeholder="CVC (XXX)" id="cvc" required><br>
-
-                <input type="submit" value="Pay">
-            </form>
-            <p class="form-message">By clicking "Pay", you agree to our Terms & Conditions</p>
         </div>
-    </div>
-</main>
+    </main>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js">
+    </script>
 
-<script>
-    function validateForm() {
-        var cardNumber = document.getElementById("cardNumber").value;
-        var expiry = document.getElementById("expiry").value;
-        var cvc = document.getElementById("cvc").value;
+    <script>
+        function validateForm() {
+            var cardNumber = document.getElementById("cardNumber").value;
+            var expiry = document.getElementById("expiry").value;
+            var cvc = document.getElementById("cvc").value;
 
-        var cardNumberRegex = /^\d{4}-\d{4}-\d{4}-\d{4}$/;
-        var expiryRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
-        var cvcRegex = /^\d{3}$/;
+            var cardNumberRegex = /^\d{4}-\d{4}-\d{4}-\d{4}$/;
+            var expiryRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+            var cvcRegex = /^\d{3}$/;
 
-        if (!cardNumberRegex.test(cardNumber)) {
-            alert("Invalid card number format! Please enter in the format XXXX-XXXX-XXXX-XXXX");
-            return false;
+            if (!cardNumberRegex.test(cardNumber)) {
+                alert("<?= __('Invalid card number format! Please enter in the format XXXX-XXXX-XXXX-XXXX') ?>");
+                return false;
+            }
+            if (!expiryRegex.test(expiry)) {
+                alert("<?= __('Invalid expiry date format! Please enter in the format XX/XX or XX\\XX') ?>");
+                return false;
+            }
+            if (!cvcRegex.test(cvc)) {
+                alert("<?= __('Invalid CVC format! Please enter a 3-digit code') ?>");
+                return false;
+            }
+
+            return true;
         }
-        if (!expiryRegex.test(expiry)) {
-            alert("Invalid expiry date format! Please enter in the format XX/XX or XX\\XX");
-            return false;
-        }
-        if (!cvcRegex.test(cvc)) {
-            alert("Invalid CVC format! Please enter a 3-digit code");
-            return false;
-        }
-
-        return true;
-    }
-</script>
+    </script>
 
 </body>
+
 </html>

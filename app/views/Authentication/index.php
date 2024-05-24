@@ -33,6 +33,8 @@
             text-align: center;
             padding: 14px 20px;
             text-decoration: none;
+            border-radius: 5px; 
+            margin-right: 10px;
         }
 
         .navbar a:hover {
@@ -41,22 +43,30 @@
         }
 
         .form-group {
-            margin-top: 50px;
+            margin-top: 20px; 
             text-align: center;
         }
 
+        .form-group select,
         .form-group a {
-            display: inline-block;
-            padding: 10px 20px;
+            padding: 10px; 
             background-color: #000;
             color: #fff;
-            text-decoration: none;
+            border: none;
             border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px; 
+            outline: none;
+            -webkit-appearance: none; 
+            -moz-appearance: none; 
+            appearance: none; 
             margin-right: 10px;
+            text-decoration: none; /* Removed underline */
         }
 
+        .form-group select:hover,
         .form-group a:hover {
-            background-color: #333;
+            background-color: #333; 
         }
 
         .container {
@@ -82,29 +92,43 @@
     </style>
 </head>
 <body>
+    <div class="header">
+        <h1 class="navbar-title"><?= __('AuraSync') ?></h1>
+    </div>
+    <div class="navbar">
+        <a href="<?= __('/Authentication/index') ?>">Home</a>
+        <a href="#about"><?= __('About') ?></a>
+        <a href="#contact"><?= __('Contact') ?></a>
+        
+    </div>
 
-<div class="header">
-    <h1 class="navbar-title">AuraSync</h1>
-</div>
-
-<div class="navbar">
-    <a href="/Authentication/index">Home</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-</div>
-
-<div class="container">
-    <img src="https://via.placeholder.com/200" alt="Logo" style="width: 200px; height: auto;">
-    <div class="content">
-        <h1>Welcome to AuraSync</h1>
-        <p>AuraSync is a platform designed to streamline the booking process for clients and barbers. Whether you're scheduling appointments or managing your profile, AuraSync makes it simple and secure.</p>
-        <p>Choose your user type below to get started:</p>
-        <div class="form-group">
-            <a href="/Client/login">Client</a>
-            <a href="/Barber/login">Barber</a>
+    <div class="container">
+        <img src="https://via.placeholder.com/200" alt="<?= __('Logo') ?>" style="width: 200px; height: auto;">
+        <div class="content">
+            <h1><?= __('Welcome to AuraSync') ?></h1>
+            <p><?= __('AuraSync is a platform designed to streamline the booking process for clients and barbers. Whether you\'re scheduling appointments or managing your profile, AuraSync makes it simple and secure.') ?></p>
+            <p><?= __('Choose your user type below to get started:') ?></p>
+            <div class="form-group">
+            <a href="<?= __('/Client/login') ?>" style="text-decoration: none;"><?= __('Client') ?></a>
+            <a href="<?= __('/Barber/login') ?>" style="text-decoration: none;"><?= __('Barber') ?></a>
+        </div>
         </div>
     </div>
-</div>
 
+    <div class="form-group">
+        <select id="languageDropdown" onchange="changeLanguage()">
+            <option value="" disabled selected>Choose language</option>
+            <option value="en">English</option>
+            <option value="fr">French</option>
+        </select>
+    </div>
+
+    <script>
+        function changeLanguage() {
+            var lang = document.getElementById("languageDropdown").value;
+            var url = window.location.href.split('?')[0]; 
+            window.location.href = url + '?lang=' + lang; 
+        }
+    </script>
 </body>
 </html>

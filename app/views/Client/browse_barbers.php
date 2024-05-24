@@ -54,86 +54,84 @@
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">User Profile</a>
+            <a class="navbar-brand" href="#"><?= __('User Profile') ?></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                <li class="nav-item">
-                        <a class="nav-link" href='/ClientProfile/index'>Home</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href='/ClientProfile/index'><?= __('Home') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href='/ClientProfile/edit_profile'>Modify my profile</a>
+                        <a class="nav-link" href='/ClientProfile/edit_profile'><?= __('Modify my profile') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/Appointment/clientAppointments">My Appointments</a>
+                        <a class="nav-link" href="/Appointment/clientAppointments"><?= __('My Appointments') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href='/Client/browse_barbers'>Browse for barbers</a>
+                        <a class="nav-link" href='/Client/browse_barbers'><?= __('Browse for barbers') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/Client/logout">Logout</a>
+                        <a class="nav-link" href="/Client/logout"><?= __('Logout') ?></a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-<div class="container mt-5">
-    <div class="search-container">
-        <form method="POST" action="/Client/search">
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Search by Full Name" aria-label="Search by name" aria-describedby="button-search" name="name">
-                <button class="btn btn-search" type="submit" id="button-search"><i class="bi bi-search"></i> Search</button>
-            </div>
-        </form>
+    <div class="container mt-5">
+        <div class="search-container">
+            <form method="POST" action="/Client/search">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="<?= __('Search by Full Name') ?>" aria-label="<?= __('Search by name') ?>" aria-describedby="button-search" name="name">
+                    <button class="btn btn-search" type="submit" id="button-search"><i class="bi bi-search"></i> <?= __('Search') ?></button>
+                </div>
+            </form>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col"><?= __('First Name') ?></th>
+                        <th scope="col"><?= __('Last Name') ?></th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php foreach($data as $index => $barber): ?>
+                    <tr class="barber-row" data-barber-id="<?= $barber->barber_profile_id ?>">
+                        <td><?= $barber->first_name ?></td>
+                        <td><?= $barber->last_name ?></td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 
-    <div class="table-responsive">
-        <table class="table table-bordered table-hover">
-            <thead class="table-dark">
-                <tr>
-                    <th scope="col">First Name</th>
-                    <th scope="col">Last Name</th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php foreach($data as $index => $barber): ?>
-                <tr class="barber-row" data-barber-id="<?= $barber->barber_profile_id ?>">
-                    <td><?= $barber->first_name ?></td>
-                    <td><?= $barber->last_name ?></td>
-                </tr>
-            <?php endforeach; ?>
-            </tbody>
-        </table>
-    </div>
-
-    
-</div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var barberRows = document.querySelectorAll('.barber-row');
-        barberRows.forEach(function(row) {
-            row.addEventListener('click', function() {
-                var barberId = this.getAttribute('data-barber-id');
-                var form = document.createElement('form');
-                form.method = 'POST';
-                form.action = '/Client/viewBarberProfile';
-                var input = document.createElement('input');
-                input.type = 'hidden';
-                input.name = 'barber_profile_id';
-                input.value = barberId;
-                form.appendChild(input);
-                document.body.appendChild(form);
-                form.submit();
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var barberRows = document.querySelectorAll('.barber-row');
+            barberRows.forEach(function(row) {
+                row.addEventListener('click', function() {
+                    var barberId = this.getAttribute('data-barber-id');
+                    var form = document.createElement('form');
+                    form.method = 'POST';
+                    form.action = '/Client/viewBarberProfile';
+                    var input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = 'barber_profile_id';
+                    input.value = barberId;
+                    form.appendChild(input);
+                    document.body.appendChild(form);
+                    form.submit();
+                });
             });
         });
-    });
-</script>
-
+    </script>
 </body>
+
 </html>

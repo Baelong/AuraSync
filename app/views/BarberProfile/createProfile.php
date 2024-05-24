@@ -35,29 +35,30 @@
 	<div class='container'>
 		<form method='post' action=''>
 			<div class="form-group">
-				<label>First name:</label>
-				<input type="text" class="form-control" name="first_name" placeholder="Jon" />
+				<label><?= __('First name:') ?></label>
+				<input type="text" class="form-control" name="first_name" placeholder="<?= __('Jon') ?>" />
 			</div>
 			<div class="form-group">
-				<label>Last name:</label>
-				<input type="text" class="form-control" name="last_name" placeholder="Doe" />
+				<label><?= __('Last name:') ?></label>
+				<input type="text" class="form-control" name="last_name" placeholder="<?= __('Doe') ?>" />
 			</div>
       <div class="form-group">
-				<label>Bio:</label>
-				<input type="text" class="form-control" name="bio" placeholder="Bio" />
+				<label><?= __('Bio:') ?></label>
+				<input type="text" class="form-control" name="bio" placeholder="<?= __('Bio') ?>" />
 			</div>
       <div class="form-group">
-				<label>Phone Number:</label>
-				<input type="text" class="form-control" name="phone_number" placeholder="514-444-7777" />
+				<label><?= __('Phone Number:') ?></label>
+				<input type="text" class="form-control" name="phone_number" placeholder="<?= __('514-444-7777') ?>" />
 			</div>
       <div class="form-group">
-				<label>Age:</label>
-				<input type="text" class="form-control" name="age" placeholder="18" />
+				<label><?= __('Age:') ?></label>
+				<input type="text" class="form-control" name="age" placeholder="<?= __('18') ?>" />
 			</div>
 			<div class="form-group">
-				<input type="submit" name="action" value="Record my profile" /> 
+				<input type="submit" name="action" value="<?= __('Record my profile') ?>" /> 
 			</div>
 		</form>
 	</div>
 </body>
+
 </html>
