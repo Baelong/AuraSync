@@ -72,13 +72,22 @@ public function insert(){
 		$STMT->setFetchMode(PDO::FETCH_CLASS,'app\models\Appointment');//set the type of data returned by fetches
 		return $STMT->fetchAll();//return all records
 	}
-    public function delete(){
-		$SQL = 'DELETE FROM appointment WHERE appointment_id = :appointment_id';
-		$STMT = self::$_conn->prepare($SQL);
-		$STMT->execute(
-			['appointment_id'=>$this->appointment_id]
-		);
-	}
+    public function delete() {
+        $SQL = 'DELETE FROM appointment WHERE appointment_id = :appointment_id AND date > DATE_ADD(NOW(), INTERVAL 2 DAY)';
+        $STMT = self::$_conn->prepare($SQL);
+        $STMT->execute(
+            ['appointment_id' => $this->appointment_id]
+        );
+    
+        // Check if any rows were affected
+        if ($STMT->rowCount() === 0) {
+            return "Appointment can only be deleted before 48 hours.";
+        }
+    
+        // If rows were affected, return null or true depending on your needs
+    }
+    
+    
     public function update(){
 		$SQL = 'UPDATE appointment SET date=:date,slot=:slot WHERE appointment_id = :appointment_id';
 		$STMT = self::$_conn->prepare($SQL);

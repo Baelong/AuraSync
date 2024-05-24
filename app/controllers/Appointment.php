@@ -228,9 +228,9 @@ function UpdatedReceipt(){
 			//populate it
       $appointment = new \app\models\Appointment();
 		  $appointment = $appointment->getByAppointmentID($_POST['appointment_id']);
-      $appointment[0]->delete();
+      $message = $appointment[0]->delete();
 			//redirect
-			header('location:/Appointment/clientAppointments');
+			header('location:/Appointment/clientAppointments?message=' . urlencode($message));
 }
 }
 }

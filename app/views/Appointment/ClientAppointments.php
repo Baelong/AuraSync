@@ -146,6 +146,27 @@
         function submitForm(appointmentId) {
             document.getElementById("form_" + appointmentId).submit();
         }
+        // Function to parse URL parameters
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+        // Function to show the message in a dialog
+        function showMessage() {
+            var message = getParameterByName('message');
+            if (message !== null && message !== '') {
+                alert(message);
+            }
+        }
+
+        // Call showMessage function when the page loads
+        window.onload = showMessage;
     </script>
 </body>
 
