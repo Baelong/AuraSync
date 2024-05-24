@@ -212,16 +212,84 @@
                 }
             });
 
-            $('#chooseDateButton').on('click', function() {
-                var selectedDate = $('#datepicker').val();
-                if(selectedDate) {
-                    var form = $('<form method="POST" action="/Appointment/chooseTime"></form>');
-                    form.append('<input type="hidden" name="date" value="' + selectedDate + '">');
-                    form.appendTo('body').submit();
-                } else {
-                    alert('Please select a date.');
-                }
-            });
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Discount</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php foreach($data2 as $index => $service): ?>
+                <tr class="service-row active" data-service-id="<?= $service->service_id ?>">
+                    <td><?= $service->name ?></td>
+                    <td><?= $service->description ?></td>
+                    <td><?= $service->price ?></td>
+                    <td><?= $service->discount ?></td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+   
+
+    <h1>Choose Appointment Date</h1>
+
+    <div class="input-group">
+    <input type="text" id="datepicker" name="appointment_date" class="form-control" placeholder="Select Date" readonly>
+
+        <button id="chooseDateButton" class="btn btn-primary">Choose Date</button>
+    </div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+<script>
+    $(document).ready(function(){
+        var tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1); // Set minimum date as tomorrow
+
+        var twoMonthsLater = new Date();
+        twoMonthsLater.setMonth(twoMonthsLater.getMonth() + 2); // Set maximum date as two months later
+
+        // Define the allowed days of the week
+        var unAllowedDays = [];
+            if(<?= $data3->Monday ?> === 0){
+                unAllowedDays.push(1); // 1 represents Monday
+            }
+            if(<?= $data3->Tuesday ?> === 0){
+                unAllowedDays.push(2); // 2 represents Tuesday
+            }
+            if(<?= $data3->Wednesday ?> === 0){
+                unAllowedDays.push(3); // 3 represents Wednesday
+            }
+            if(<?= $data3->Thursday ?> === 0){
+                unAllowedDays.push(4); // 4 represents Thursday
+            }
+            if(<?= $data3->Friday ?> === 0){
+                unAllowedDays.push(5); // 5 represents Friday
+            }
+            if(<?= $data3->Saturday ?> === 0){
+                unAllowedDays.push(6); // 6 represents Saturday
+            }
+            if(<?= $data3->Sunday ?> === 0){
+                unAllowedDays.push(0); // 0 represents Sunday
+            }
+
+        $('#datepicker').datepicker({
+            format: 'yyyy-mm-dd',
+            autoclose: true,
+            startDate: tomorrow,
+            endDate: twoMonthsLater,
+            beforeShowDay: function(date) {
+                var day = date.getDay();
+                // Return false for disallowed days
+                return !unAllowedDays.includes(day);
+            }
         });
     </script>
 </body>

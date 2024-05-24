@@ -16,7 +16,7 @@ class Service extends \app\core\Model{
 
 	//create
 	public function insert(){
-		$SQL = 'INSERT INTO service(barber_profile_id,name,description,price,discount) VALUE (:barber_profile_id,:name,:description,price,discount)';
+		$SQL = 'INSERT INTO service(barber_profile_id,name,description,price,discount) VALUE (:barber_profile_id,:name,:description,:price,:discount)';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute(
 			['barber_profile_id'=>$this->barber_profile_id,
@@ -56,6 +56,8 @@ class Service extends \app\core\Model{
 		$STMT->setFetchMode(PDO::FETCH_CLASS,'app\models\Service');//set the type of data returned by fetches
 		return $STMT->fetchAll();//return all records
 	}
+	
+	//all
     public function getByServiceID($service_id){//search
 		$SQL = 'SELECT * FROM service WHERE service_id = :service_id';
 		$STMT = self::$_conn->prepare($SQL);
@@ -66,6 +68,17 @@ class Service extends \app\core\Model{
 		return $STMT->fetchAll();//return all records
 	}
 
+
+	//one
+	public function getFromServiceID($service_id){//search
+		$SQL = 'SELECT * FROM service WHERE service_id = :service_id';
+		$STMT = self::$_conn->prepare($SQL);
+		$STMT->execute(
+			['service_id'=>$service_id]
+		);
+		$STMT->setFetchMode(PDO::FETCH_CLASS,'app\models\Service');//set the type of data returned by fetches
+		return $STMT->fetch();
+	}
 
 	//update
 	//you can't change the user_id that's a business logic choice that gets implemented in the model

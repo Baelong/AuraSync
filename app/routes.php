@@ -14,7 +14,7 @@ $this->addRoute('Barber/securePlace' , 'BarberProfile,index');
 $this->addRoute('Barber/register','Barber,register');
 $this->addRoute('Barber/logout' , 'Barber,logout');
 
-$this->addRoute('ClientProfile/edit_profile' , 'ClientProfile,modify');
+$this->addRoute('ClientProfile/editProfile' , 'ClientProfile,editProfile');
 $this->addRoute('ClientProfile/createProfile','ClientProfile,createProfile');
 $this->addRoute('ClientProfile/index','ClientProfile,index');
 
@@ -33,3 +33,12 @@ $this->addRoute('Appointment/editAppointmentDate','Appointment,editAppointmentDa
 $this->addRoute('Appointment/editAppointmentTime','Appointment,editAppointmentTime');
 $this->addRoute('Appointment/UpdatedReceipt','Appointment,UpdatedReceipt');
 $this->addRoute('Appointment/deleteAppointment','Appointment,deleteAppointment');
+
+$this->addRoute('Service/index','Service,index');
+$this->addRoute('Service/updateService','Service,updateService');
+$this->addRoute('Service/deleteService','Service,deleteService');
+$this->addRoute('Service/createService','Service,createService');
+
+$this->addRoute('Availability/index','Availability,index');
+$this->addRoute('Availability/createAvailability','Availability,createAvailability');
+$this->addRoute('Availability/editAvailability','Availability,editAvailability');

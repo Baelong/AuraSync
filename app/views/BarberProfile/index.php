@@ -64,8 +64,21 @@
 		    <a href='/BarberProfile/editProfile'><?= __('Modify my profile') ?></a>
         </dd>
         <dd>
+		<a href='/BarberProfile/editProfile'> <?= __(Modify my profile) ?></a>
+          </dd>
+          
+          <dd>
+		<a href='/Service/index'><?= __('My Services') ?></a>
+          </dd>
+          <dd>
+        <a href="/Availability/index"><?= __('Availability') ?></a>
+         </dd>
+        <dd>
             <a href="/Barber/logout"><?= __('Logout') ?></a>
         </dd>
+       
+       
+
 	</div>
 </body>
 
