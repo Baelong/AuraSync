@@ -61,54 +61,55 @@
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">User Profile</a>
+            <a class="navbar-brand" href="#"><?= __('User Profile') ?></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                <li class="nav-item">
-                        <a class="nav-link" href='/ClientProfile/index'>Home</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href='/ClientProfile/index'><?= __('Home') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href='/ClientProfile/edit_profile'>Modify my profile</a>
+                        <a class="nav-link" href='/ClientProfile/edit_profile'><?= __('Modify my profile') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/Appointment/clientAppointments">My Appointments</a>
+                        <a class="nav-link" href="/Appointment/clientAppointments"><?= __('My Appointments') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href='/Client/browse_barbers'>Browse for barbers</a>
+                        <a class="nav-link" href='/Client/browse_barbers'><?= __('Browse for barbers') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/Client/logout">Logout</a>
+                        <a class="nav-link" href="/Client/logout"><?= __('Logout') ?></a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
     <div class="container">
-        <h1>Edit Profile</h1>
+        <h1><?= __('Edit Profile') ?></h1>
         <form action="/ClientProfile/edit_profile" method="POST">
             <div class="form-group">
-                <label for="first_name">First Name:</label>
+                <label for="first_name"><?= __('First Name:') ?></label>
                 <input type="text" id="first_name" name="first_name" value="<?= $data->first_name ?>" required>
             </div>
             <div class="form-group">
-                <label for="last_name">Last Name:</label>
+                <label for="last_name"><?= __('Last Name:') ?></label>
                 <input type="text" id="last_name" name="last_name" value="<?= $data->last_name ?>" required>
             </div>
             <div class="form-group">
-                <label for="age">Age:</label>
+                <label for="age"><?= __('Age:') ?></label>
                 <input type="text" id="age" name="age" value="<?= $data->age ?>" required>
             </div>
             <div class="form-group">
-                <label for="phone_number">Phone Number:</label>
+                <label for="phone_number"><?= __('Phone Number:') ?></label>
                 <input type="text" id="phone_number" name="phone_number" value="<?= $data->phone_number ?>" required>
             </div>
-            <input type="submit" value="Save Changes">
+            <input type="submit" value="<?= __('Save Changes') ?>">
         </form>
     </div>
 </body>
+
 </html>

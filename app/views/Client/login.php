@@ -67,25 +67,26 @@
     </style>
 </head>
 <body>
-<div class="card-login">
-<div class="container">
-    <form method="post" action="">
-        <div class="form-group">
-            <label>Email:</label>
-            <input type="text" class="form-control" name="email" placeholder="Jondoe@gmail.com" />
-        </div>
-        <div class="form-group">
-            <label>Password:</label>
-            <input type="password" class="form-control" name="password" placeholder="password" />
-        </div>
+    <div class="card-login">
+        <div class="container">
+            <form method="post" action="">
+                <div class="form-group">
+                    <label><?= __('Email:') ?></label>
+                    <input type="text" class="form-control" name="email" placeholder="<?= __('Jondoe@gmail.com') ?>" />
+                </div>
+                <div class="form-group">
+                    <label><?= __('Password:') ?></label>
+                    <input type="password" class="form-control" name="password" placeholder="<?= __('password') ?>" />
+                </div>
 
-        <div class="form-group">
-            <input type="submit" name="action" value="Login" />
-            <a href="/Client/register">I have no account, bring me to the client registration page</a>
+                <div class="form-group">
+                    <input type="submit" name="action" value="<?= __('Login') ?>" />
+                    <a href="<?= __('/Client/register') ?>"><?= __('I have no account, bring me to the client registration page') ?></a>
+                </div>
+                <a href="<?= __('/Authentication/index') ?>"><?= __('Return to user type selection') ?></a>
+            </form>
         </div>
-        <a href="/Authentication/index">Return to user type selection</a>
-    </form>
-</div>
-</div>
+    </div>
 </body>
+
 </html>
