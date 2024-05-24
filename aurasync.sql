@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 10, 2024 at 02:25 AM
+-- Generation Time: May 24, 2024 at 06:04 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -41,10 +41,10 @@ CREATE TABLE `appointment` (
 --
 
 INSERT INTO `appointment` (`appointment_id`, `client_profile_id`, `barber_profile_id`, `date`, `slot`, `service_id`) VALUES
-(1, 1, 1, '2024-05-22', 4, 1),
-(2, 1, 1, '2024-05-22', 6, 2),
-(3, 1, 2, '2024-05-22', 7, 3),
-(4, 1, 1, '2024-05-22', 13, 1);
+(1, 1, 1, '2024-05-29', 1, 1),
+(2, 1, 1, '2024-05-29', 6, 2),
+(3, 1, 2, '2024-05-29', 7, 3),
+(4, 1, 1, '2024-05-29', 13, 1);
 
 -- --------------------------------------------------------
 
@@ -75,7 +75,6 @@ INSERT INTO `availabilities` (`availability_id`, `barber_profile_id`, `Monday`, 
 (4, 4, 1, 1, 1, 1, 1, 0, 1),
 (5, 5, 1, 0, 1, 1, 1, 0, 1);
 
-
 -- --------------------------------------------------------
 
 --
@@ -98,7 +97,8 @@ INSERT INTO `barber` (`barber_id`, `email`, `password_hash`, `status`) VALUES
 (2, 'ali@exmaple.com', '1234', 1),
 (3, 'ali1@example.com', '1', 1),
 (4, 'ali2@example.com', '12', 1),
-(5, 'ali3@example.com', '123', 1);
+(5, 'ali3@example.com', '123', 1),
+(6, 'ali', '$2y$10$koD9gEE3rmty5i2ultYpKuIpXVO/tanosGCXIx0g/mScBd9v83Rbi', 1);
 
 -- --------------------------------------------------------
 
@@ -125,7 +125,8 @@ INSERT INTO `barber_profile` (`barber_profile_id`, `barber_id`, `first_name`, `l
 (2, 2, 'Ali', 'Ilyas', 'agesdg', '514-999-9999', 32),
 (3, 3, 'Alex', 'Smith', 'Young barber', '514-123-9990', 16),
 (4, 4, 'Praveen', 'Manu', 'Mtl Based Barber', '514-299-8899', 18),
-(5, 5, 'David', 'Dan', 'Filipino Barber', '514-959-9239', 24);
+(5, 5, 'David', 'Dan', 'Filipino Barber', '514-959-9239', 24),
+(6, 6, 'Ali', 'saf', 'ag', '514-544-4545', 45);
 
 -- --------------------------------------------------------
 
@@ -167,7 +168,7 @@ CREATE TABLE `client_profile` (
 --
 
 INSERT INTO `client_profile` (`client_profile_id`, `client_id`, `first_name`, `last_name`, `age`, `phone_number`) VALUES
-(1, 1, 'Ali', 'Ilyas', 20, '514-544-4558');
+(1, 1, 'Ali', 'Ilyas', 45, '514-544-4558');
 
 -- --------------------------------------------------------
 
@@ -282,19 +283,19 @@ ALTER TABLE `appointment`
 -- AUTO_INCREMENT for table `availabilities`
 --
 ALTER TABLE `availabilities`
-  MODIFY `availability_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `availability_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `barber`
 --
 ALTER TABLE `barber`
-  MODIFY `barber_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `barber_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `barber_profile`
 --
 ALTER TABLE `barber_profile`
-  MODIFY `barber_profile_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `barber_profile_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `client`
@@ -318,7 +319,7 @@ ALTER TABLE `message`
 -- AUTO_INCREMENT for table `service`
 --
 ALTER TABLE `service`
-  MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

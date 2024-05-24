@@ -169,17 +169,20 @@
                         <th scope="col"><?= __('Sunday') ?></th>
                     </tr>
                 </thead>
-                <tbody>
-                        <tr>
-                            <td><?= $data3->Monday == 1 ? 'Yes' : 'No' ?></td>
-                            <td><?= $data3->Tuesday == 1 ? 'Yes' : 'No' ?></td>
-                            <td><?= $data3->Wednesday == 1 ? 'Yes' : 'No' ?></td>
-                            <td><?= $data3->Thursday == 1 ? 'Yes' : 'No' ?></td>
-                            <td><?= $data3->Friday == 1 ? 'Yes' : 'No' ?></td>
-                            <td><?= $data3->Saturday == 1 ? 'Yes' : 'No' ?></td>
-                            <td><?= $data3->Sunday == 1 ? 'Yes' : 'No' ?></td>
-                        </tr>
-                </tbody>
+        <?php if ($data3 !== null): ?>
+    <tbody>
+        <tr>
+            <td><?= $data3->Monday == 1 ? 'Yes' : 'No' ?></td>
+            <td><?= $data3->Tuesday == 1 ? 'Yes' : 'No' ?></td>
+            <td><?= $data3->Wednesday == 1 ? 'Yes' : 'No' ?></td>
+            <td><?= $data3->Thursday == 1 ? 'Yes' : 'No' ?></td>
+            <td><?= $data3->Friday == 1 ? 'Yes' : 'No' ?></td>
+            <td><?= $data3->Saturday == 1 ? 'Yes' : 'No' ?></td>
+            <td><?= $data3->Sunday == 1 ? 'Yes' : 'No' ?></td>
+        </tr>
+    </tbody>
+    <?php endif; ?>
+
             </table>
         </div>
     </div>
