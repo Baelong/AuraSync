@@ -32,7 +32,7 @@ msgstr ""
 #: app/views/ClientProfile/editProfile.php:66
 #: app/views/ClientProfile/index.php:64
 msgid "User Profile"
-msgstr ""
+msgstr "Profil de l'utilisateur"
 
 #: app/views/Appointment/ChooseDate.php:93
 #: app/views/Appointment/ChooseTime.php:119
@@ -41,7 +41,7 @@ msgstr ""
 #: app/views/Appointment/editAppointmentTime.php:119
 #: app/views/Appointment/index.php:48
 msgid "/ClientProfile/index"
-msgstr ""
+msgstr "/ClientProfile/index"
 
 #: app/views/Appointment/ChooseDate.php:93
 #: app/views/Appointment/ChooseTime.php:119
@@ -61,7 +61,7 @@ msgstr ""
 #: app/views/ClientProfile/index.php:71 app/views/Service/createService.php:72
 #: app/views/Service/index.php:95 app/views/Service/updateService.php:78
 msgid "Home"
-msgstr ""
+msgstr "Maison"
 
 #: app/views/Appointment/ChooseDate.php:96
 #: app/views/Appointment/ChooseTime.php:122
@@ -70,7 +70,7 @@ msgstr ""
 #: app/views/Appointment/editAppointmentTime.php:122
 #: app/views/Appointment/index.php:51
 msgid "/ClientProfile/edit_profile"
-msgstr ""
+msgstr "/ClientProfile/edit_profile"
 
 #: app/views/Appointment/ChooseDate.php:96
 #: app/views/Appointment/ChooseTime.php:122
@@ -90,7 +90,7 @@ msgstr ""
 #: app/views/ClientProfile/index.php:74 app/views/Service/createService.php:75
 #: app/views/Service/index.php:98 app/views/Service/updateService.php:81
 msgid "Modify my profile"
-msgstr ""
+msgstr "Modifier mon profil"
 
 #: app/views/Appointment/ChooseDate.php:99
 #: app/views/Appointment/ChooseTime.php:125
@@ -99,7 +99,7 @@ msgstr ""
 #: app/views/Appointment/editAppointmentTime.php:125
 #: app/views/Appointment/index.php:54
 msgid "/Appointment/clientAppointments"
-msgstr ""
+msgstr "/Appointment/clientAppointments"
 
 #: app/views/Appointment/ChooseDate.php:99
 #: app/views/Appointment/ChooseTime.php:125
@@ -116,7 +116,7 @@ msgstr ""
 #: app/views/ClientProfile/editProfile.php:79
 #: app/views/ClientProfile/index.php:77
 msgid "My Appointments"
-msgstr ""
+msgstr "Mes rendez-vous"
 
 #: app/views/Appointment/ChooseDate.php:102
 #: app/views/Appointment/ChooseTime.php:128
@@ -125,7 +125,7 @@ msgstr ""
 #: app/views/Appointment/editAppointmentTime.php:128
 #: app/views/Appointment/index.php:57
 msgid "/Client/browse_barbers"
-msgstr ""
+msgstr "/Client/browse_barbers"
 
 #: app/views/Appointment/ChooseDate.php:102
 #: app/views/Appointment/ChooseTime.php:128
@@ -142,7 +142,7 @@ msgstr ""
 #: app/views/ClientProfile/editProfile.php:82
 #: app/views/ClientProfile/index.php:80
 msgid "Browse for barbers"
-msgstr ""
+msgstr "Browse for barbers"
 
 #: app/views/Appointment/ChooseDate.php:105
 #: app/views/Appointment/ChooseTime.php:131
@@ -151,7 +151,7 @@ msgstr ""
 #: app/views/Appointment/editAppointmentTime.php:131
 #: app/views/Appointment/index.php:60
 msgid "/Client/logout"
-msgstr ""
+msgstr "/Client/logout"
 
 #: app/views/Appointment/ChooseDate.php:105
 #: app/views/Appointment/ChooseTime.php:131
@@ -171,7 +171,7 @@ msgstr ""
 #: app/views/ClientProfile/index.php:83 app/views/Service/createService.php:84
 #: app/views/Service/index.php:107 app/views/Service/updateService.php:90
 msgid "Logout"
-msgstr ""
+msgstr "Se deconnecter"
 
 #: app/views/Appointment/ChooseDate.php:113
 #: app/views/Appointment/ChooseTime.php:139
@@ -181,7 +181,7 @@ msgstr ""
 #: app/views/Appointment/Receipt.php:100
 #: app/views/Appointment/UpdatedReceipt.php:100
 msgid "Barber Chosen"
-msgstr ""
+msgstr "Barbier choisi"
 
 #: app/views/Appointment/ChooseDate.php:119
 #: app/views/Appointment/ChooseTime.php:145
@@ -192,7 +192,7 @@ msgstr ""
 #: app/views/Client/browse_barbers.php:99 app/views/Client/search.php:49
 #: app/views/Client/viewBarberProfile.php:103
 msgid "First Name"
-msgstr ""
+msgstr "Prenom"
 
 #: app/views/Appointment/ChooseDate.php:120
 #: app/views/Appointment/ChooseTime.php:146
@@ -203,7 +203,7 @@ msgstr ""
 #: app/views/Client/browse_barbers.php:100 app/views/Client/search.php:50
 #: app/views/Client/viewBarberProfile.php:104
 msgid "Last Name"
-msgstr ""
+msgstr "Nom de famille"
 
 #: app/views/Appointment/ChooseDate.php:134
 #: app/views/Appointment/ChooseTime.php:160
@@ -211,7 +211,7 @@ msgstr ""
 #: app/views/Appointment/editAppointmentDate.php:131
 #: app/views/Appointment/editAppointmentTime.php:159
 msgid "Services Selected"
-msgstr ""
+msgstr "Services selectionnes"
 
 #: app/views/Appointment/ChooseDate.php:140
 #: app/views/Appointment/ChooseTime.php:166
@@ -222,7 +222,7 @@ msgstr ""
 #: app/views/Appointment/UpdatedReceipt.php:115
 #: app/views/Client/viewBarberProfile.php:134
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #: app/views/Appointment/ChooseDate.php:141
 #: app/views/Appointment/ChooseTime.php:167
@@ -233,7 +233,7 @@ msgstr ""
 #: app/views/Appointment/UpdatedReceipt.php:116
 #: app/views/Client/viewBarberProfile.php:135
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 #: app/views/Appointment/ChooseDate.php:142
 #: app/views/Appointment/ChooseTime.php:168
@@ -244,7 +244,7 @@ msgstr ""
 #: app/views/Appointment/UpdatedReceipt.php:117
 #: app/views/Client/viewBarberProfile.php:136
 msgid "Price"
-msgstr ""
+msgstr "Prix"
 
 #: app/views/Appointment/ChooseDate.php:143
 #: app/views/Appointment/ChooseTime.php:169
@@ -255,54 +255,54 @@ msgstr ""
 #: app/views/Appointment/UpdatedReceipt.php:118
 #: app/views/Client/viewBarberProfile.php:137
 msgid "Discount"
-msgstr ""
+msgstr "Rabais"
 
 #: app/views/Appointment/ChooseDate.php:159
 #: app/views/Appointment/editAppointmentDate.php:155
 msgid "Choose Appointment Date"
-msgstr ""
+msgstr "Choisissez la date de rendez-vous"
 
 #: app/views/Appointment/ChooseDate.php:162
 msgid "Select Date"
-msgstr ""
+msgstr "Selectionner une date"
 
 #: app/views/Appointment/ChooseDate.php:163
 #: app/views/Appointment/editAppointmentDate.php:159
 msgid "Choose Date"
-msgstr ""
+msgstr "Choisir une date"
 
 #: app/views/Appointment/ChooseTime.php:185
 #: app/views/Appointment/ConfirmInfo.php:135
 #: app/views/Appointment/editAppointmentTime.php:184
 #: app/views/Appointment/index.php:144
 msgid "Date Chosen"
-msgstr ""
+msgstr "Date choisie"
 
 #: app/views/Appointment/ChooseTime.php:194
 #: app/views/Appointment/editAppointmentTime.php:193
 msgid "Select Time"
-msgstr ""
+msgstr "Selectionnez l'heure"
 
 #: app/views/Appointment/ClientAppointments.php:109
 #: app/views/Appointment/ClientAppointments.php:140
 msgid "Client Appointments"
-msgstr ""
+msgstr "Rendez-vous clients"
 
 #: app/views/Appointment/ClientAppointments.php:114
 msgid "Date"
-msgstr ""
+msgstr "Date"
 
 #: app/views/Appointment/ClientAppointments.php:115
 msgid "Time"
-msgstr ""
+msgstr "Temps"
 
 #: app/views/Appointment/ClientAppointments.php:126
 msgid "Service name"
-msgstr ""
+msgstr "Nom du service"
 
 #: app/views/Appointment/ClientAppointments.php:131
 msgid "View Details"
-msgstr ""
+msgstr "Voir les details"
 
 #: app/views/Appointment/ClientAppointments.php:141
 msgid "No appointments booked."
@@ -311,146 +311,147 @@ msgstr ""
 #: app/views/Appointment/ConfirmInfo.php:144
 #: app/views/Appointment/index.php:153
 msgid "Time Chosen"
-msgstr ""
+msgstr "Heure choisie"
 
 #: app/views/Appointment/ConfirmInfo.php:169
 msgid "Proceed to Checkout"
-msgstr ""
+msgstr "Passer a la caisse"
 
 #: app/views/Appointment/editAppointmentDate.php:218
 msgid "Please select a date."
-msgstr ""
+msgstr "Veuillez selectionner une date."
 
 #: app/views/Appointment/editAppointmentTime.php:232
 msgid "Please select a Time."
-msgstr ""
+msgstr "Veuillez selectionner un temps"
 
 #: app/views/Appointment/index.php:72
 msgid "Appointment ID"
-msgstr ""
+msgstr "Appointment ID"
 
 #: app/views/Appointment/index.php:83
 msgid "Client Information"
-msgstr ""
+msgstr "Informations du client"
 
 #: app/views/Appointment/index.php:102
 msgid "Barber Information"
-msgstr ""
+msgstr "Informations sur le coiffeur"
 
 #: app/views/Appointment/index.php:121
 msgid "Services Information"
-msgstr ""
+msgstr "Informations sur les services"
 
 #: app/views/Appointment/index.php:183
 msgid "Reschedule"
-msgstr ""
+msgstr "Reprogrammer"
 
 #: app/views/Appointment/index.php:189
 msgid "Cancel Your Appointment"
-msgstr ""
+msgstr "Annuler votre rendez-vous"
 
 #: app/views/Appointment/Pay.php:130
 msgid "Checkout"
-msgstr ""
+msgstr "Verifier"
 
 #: app/views/Appointment/Pay.php:136
 msgid "Pay With Card"
-msgstr ""
+msgstr "Payer avec carte"
 
 #: app/views/Appointment/Pay.php:140
 msgid "Payment Details"
-msgstr ""
+msgstr "Details de paiement"
 
 #: app/views/Appointment/Pay.php:141
 msgid "Accepted Cards: Visa, Mastercard, MultiCard"
-msgstr ""
+msgstr "Cartes acceptees : Visa, Mastercard, MultiCard"
 
 #: app/views/Appointment/Pay.php:142
 msgid "Card Number (XXXX-XXXX-XXXX-XXXX)"
-msgstr ""
+msgstr "Numero de carte (XXXX-XXXX-XXXX-XXXX)"
 
 #: app/views/Appointment/Pay.php:144
 msgid "Expiry Date (XX/XX or XX\\XX)"
-msgstr ""
+msgstr "Date d'expiration (XX/XX ou XX\\XX)"
 
 #: app/views/Appointment/Pay.php:146
 msgid "CVC (XXX)"
-msgstr ""
+msgstr "CVC (XXX)"
 
 #: app/views/Appointment/Pay.php:148
 msgid "Pay"
-msgstr ""
+msgstr "Payer"
 
 #: app/views/Appointment/Pay.php:150
 msgid "By clicking \"Pay\", you agree to our Terms & Conditions"
-msgstr ""
+msgstr "En cliquant sur \"Payer\", vous acceptez nos Conditions Generales"
 
 #: app/views/Appointment/Pay.php:170
 msgid ""
 "Invalid card number format! Please enter in the format XXXX-XXXX-XXXX-XXXX"
 msgstr ""
+"Format de numero de carte invalide ! Veuillez saisir le format XXXX-XXXX-XXXX-XXXX"
 
 #: app/views/Appointment/Pay.php:174
 msgid "Invalid expiry date format! Please enter in the format XX/XX or XX\\XX"
-msgstr ""
+msgstr "Format de date d'expiration invalide. Veuillez saisir au format XX/XX ou XX\\XX"
 
 #: app/views/Appointment/Pay.php:178
 msgid "Invalid CVC format! Please enter a 3-digit code"
-msgstr ""
+msgstr "Format CVC invalide! Veuillez saisir un code a 3 chiffres"
 
 #: app/views/Appointment/Receipt.php:95
 #: app/views/Appointment/UpdatedReceipt.php:95
 msgid "Appointment Receipt"
-msgstr ""
+msgstr "Recu de rendez-vous"
 
 #: app/views/Appointment/Receipt.php:133
 #: app/views/Appointment/UpdatedReceipt.php:133
 msgid "Date: "
-msgstr ""
+msgstr "Date: "
 
 #: app/views/Appointment/Receipt.php:136
 #: app/views/Appointment/UpdatedReceipt.php:136
 msgid "Time: "
-msgstr ""
+msgstr "Temps:"
 
 #: app/views/Appointment/Receipt.php:150
 #: app/views/Appointment/UpdatedReceipt.php:150
 msgid "Total Amount: "
-msgstr ""
+msgstr "Montant total:"
 
 #: app/views/Appointment/Receipt.php:153
 #: app/views/Appointment/UpdatedReceipt.php:153
 msgid "Thank you for choosing us!"
-msgstr ""
+msgstr "Merci de nous avoir choisi!"
 
 #: app/views/Appointment/Receipt.php:154
 #: app/views/Appointment/UpdatedReceipt.php:154
 msgid "Done"
-msgstr ""
+msgstr "Fait"
 
 #: app/views/Authentication/index.php:96
 msgid "AuraSync"
-msgstr ""
+msgstr "AuraSync"
 
 #: app/views/Authentication/index.php:99 app/views/Client/login.php:86
 msgid "/Authentication/index"
-msgstr ""
+msgstr "/Authentication/index"
 
 #: app/views/Authentication/index.php:100
 msgid "About"
-msgstr ""
+msgstr "A propos"
 
 #: app/views/Authentication/index.php:101
 msgid "Contact"
-msgstr ""
+msgstr "Contact"
 
 #: app/views/Authentication/index.php:106
 msgid "Logo"
-msgstr ""
+msgstr "Logo"
 
 #: app/views/Authentication/index.php:108
 msgid "Welcome to AuraSync"
-msgstr ""
+msgstr "Bienvenue sur AuraSync"
 
 #: app/views/Authentication/index.php:109
 msgid ""
@@ -458,92 +459,96 @@ msgid ""
 "clients and barbers. Whether you're scheduling appointments or managing your "
 "profile, AuraSync makes it simple and secure."
 msgstr ""
+"AuraSync est une plateforme concue pour rationaliser le processus de reservation pour"
+"clients et barbiers. Que vous planifiiez des rendez-vous ou geriez votre "
+"profil, AuraSync rend les choses simples et securisees"
+
 
 #: app/views/Authentication/index.php:110
 msgid "Choose your user type below to get started:"
-msgstr ""
+msgstr "Choisissez votre type d'utilisateur ci-dessous pour commencer:"
 
 #: app/views/Authentication/index.php:112
 msgid "/Client/login"
-msgstr ""
+msgstr "/Client/login"
 
 #: app/views/Authentication/index.php:112
 msgid "Client"
-msgstr ""
+msgstr "Client"
 
 #: app/views/Authentication/index.php:113
 msgid "/Barber/login"
-msgstr ""
+msgstr "/Barber/login"
 
 #: app/views/Authentication/index.php:113
 msgid "Barber"
-msgstr ""
+msgstr "coiffeur"
 
 #: app/views/Availability/createAvailability.php:54
 msgid "Create Availability"
-msgstr ""
+msgstr "Créer une disponibilité"
 
 #: app/views/Availability/createAvailability.php:55
 msgid "/Availability/createAvailability"
-msgstr ""
+msgstr "/Availability/createAvailability"
 
 #: app/views/Availability/createAvailability.php:58
 #: app/views/Availability/editAvailability.php:58
 #: app/views/Availability/index.php:98
 #: app/views/Client/viewBarberProfile.php:163
 msgid "Monday"
-msgstr ""
+msgstr "Lundi"
 
 #: app/views/Availability/createAvailability.php:62
 #: app/views/Availability/editAvailability.php:62
 #: app/views/Availability/index.php:102
 #: app/views/Client/viewBarberProfile.php:164
 msgid "Tuesday"
-msgstr ""
+msgstr "Mardi"
 
 #: app/views/Availability/createAvailability.php:66
 #: app/views/Availability/editAvailability.php:66
 #: app/views/Availability/index.php:106
 #: app/views/Client/viewBarberProfile.php:165
 msgid "Wednesday"
-msgstr ""
+msgstr "Mercredi"
 
 #: app/views/Availability/createAvailability.php:70
 #: app/views/Availability/editAvailability.php:70
 #: app/views/Availability/index.php:110
 #: app/views/Client/viewBarberProfile.php:166
 msgid "Thursday"
-msgstr ""
+msgstr "Jeudi"
 
 #: app/views/Availability/createAvailability.php:74
 #: app/views/Availability/editAvailability.php:74
 #: app/views/Availability/index.php:114
 #: app/views/Client/viewBarberProfile.php:167
 msgid "Friday"
-msgstr ""
+msgstr "Vendredi"
 
 #: app/views/Availability/createAvailability.php:78
 #: app/views/Availability/editAvailability.php:78
 #: app/views/Availability/index.php:118
 #: app/views/Client/viewBarberProfile.php:168
 msgid "Saturday"
-msgstr ""
+msgstr "Samedi"
 
 #: app/views/Availability/createAvailability.php:82
 #: app/views/Availability/editAvailability.php:82
 #: app/views/Availability/index.php:122
 #: app/views/Client/viewBarberProfile.php:169
 msgid "Sunday"
-msgstr ""
+msgstr "Dimanche"
 
 #: app/views/Availability/createAvailability.php:84
 #: app/views/Availability/editAvailability.php:84
 msgid "Save Availability"
-msgstr ""
+msgstr "Enregistrer la disponibilité"
 
 #: app/views/Availability/editAvailability.php:54
 msgid "Edit Availability"
-msgstr ""
+msgstr "Modifier la disponibilité"
 
 #: app/views/Availability/index.php:62
 #: app/views/BarberProfile/editProfile.php:44
