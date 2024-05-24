@@ -51,15 +51,16 @@ class BarberProfile extends \app\core\Model{
 		return $STMT->fetchAll();//return all records
 	}
 
-	public function getByName($name){//search
-		$SQL = 'SELECT * FROM barber_profile WHERE CONCAT(first_name,\' \',last_name) = :name';
+	public function getByName($name) {
+		$SQL = 'SELECT * FROM barber_profile WHERE CONCAT(first_name, \' \', last_name) LIKE :name';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute(
-			['name'=>$name]
+			['name' => '%' . $name . '%'] // Concatenating % signs correctly
 		);
-		$STMT->setFetchMode(PDO::FETCH_CLASS,'app\models\BarberProfile');//set the type of data returned by fetches
-		return $STMT->fetchAll();//return all records
+		$STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\BarberProfile');
+		return $STMT->fetchAll();
 	}
+	
     public function getByProfileID($barber_profile_id){//search
 		$SQL = 'SELECT * FROM barber_profile WHERE barber_profile_id = :barber_profile_id';
 		$STMT = self::$_conn->prepare($SQL);
