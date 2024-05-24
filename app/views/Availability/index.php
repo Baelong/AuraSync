@@ -85,47 +85,47 @@
         </div>
     </nav>
     <div class="container">
-        <h1>Availability</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>Day</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Monday</td>
-                    <td><?php echo $data->Monday ? 'Available' : 'Not Available'; ?></td>
-                </tr>
-                <tr>
-                    <td>Tuesday</td>
-                    <td><?php echo $data->Tuesday ? 'Available' : 'Not Available'; ?></td>
-                </tr>
-                <tr>
-                    <td>Wednesday</td>
-                    <td><?php echo $data->Wednesday ? 'Available' : 'Not Available'; ?></td>
-                </tr>
-                <tr>
-                    <td>Thursday</td>
-                    <td><?php echo $data->Thursday ? 'Available' : 'Not Available'; ?></td>
-                </tr>
-                <tr>
-                    <td>Friday</td>
-                    <td><?php echo $data->Friday ? 'Available' : 'Not Available'; ?></td>
-                </tr>
-                <tr>
-                    <td>Saturday</td>
-                    <td><?php echo $data->Saturday ? 'Available' : 'Not Available'; ?></td>
-                </tr>
-                <tr>
-                    <td>Sunday</td>
-                    <td><?php echo $data->Sunday ? 'Available' : 'Not Available'; ?></td>
-                </tr>
-            </tbody>
-        </table>
-       
-    </div>
+    <h1><?= __('Availability') ?></h1>
+    <table>
+        <thead>
+            <tr>
+                <th><?= __('Day') ?></th>
+                <th><?= __('Status') ?></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><?= __('Monday') ?></td>
+                <td><?php echo $data->Monday ? __('Available') : __('Not Available'); ?></td>
+            </tr>
+            <tr>
+                <td><?= __('Tuesday') ?></td>
+                <td><?php echo $data->Tuesday ? __('Available') : __('Not Available'); ?></td>
+            </tr>
+            <tr>
+                <td><?= __('Wednesday') ?></td>
+                <td><?php echo $data->Wednesday ? __('Available') : __('Not Available'); ?></td>
+            </tr>
+            <tr>
+                <td><?= __('Thursday') ?></td>
+                <td><?php echo $data->Thursday ? __('Available') : __('Not Available'); ?></td>
+            </tr>
+            <tr>
+                <td><?= __('Friday') ?></td>
+                <td><?php echo $data->Friday ? __('Available') : __('Not Available'); ?></td>
+            </tr>
+            <tr>
+                <td><?= __('Saturday') ?></td>
+                <td><?php echo $data->Saturday ? __('Available') : __('Not Available'); ?></td>
+            </tr>
+            <tr>
+                <td><?= __('Sunday') ?></td>
+                <td><?php echo $data->Sunday ? __('Available') : __('Not Available'); ?></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
     <div class="form-group">
     <a href="/Availability/editAvailability">Edit Availability</a>
         </div>

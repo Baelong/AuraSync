@@ -89,28 +89,29 @@
     </nav>
 
     <div class='container'>
-        <h1>Create Service</h1>
-        <form method='post' action=''>
-            <div class="form-group">
-                <label>Service Name:</label>
-                <input type="text" class="form-control" name="name" placeholder="Haircut" />
-            </div>
-            <div class="form-group">
-                <label>Description:</label>
-                <input type="text" class="form-control" name="description" placeholder="Haircut Description" />
-            </div>
-            <div class="form-group">
-                <label>Price:</label>
-                <input type="text" class="form-control" name="price" placeholder="$" />
-            </div>
-            <div class="form-group">
-                <label>Discount:</label>
-                <input type="text" class="form-control" name="discount" placeholder="none" />
-            </div>
-            <div class="form-group">
-                <input type="submit" name="action" value="Create" /> 
-            </div>
-        </form>
-    </div>
+    <h1><?= __('Create Service') ?></h1>
+    <form method='post' action=''>
+        <div class="form-group">
+            <label><?= __('Service Name:') ?></label>
+            <input type="text" class="form-control" name="name" placeholder="<?= __('Haircut') ?>" />
+        </div>
+        <div class="form-group">
+            <label><?= __('Description:') ?></label>
+            <input type="text" class="form-control" name="description" placeholder="<?= __('Haircut Description') ?>" />
+        </div>
+        <div class="form-group">
+            <label><?= __('Price:') ?></label>
+            <input type="text" class="form-control" name="price" placeholder="<?= __('$') ?>" />
+        </div>
+        <div class="form-group">
+            <label><?= __('Discount:') ?></label>
+            <input type="text" class="form-control" name="discount" placeholder="<?= __('none') ?>" />
+        </div>
+        <div class="form-group">
+            <input type="submit" name="action" value="<?= __('Create') ?>" /> 
+        </div>
+    </form>
+</div>
+
 </body>
 </html>

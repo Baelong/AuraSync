@@ -95,26 +95,26 @@
     </nav>
 
     <div class="container">
-        <h1>Update Service</h1>
-        <form action="/Service/updateService?serviceId=<?= $_GET['serviceId'] ?>" method="post">
-            <div class="form-group">
-                <label for="name">Service Name:</label>
-                <input type="text" id="name" name="name"  value="<?= $service->name ?>">
-            </div>
-            <div class="form-group">
-                <label for="description">Description:</label>
-                <textarea id="description" name="description"><?= $service->description ?></textarea>
-            </div>
-            <div class="form-group">
-                <label for="price">Price:</label>
-                <input type="text" id="price" name="price" value="<?= $service->price ?>">
-            </div>
-            <div class="form-group">
-                <label for="discount">Discount:</label>
-                <input type="text" id="discount" name="discount" value="<?= $service->discount ?>">
-            </div>
-            <input type="submit" value="Update Service">
-        </form>
-    </div>
+    <h1><?= __('Update Service') ?></h1>
+    <form action="/Service/updateService?serviceId=<?= $_GET['serviceId'] ?>" method="post">
+        <div class="form-group">
+            <label for="name"><?= __('Service Name:') ?></label>
+            <input type="text" id="name" name="name" value="<?= $service->name ?>">
+        </div>
+        <div class="form-group">
+            <label for="description"><?= __('Description:') ?></label>
+            <textarea id="description" name="description"><?= $service->description ?></textarea>
+        </div>
+        <div class="form-group">
+            <label for="price"><?= __('Price:') ?></label>
+            <input type="text" id="price" name="price" value="<?= $service->price ?>">
+        </div>
+        <div class="form-group">
+            <label for="discount"><?= __('Discount:') ?></label>
+            <input type="text" id="discount" name="discount" value="<?= $service->discount ?>">
+        </div>
+        <input type="submit" value="<?= __('Update Service') ?>">
+    </form>
+</div>
 </body>
 </html>
