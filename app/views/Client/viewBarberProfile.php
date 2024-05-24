@@ -50,7 +50,6 @@
         }
 
         .table-responsive {
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
             margin-bottom: 30px;
         }

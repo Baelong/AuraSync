@@ -486,7 +486,7 @@ msgstr "coiffeur"
 
 #: app/views/Availability/createAvailability.php:54
 msgid "Create Availability"
-msgstr "Créer une disponibilité"
+msgstr "Creer une disponibilite"
 
 #: app/views/Availability/createAvailability.php:55
 msgid "/Availability/createAvailability"
@@ -544,11 +544,11 @@ msgstr "Dimanche"
 #: app/views/Availability/createAvailability.php:84
 #: app/views/Availability/editAvailability.php:84
 msgid "Save Availability"
-msgstr "Enregistrer la disponibilité"
+msgstr "Enregistrer la disponibilite"
 
 #: app/views/Availability/editAvailability.php:54
 msgid "Edit Availability"
-msgstr "Modifier la disponibilité"
+msgstr "Modifier la disponibilite"
 
 #: app/views/Availability/index.php:62
 #: app/views/BarberProfile/editProfile.php:44
@@ -573,77 +573,77 @@ msgstr ""
 #: app/views/Service/createService.php:81 app/views/Service/index.php:104
 #: app/views/Service/updateService.php:87
 msgid "Availability"
-msgstr ""
+msgstr "Disponibilite"
 
 #: app/views/Availability/index.php:92
 msgid "Day"
-msgstr ""
+msgstr "Jour"
 
 #: app/views/Availability/index.php:93
 msgid "Status"
-msgstr ""
+msgstr "Condition"
 
 #: app/views/Availability/index.php:99 app/views/Availability/index.php:103
 #: app/views/Availability/index.php:107 app/views/Availability/index.php:111
 #: app/views/Availability/index.php:115 app/views/Availability/index.php:119
 #: app/views/Availability/index.php:123
 msgid "Available"
-msgstr ""
+msgstr "Disponible"
 
 #: app/views/Availability/index.php:99 app/views/Availability/index.php:103
 #: app/views/Availability/index.php:107 app/views/Availability/index.php:111
 #: app/views/Availability/index.php:115 app/views/Availability/index.php:119
 #: app/views/Availability/index.php:123
 msgid "Not Available"
-msgstr ""
+msgstr "Pas disponible"
 
 #: app/views/Barber/login.php:70
 msgid "Barber Login"
-msgstr ""
+msgstr "Connexion coiffeur"
 
 #: app/views/Barber/login.php:73 app/views/Barber/register.php:68
 #: app/views/Client/login.php:74 app/views/Client/register.php:68
 msgid "Email:"
-msgstr ""
+msgstr "Couriel"
 
 #: app/views/Barber/login.php:74 app/views/Barber/register.php:69
 #: app/views/Client/login.php:75 app/views/Client/register.php:69
 msgid "Jondoe@gmail.com"
-msgstr ""
+msgstr "Jondoe@gmail.com"
 
 #: app/views/Barber/login.php:77 app/views/Barber/register.php:72
 #: app/views/Client/login.php:78 app/views/Client/register.php:72
 msgid "Password:"
-msgstr ""
+msgstr "Mot de passe:"
 
 #: app/views/Barber/login.php:78 app/views/Barber/register.php:73
 #: app/views/Client/login.php:79 app/views/Client/register.php:73
 msgid "password"
-msgstr ""
+msgstr "password"
 
 #: app/views/Barber/login.php:82 app/views/Client/login.php:83
 msgid "Login"
-msgstr ""
+msgstr "Se connecter"
 
 #: app/views/Barber/login.php:83
 msgid "I have no account, bring me to the barber registration page"
-msgstr ""
+msgstr "Je n'ai pas de compte, amene-moi sur la page d'inscription du coiffeur"
 
 #: app/views/Barber/login.php:86 app/views/Client/login.php:86
 msgid "Return to user type selection"
-msgstr ""
+msgstr "Revenir a la selection du type d'utilisateur"
 
 #: app/views/Barber/register.php:65
 msgid "Barber Registration"
-msgstr ""
+msgstr "Inscription coiffeur"
 
 #: app/views/Barber/register.php:77 app/views/Client/register.php:77
 msgid "Register"
-msgstr ""
+msgstr "Enregistrer"
 
 #: app/views/Barber/register.php:78
 msgid "I have an account, bring me to the Barber login page"
-msgstr ""
+msgstr "J'ai un compte, amene-moi sur la page de connexion Barber"
 
 #: app/views/BarberProfile/createProfile.php:38
 #: app/views/BarberProfile/editProfile.php:74
@@ -651,13 +651,13 @@ msgstr ""
 #: app/views/ClientProfile/createProfile.php:67
 #: app/views/ClientProfile/index.php:94
 msgid "First name:"
-msgstr ""
+msgstr "Prenom"
 
 #: app/views/BarberProfile/createProfile.php:39
 #: app/views/BarberProfile/editProfile.php:75
 #: app/views/ClientProfile/createProfile.php:68
 msgid "Jon"
-msgstr ""
+msgstr "Jon"
 
 #: app/views/BarberProfile/createProfile.php:42
 #: app/views/BarberProfile/editProfile.php:78
@@ -665,13 +665,13 @@ msgstr ""
 #: app/views/ClientProfile/createProfile.php:71
 #: app/views/ClientProfile/index.php:96
 msgid "Last name:"
-msgstr ""
+msgstr "Nom de famille:"
 
 #: app/views/BarberProfile/createProfile.php:43
 #: app/views/BarberProfile/editProfile.php:79
 #: app/views/ClientProfile/createProfile.php:72
 msgid "Doe"
-msgstr ""
+msgstr "Doe"
 
 #: app/views/BarberProfile/createProfile.php:46
 #: app/views/BarberProfile/editProfile.php:82
@@ -683,7 +683,7 @@ msgstr ""
 #: app/views/BarberProfile/editProfile.php:83
 #: app/views/Client/viewBarberProfile.php:105
 msgid "Bio"
-msgstr ""
+msgstr "Bio"
 
 #: app/views/BarberProfile/createProfile.php:50
 #: app/views/BarberProfile/editProfile.php:86
@@ -692,13 +692,13 @@ msgstr ""
 #: app/views/ClientProfile/editProfile.php:107
 #: app/views/ClientProfile/index.php:100
 msgid "Phone Number:"
-msgstr ""
+msgstr "Numero de telephone:"
 
 #: app/views/BarberProfile/createProfile.php:51
 #: app/views/BarberProfile/editProfile.php:87
 #: app/views/ClientProfile/createProfile.php:80
 msgid "514-444-7777"
-msgstr ""
+msgstr "514-444-7777"
 
 #: app/views/BarberProfile/createProfile.php:54
 #: app/views/BarberProfile/editProfile.php:90
@@ -707,126 +707,126 @@ msgstr ""
 #: app/views/ClientProfile/editProfile.php:103
 #: app/views/ClientProfile/index.php:98
 msgid "Age:"
-msgstr ""
+msgstr "Age:"
 
 #: app/views/BarberProfile/createProfile.php:55
 #: app/views/BarberProfile/editProfile.php:91
 #: app/views/ClientProfile/createProfile.php:76
 msgid "18"
-msgstr ""
+msgstr "18"
 
 #: app/views/BarberProfile/createProfile.php:58
 #: app/views/BarberProfile/editProfile.php:94
 #: app/views/ClientProfile/createProfile.php:83
 msgid "Record my profile"
-msgstr ""
+msgstr "Enregistrer mon profil"
 
 #: app/views/BarberProfile/editProfile.php:71
 #: app/views/ClientProfile/editProfile.php:92
 msgid "Edit Profile"
-msgstr ""
+msgstr "Editer le profil"
 
 #: app/views/BarberProfile/index.php:96
 msgid "Barber profile"
-msgstr ""
+msgstr "Profil de coiffeur"
 
 #: app/views/Client/browse_barbers.php:89
 msgid "Search by Full Name"
-msgstr ""
+msgstr "Recherche par nom complet"
 
 #: app/views/Client/browse_barbers.php:89
 msgid "Search by name"
-msgstr ""
+msgstr "Rechercher par nom"
 
 #: app/views/Client/browse_barbers.php:90
 msgid "Search"
-msgstr ""
+msgstr "Recherche"
 
 #: app/views/Client/login.php:84
 msgid "/Client/register"
-msgstr ""
+msgstr "/Client/register"
 
 #: app/views/Client/login.php:84
 msgid "I have no account, bring me to the client registration page"
-msgstr ""
+msgstr "Je n'ai pas de compte, amene-moi a la page d'inscription client"
 
 #: app/views/Client/register.php:78
 msgid "I have an account, bring me to the login page"
-msgstr ""
+msgstr "J'ai un compte, amene-moi a la page de connexion"
 
 #: app/views/Client/securePlace.php:92 app/views/ClientProfile/index.php:92
 msgid "User profile"
-msgstr ""
+msgstr "Profil de Client"
 
 #: app/views/Client/viewBarberProfile.php:106
 msgid "Phone Number"
-msgstr ""
+msgstr "Numero de telephone"
 
 #: app/views/Client/viewBarberProfile.php:107
 msgid "Age"
-msgstr ""
+msgstr "Age"
 
 #: app/views/Client/viewBarberProfile.php:126
 msgid "Services Offered"
-msgstr ""
+msgstr "Services offerts"
 
 #: app/views/ClientProfile/editProfile.php:95
 msgid "First Name:"
-msgstr ""
+msgstr "Prenom:"
 
 #: app/views/ClientProfile/editProfile.php:99
 msgid "Last Name:"
-msgstr ""
+msgstr "Nom de famille:"
 
 #: app/views/ClientProfile/editProfile.php:110
 msgid "Save Changes"
-msgstr ""
+msgstr "Sauvegarder les modifications"
 
 #: app/views/Service/createService.php:92
 msgid "Create Service"
-msgstr ""
+msgstr "Creer un service"
 
 #: app/views/Service/createService.php:95
 #: app/views/Service/updateService.php:101
 msgid "Service Name:"
-msgstr ""
+msgstr "Nom du service:"
 
 #: app/views/Service/createService.php:96
 msgid "Haircut"
-msgstr ""
+msgstr "la Coupe de cheveux"
 
 #: app/views/Service/createService.php:99
 #: app/views/Service/updateService.php:105
 msgid "Description:"
-msgstr ""
+msgstr "Description:"
 
 #: app/views/Service/createService.php:100
 msgid "Haircut Description"
-msgstr ""
+msgstr "Description de la coupe de cheveux"
 
 #: app/views/Service/createService.php:103
 #: app/views/Service/updateService.php:109
 msgid "Price:"
-msgstr ""
+msgstr "Prix:"
 
 #: app/views/Service/createService.php:104
 msgid "$"
-msgstr ""
+msgstr "$"
 
 #: app/views/Service/createService.php:107
 #: app/views/Service/updateService.php:113
 msgid "Discount:"
-msgstr ""
+msgstr "Rabais:"
 
 #: app/views/Service/createService.php:108
 msgid "none"
-msgstr ""
+msgstr "aucune"
 
 #: app/views/Service/createService.php:111
 msgid "Create"
-msgstr ""
+msgstr "Creer"
 
 #: app/views/Service/updateService.php:98
 #: app/views/Service/updateService.php:116
 msgid "Update Service"
-msgstr ""
+msgstr "Service de mise a jour"
