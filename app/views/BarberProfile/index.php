@@ -7,16 +7,29 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
         body {
-            background-color: #f8f9fa;
-            padding-top: 50px;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding-top: 70px;
+            background-color: #f0f0f0;
         }
 
         .container {
-            margin-top: 50px;
+            display: flex;
+            justify-content: center; 
+            align-items: flex-start;
+            padding-top: 50px;
+        }
+
+        .content {
+            width: 75%;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
         }
 
         h1 {
-            color: #007bff;
+            color: #000;
             text-align: center;
             margin-bottom: 20px;
         }
@@ -43,43 +56,60 @@
             margin-top: 20px;
             color: #007bff;
         }
+
+        .navbar {
+            margin-bottom: 20px; 
+        }
     </style>
 </head>
 <body>
-	<div class='container'>
-		<h1><?= __('Barber profile') ?></h1>
-		<dl>
-			<dt><?= __('First name:') ?></dt>
-			<dd><?= $data->first_name ?></dd>
-			<dt><?= __('Last name:') ?></dt>
-			<dd><?= $data->last_name ?></dd>
-			<dt><?= __('Bio:') ?></dt>
-			<dd><?= $data->bio ?></dd>
-			<dt><?= __('Phone Number:') ?></dt>
-			<dd><?= $data->phone_number ?></dd>
-            <dt><?= __('Age:') ?></dt>
-			<dd><?= $data->age ?></dd>
-		</dl>
-        <dd>
-		    <a href='/BarberProfile/editProfile'><?= __('Modify my profile') ?></a>
-        </dd>
-        <dd>
-		<a href='/BarberProfile/editProfile'> <?= __(Modify my profile) ?></a>
-          </dd>
-          
-          <dd>
-		<a href='/Service/index'><?= __('My Services') ?></a>
-          </dd>
-          <dd>
-        <a href="/Availability/index"><?= __('Availability') ?></a>
-         </dd>
-        <dd>
-            <a href="/Barber/logout"><?= __('Logout') ?></a>
-        </dd>
-       
-       
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><?= __('Barber Profile') ?></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                <li class="nav-item">
+                        <a class="nav-link" href='/BarberProfile/index'> <?= __('Home') ?></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href='/BarberProfile/editProfile'> <?= __('Modify my profile') ?></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href='/Service/index'><?= __('My Services') ?></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Availability/index"><?= __('Availability') ?></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Barber/logout"><?= __('Logout') ?></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-	</div>
+    <div class="container">
+        <div class="content">
+            <h1><?= __('Barber profile') ?></h1>
+            <dl>
+                <dt><?= __('First name:') ?></dt>
+                <dd><?= $data->first_name ?></dd>
+                <dt><?= __('Last name:') ?></dt>
+                <dd><?= $data->last_name ?></dd>
+                <dt><?= __('Bio:') ?></dt>
+                <dd><?= $data->bio ?></dd>
+                <dt><?= __('Phone Number:') ?></dt>
+                <dd><?= $data->phone_number ?></dd>
+                <dt><?= __('Age:') ?></dt>
+                <dd><?= $data->age ?></dd>
+            </dl>
+        </div>
+    </div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-9aH1Fc/T3Xe3RBf7vKj4Mzyn9tmq9OQCq6JkPqTVfh4l0tzEMOzvpwHXRnhO1QoS" crossorigin="anonymous"></script>
 </body>
-
 </html>

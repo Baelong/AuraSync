@@ -170,109 +170,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach($data3 as $index => $availability): ?>
                         <tr>
-                            <td><?= $availability->Monday == 1 ? 'Yes' : 'No' ?></td>
-                            <td><?= $availability->Tuesday == 1 ? 'Yes' : 'No' ?></td>
-                            <td><?= $availability->Wednesday == 1 ? 'Yes' : 'No' ?></td>
-                            <td><?= $availability->Thursday == 1 ? 'Yes' : 'No' ?></td>
-                            <td><?= $availability->Friday == 1 ? 'Yes' : 'No' ?></td>
-                            <td><?= $availability->Saturday == 1 ? 'Yes' : 'No' ?></td>
-                            <td><?= $availability->Sunday == 1 ? 'Yes' : 'No' ?></td>
+                            <td><?= $data3->Monday == 1 ? 'Yes' : 'No' ?></td>
+                            <td><?= $data3->Tuesday == 1 ? 'Yes' : 'No' ?></td>
+                            <td><?= $data3->Wednesday == 1 ? 'Yes' : 'No' ?></td>
+                            <td><?= $data3->Thursday == 1 ? 'Yes' : 'No' ?></td>
+                            <td><?= $data3->Friday == 1 ? 'Yes' : 'No' ?></td>
+                            <td><?= $data3->Saturday == 1 ? 'Yes' : 'No' ?></td>
+                            <td><?= $data3->Sunday == 1 ? 'Yes' : 'No' ?></td>
                         </tr>
-                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
     </div>
 
-    <div class="table-responsive">
-        <table class="table table-bordered table-hover">
-            <thead class="table-dark">
-                <tr>
-                    <th scope="col">First Name</th>
-                    <th scope="col">Last Name</th>
-                    <th scope="col">Bio</th>
-                    <th scope="col">Phone Number</th>
-                    <th scope="col">Age</th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php foreach($data as $index => $barber): ?>
-                <tr class="barber-row" data-barber-id="<?= $barber->barber_profile_id ?>">
-                    <td><?= $barber->first_name ?></td>
-                    <td><?= $barber->last_name ?></td>
-                    <td><?= $barber->bio ?></td>
-                    <td><?= $barber->phone_number ?></td>
-                    <td><?= $barber->age ?></td>
-                </tr>
-            <?php endforeach; ?>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="row">
-        <div class="col-md-12">
-            <h1 class="mb-4 mt-5">Services Offered</h1>
-        </div>
-    </div>
-
-    <div class="table-responsive">
-        <table class="table table-bordered table-hover">
-            <thead class="table-dark">
-                <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Discount</th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php foreach($data2 as $index => $service): ?>
-                <tr class="service-row" data-service-id="<?= $service->service_id ?>">
-                    <td><?= $service->name ?></td>
-                    <td><?= $service->description ?></td>
-                    <td><?= $service->price ?></td>
-                    <td><?= $service->discount ?></td>
-                </tr>
-            <?php endforeach; ?>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="row">
-        <div class="col-md-12">
-            <h1 class="mb-4 mt-5">Availability</h1>
-        </div>
-    </div>
-
-    <div class="table-responsive">
-        <table class="table table-bordered table-hover">
-            <thead class="table-dark">
-                <tr>
-                    <th scope="col">Monday</th>
-                    <th scope="col">Tuesday</th>
-                    <th scope="col">Wednesday</th>
-                    <th scope="col">Thursday</th>
-                    <th scope="col">Friday</th>
-                    <th scope="col">Saturday</th>
-                    <th scope="col">Sunday</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><?= $data3->Monday == 1 ? 'Yes' : 'No' ?></td>
-                    <td><?= $data3->Tuesday == 1 ? 'Yes' : 'No' ?></td>
-                    <td><?= $data3->Wednesday == 1 ? 'Yes' : 'No' ?></td>
-                    <td><?= $data3->Thursday == 1 ? 'Yes' : 'No' ?></td>
-                    <td><?= $data3->Friday == 1 ? 'Yes' : 'No' ?></td>
-                    <td><?= $data3->Saturday == 1 ? 'Yes' : 'No' ?></td>
-                    <td><?= $data3->Sunday == 1 ? 'Yes' : 'No' ?></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+   
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -299,6 +211,7 @@
                 form.submit();
             });
         });
+    });
     </script>
 </body>
 

@@ -8,12 +8,17 @@
     <style>
         body {
             background-color: #f8f9fa;
-            padding-top: 50px;
+            padding-top: 90px; 
         }
 
         .container {
+            margin-top: 50px;
             max-width: 400px;
             margin: auto;
+            padding: 20px; 
+            background-color: #ffffff;
+            border-radius: 10px; 
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); 
         }
 
         .form-group {
@@ -22,41 +27,90 @@
 
         input[type="submit"] {
             width: 100%;
+            padding: 10px;
+            background-color: #000;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
 
         a {
             display: block;
             text-align: center;
             color: #007bff;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
-	<div class='container'>
-        <h1>Create Service</h1>
-		<form method='post' action=''>
-			<div class="form-group">
-				<label>Service Name:</label>
-				<input type="text" class="form-control" name="name" placeholder="Haircut" />
-			</div>
-			<div class="form-group">
-				<label>Description:</label>
-				<input type="text" class="form-control" name="description" placeholder="Haircut Description" />
-			</div>
-            <div class="form-group">
-				<label>Price:</label>
-				<input type="text" class="form-control" name="price" placeholder="$" />
-			</div>
-            <div class="form-group">
-				<label>Discount:</label>
-				<input type="text" class="form-control" name="discount" placeholder="none" />
-			</div>
-            <div class="form-group">
-				<input type="submit" name="action" value="Create" /> 
-			</div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><?= __('Barber Profile') ?></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href='/BarberProfile/index'> <?= __('Home') ?></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href='/BarberProfile/editProfile'> <?= __('Modify my profile') ?></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href='/Service/index'><?= __('My Services') ?></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Availability/index"><?= __('Availability') ?></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Barber/logout"><?= __('Logout') ?></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-         
-		</form>
-	</div>
+    <div class='container'>
+        <h1>Create Service</h1>
+        <form method='post' action=''>
+            <div class="form-group">
+                <label>Service Name:</label>
+                <input type="text" class="form-control" name="name" placeholder="Haircut" />
+            </div>
+            <div class="form-group">
+                <label>Description:</label>
+                <input type="text" class="form-control" name="description" placeholder="Haircut Description" />
+            </div>
+            <div class="form-group">
+                <label>Price:</label>
+                <input type="text" class="form-control" name="price" placeholder="$" />
+            </div>
+            <div class="form-group">
+                <label>Discount:</label>
+                <input type="text" class="form-control" name="discount" placeholder="none" />
+            </div>
+            <div class="form-group">
+                <input type="submit" name="action" value="Create" /> 
+            </div>
+        </form>
+    </div>
 </body>
 </html>

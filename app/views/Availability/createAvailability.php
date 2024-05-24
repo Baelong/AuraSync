@@ -51,38 +51,39 @@
 </head>
 <body>
     <div class="container">
-        <h1>Create Availability</h1>
-        <form action="/Availability/createAvailability" method="post">
+        <h1><?= __('Create Availability') ?></h1>
+        <form action="<?= __('/Availability/createAvailability') ?>" method="post">
             <div class="form-group">
                 <input type="checkbox" id="Monday" name="Monday" value="1">
-                <label for="monday" class="checkbox-label">Monday</label>
+                <label for="monday" class="checkbox-label"><?= __('Monday') ?></label>
             </div>
             <div class="form-group">
                 <input type="checkbox" id="Tuesday" name="Tuesday" value="1">
-                <label for="tuesday" class="checkbox-label">Tuesday</label>
+                <label for="tuesday" class="checkbox-label"><?= __('Tuesday') ?></label>
             </div>
             <div class="form-group">
                 <input type="checkbox" id="Wednesday" name="Wednesday" value="1">
-                <label for="wednesday" class="checkbox-label">Wednesday</label>
+                <label for="wednesday" class="checkbox-label"><?= __('Wednesday') ?></label>
             </div>
             <div class="form-group">
                 <input type="checkbox" id="Thursday" name="Thursday" value="1">
-                <label for="thursday" class="checkbox-label">Thursday</label>
+                <label for="thursday" class="checkbox-label"><?= __('Thursday') ?></label>
             </div>
             <div class="form-group">
                 <input type="checkbox" id="Friday" name="Friday" value="1">
-                <label for="friday" class="checkbox-label">Friday</label>
+                <label for="friday" class="checkbox-label"><?= __('Friday') ?></label>
             </div>
             <div class="form-group">
                 <input type="checkbox" id="Saturday" name="Saturday" value="1">
-                <label for="saturday" class="checkbox-label">Saturday</label>
+                <label for="saturday" class="checkbox-label"><?= __('Saturday') ?></label>
             </div>
             <div class="form-group">
                 <input type="checkbox" id="Sunday" name="Sunday" value="1">
-                <label for="sunday" class="checkbox-label">Sunday</label>
+                <label for="sunday" class="checkbox-label"><?= __('Sunday') ?></label>
             </div>
-            <input type="submit" value="Save Availability">
+            <input type="submit" value="<?= __('Save Availability') ?>">
         </form>
     </div>
 </body>
+
 </html>

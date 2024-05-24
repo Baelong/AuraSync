@@ -71,7 +71,7 @@
                         <a class="nav-link" href='/ClientProfile/index'><?= __('Home') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href='/ClientProfile/edit_profile'><?= __('Modify my profile') ?></a>
+                        <a class="nav-link" href='/ClientProfile/editProfile'><?= __('Modify my profile') ?></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/Appointment/clientAppointments"><?= __('My Appointments') ?></a>

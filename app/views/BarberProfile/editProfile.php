@@ -8,10 +8,11 @@
     <style>
         body {
             background-color: #f8f9fa;
-            padding-top: 50px;
+            padding-top: 70px;
         }
 
         .container {
+            margin-top: 50px;
             max-width: 400px;
             margin: auto;
         }
@@ -22,6 +23,12 @@
 
         input[type="submit"] {
             width: 100%;
+            padding: 10px;
+            background-color: #000;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
 
         a {
@@ -32,33 +39,61 @@
     </style>
 </head>
 <body>
-	<div class='container'>
-		<form method='post' action=''>
-			<div class="form-group">
-				<label><?= __('First name:') ?></label>
-				<input type="text" class="form-control" name="first_name" placeholder="<?= __('Jon') ?>" value="<?= $data->first_name ?>" />
-			</div>
-			<div class="form-group">
-				<label><?= __('Last name:') ?></label>
-				<input type="text" class="form-control" name="last_name" placeholder="<?= __('Doe') ?>" value="<?= $data->last_name ?>" />
-			</div>
-      <div class="form-group">
-				<label><?= __('Bio:') ?></label>
-				<input type="text" class="form-control" name="bio" placeholder="<?= __('Bio') ?>" value="<?= $data->bio ?>" />
-			</div>
-      <div class="form-group">
-				<label><?= __('Phone Number:') ?></label>
-				<input type="text" class="form-control" name="phone_number" placeholder="<?= __('514-444-7777') ?>" value="<?= $data->phone_number ?>" />
-			</div>
-      <div class="form-group">
-				<label><?= __('Age:') ?></label>
-				<input type="text" class="form-control" name="age" placeholder="<?= __('18') ?>" value="<?= $data->age ?>" />
-			</div>
-			<div class="form-group">
-				<input type="submit" name="action" value="<?= __('Record my profile') ?>" /> 
-			</div>
-		</form>
-	</div>
-</body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><?= __('Barber Profile') ?></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                <li class="nav-item">
+                        <a class="nav-link" href='/BarberProfile/index'> <?= __('Home') ?></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href='/BarberProfile/editProfile'> <?= __('Modify my profile') ?></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href='/Service/index'><?= __('My Services') ?></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Availability/index"><?= __('Availability') ?></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Barber/logout"><?= __('Logout') ?></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
+    <div class='container'>
+    <h1><?= __('Edit Profile') ?></h1>
+        <form method='post' action=''>
+            <div class="form-group">
+                <label><?= __('First name:') ?></label>
+                <input type="text" class="form-control" name="first_name" placeholder="<?= __('Jon') ?>" value="<?= $data->first_name ?>" />
+            </div>
+            <div class="form-group">
+                <label><?= __('Last name:') ?></label>
+                <input type="text" class="form-control" name="last_name" placeholder="<?= __('Doe') ?>" value="<?= $data->last_name ?>" />
+            </div>
+            <div class="form-group">
+                <label><?= __('Bio:') ?></label>
+                <input type="text" class="form-control" name="bio" placeholder="<?= __('Bio') ?>" value="<?= $data->bio ?>" />
+            </div>
+            <div class="form-group">
+                <label><?= __('Phone Number:') ?></label>
+                <input type="text" class="form-control" name="phone_number" placeholder="<?= __('514-444-7777') ?>" value="<?= $data->phone_number ?>" />
+            </div>
+            <div class="form-group">
+                <label><?= __('Age:') ?></label>
+                <input type="text" class="form-control" name="age" placeholder="<?= __('18') ?>" value="<?= $data->age ?>" />
+            </div>
+            <div class="form-group">
+                <input type="submit" name="action" value="<?= __('Record my profile') ?>" /> 
+            </div>
+        </form>
+    </div>
+</body>
 </html>

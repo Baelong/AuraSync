@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?= $name ?> view</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>Availability</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
+            padding-top: 70px;
             background-color: #f0f0f0;
         }
         .container {
@@ -55,6 +57,33 @@
     </style>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><?= __('Barber Profile') ?></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                <li class="nav-item">
+                        <a class="nav-link" href='/BarberProfile/index'> <?= __('Home') ?></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href='/BarberProfile/editProfile'> <?= __('Modify my profile') ?></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href='/Service/index'><?= __('My Services') ?></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Availability/index"><?= __('Availability') ?></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Barber/logout"><?= __('Logout') ?></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <div class="container">
         <h1>Availability</h1>
         <table>
@@ -98,7 +127,6 @@
        
     </div>
     <div class="form-group">
-    <a href="/BarberProfile/index">My Profile</a>
     <a href="/Availability/editAvailability">Edit Availability</a>
         </div>
    
